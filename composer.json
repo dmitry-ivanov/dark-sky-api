@@ -1,0 +1,52 @@
+{
+    "name": "dmitry-ivanov/dark-sky-api",
+    "description": "PHP Library for the Dark Sky API.",
+    "keywords": ["php", "dark", "sky", "api", "weather", "forecast", "laravel"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/dmitry-ivanov/dark-sky-api/issues",
+        "source": "https://github.com/dmitry-ivanov/dark-sky-api"
+    },
+    "authors": [{
+        "name": "Dmitry Ivanov",
+        "email": "dmitry.g.ivanov@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.5.9",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "illuminate/contracts": "^5.1",
+        "illuminate/support": "^5.1",
+        "mockery/mockery": "^0.9|^1.0",
+        "phpunit/phpunit": "^4.0|^5.0|^6.0|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DmitryIvanov\\DarkSkyApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "tests/Adapters/Laravel/helpers.php"
+        ],
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DmitryIvanov\\DarkSkyApi\\Adapters\\Laravel\\DarkSkyApiServiceProvider"
+            ],
+            "aliases": {
+                "DarkSkyApi": "DmitryIvanov\\DarkSkyApi\\Adapters\\Laravel\\Facades\\DarkSkyApi"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,51 @@
+<?php
+
+namespace Tests\Http\Request;
+
+use Tests\TestCase;
+use Tests\Http\Stubs\Parameters\BaseStub;
+use Tests\Http\Stubs\Parameters\ForecastStub;
+use DmitryIvanov\DarkSkyApi\Http\Request\QueryBuilder;
+use Tests\Http\Stubs\Parameters\ForecastWithUnitsStub;
+use Tests\Http\Stubs\Parameters\ForecastWithBlocksStub;
+use Tests\Http\Stubs\Parameters\ForecastWithLanguageStub;
+use Tests\Http\Stubs\Parameters\ForecastWithParametersMixStub;
+use Tests\Http\Stubs\Parameters\ForecastWithExtendedBlocksStub;
+use Tests\Http\Stubs\Parameters\ForecastWithMultipleBlocksStub;
+use Tests\Http\Stubs\Parameters\ForecastWithMultipleBlocksAllStub;
+use Tests\Http\Stubs\Parameters\ForecastWithMultipleBlocksLeanStub;
+
+class QueryBuilderTest extends TestCase
+{
+    /**
+     * @test
+     * @param  \Tests\Http\Stubs\Parameters\BaseStub  $parameters
+     * @dataProvider parameters_provider
+     */
+    public function it_builds_the_request_query_string_by_the_given_parameters(BaseStub $parameters)
+    {
+        $this->assertEquals($parameters->expectedQuery(), (new QueryBuilder)->build($parameters));
+    }
+
+    /**
+     * The data provider for the test.
+     *
+     * @see it_builds_the_request_query_string_by_the_given_parameters
+     *
+     * @return array
+     */
+    public function parameters_provider()
+    {
+        return [
+            [new ForecastStub],
+            [new ForecastWithUnitsStub],
+            [new ForecastWithBlocksStub],
+            [new ForecastWithLanguageStub],
+            [new ForecastWithParametersMixStub],
+            [new ForecastWithExtendedBlocksStub],
+            [new ForecastWithMultipleBlocksStub],
+            [new ForecastWithMultipleBlocksAllStub],
+            [new ForecastWithMultipleBlocksLeanStub],
+        ];
+    }
+}
