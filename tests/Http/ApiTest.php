@@ -4,9 +4,11 @@ namespace Tests\Http;
 
 use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Api;
+use Psr\Http\Message\ResponseInterface;
 use Tests\Http\Stubs\Parameters\BaseStub;
 use Tests\Http\Stubs\Parameters\ForecastStub;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
+use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
 use Tests\Http\Stubs\Parameters\ForecastWithDatesStub;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\RequestFactory;
 use Tests\Http\Stubs\Parameters\ForecastWithMultipleDatesStub;
@@ -24,6 +26,7 @@ class ApiTest extends TestCase
         $client = mock(Client::class);
         $factory = mock(RequestFactory::class);
         $request = $parameters->expectedRequests();
+        $response = mock(ResponseInterface::class);
 
         $factory->shouldReceive('create')
             ->with($parameters)
@@ -35,7 +38,11 @@ class ApiTest extends TestCase
 
         $client->shouldReceive('request')
             ->with($request)
-            ->andReturn(['status' => 'success']);
+            ->andReturn($response);
+
+        $response->shouldReceive('getBody')
+            ->withNoArgs()
+            ->andReturn('{"status":"success"}');
 
         $this->assertEquals(['status' => 'success'], (new Api($client, $factory))->request($parameters));
     }
@@ -64,6 +71,8 @@ class ApiTest extends TestCase
         $client = mock(Client::class);
         $factory = mock(RequestFactory::class);
         $requests = $parameters->expectedRequests();
+        $responses = [];
+        $expected = [];
 
         $factory->shouldReceive('create')
             ->with($parameters)
@@ -73,10 +82,22 @@ class ApiTest extends TestCase
             ->withNoArgs()
             ->andReturnSelf();
 
+        array_walk($requests, function (Request $request) use (&$responses, &$expected) {
+            $response = mock(ResponseInterface::class);
+
+            $id = $request->id();
+            $response->shouldReceive('getBody')
+                ->withNoArgs()
+                ->andReturn('{"status":"success-'.$id.'"}');
+
+            $responses[$id] = $response;
+            $expected[$id] = ['status' => "success-{$id}"];
+        });
+
         $client->shouldReceive('concurrentRequests')
             ->with($requests)
-            ->andReturn(['status' => 'success']);
+            ->andReturn($responses);
 
-        $this->assertEquals(['status' => 'success'], (new Api($client, $factory))->request($parameters));
+        $this->assertEquals($expected, (new Api($client, $factory))->request($parameters));
     }
 }

@@ -3,8 +3,8 @@
 namespace Tests\Http\Client;
 
 use Tests\TestCase;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Client as Guzzle;
+use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Promise\PromiseInterface;
 use Tests\Http\Stubs\Parameters\ForecastStub;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
@@ -16,32 +16,29 @@ class GuzzleClientTest extends TestCase
     /** @test */
     public function it_has_the_request_method()
     {
-        $client = mock(Client::class);
-        $response = mock(Response::class);
+        $guzzle = mock(Guzzle::class);
         $request = (new ForecastStub)->expectedRequests();
+        $response = mock(ResponseInterface::class);
 
-        $client->shouldReceive('get')
+        $guzzle->shouldReceive('get')
             ->with($request->url(), ['decode_content' => 'gzip', 'query' => $request->query()])
             ->andReturn($response);
 
-        $response->shouldReceive('getBody')
-            ->withNoArgs()
-            ->andReturn(\GuzzleHttp\json_encode(['status' => 'success']));
-
-        $this->assertEquals(['status' => 'success'], (new GuzzleClient($client))->gzip()->request($request));
+        $this->assertEquals($response, (new GuzzleClient($guzzle))->gzip()->request($request));
     }
 
     /** @test */
     public function it_has_the_concurrent_requests_method()
     {
-        $client = mock(Client::class);
+        $guzzle = mock(Guzzle::class);
         $requests = (new ForecastWithMultipleDatesStub)->expectedRequests();
+        $expected = [];
 
-        array_walk($requests, function (Request $request) use ($client) {
+        array_walk($requests, function (Request $request) use ($guzzle, &$expected) {
             $promise = mock(PromiseInterface::class);
-            $response = mock(Response::class);
+            $response = mock(ResponseInterface::class);
 
-            $client->shouldReceive('getAsync')
+            $guzzle->shouldReceive('getAsync')
                 ->with($request->url(), ['decode_content' => 'gzip', 'query' => $request->query()])
                 ->andReturn($promise);
 
@@ -49,15 +46,9 @@ class GuzzleClientTest extends TestCase
                 ->withNoArgs()
                 ->andReturn($response);
 
-            $response->shouldReceive('getBody')
-                ->withNoArgs()
-                ->andReturn(\GuzzleHttp\json_encode(['status' => "success-{$request->id()}"]));
+            $expected[$request->id()] = $response;
         });
 
-        $this->assertEquals([
-            '2018-09-09' => ['status' => 'success-2018-09-09'],
-            '2018-10-10' => ['status' => 'success-2018-10-10'],
-            '2018-11-11' => ['status' => 'success-2018-11-11'],
-        ], (new GuzzleClient($client))->gzip()->concurrentRequests($requests));
+        $this->assertEquals($expected, (new GuzzleClient($guzzle))->gzip()->concurrentRequests($requests));
     }
 }

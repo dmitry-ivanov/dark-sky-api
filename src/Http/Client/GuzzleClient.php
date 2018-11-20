@@ -2,7 +2,6 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http\Client;
 
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Client as Guzzle;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
@@ -45,17 +44,17 @@ class GuzzleClient implements Client
      * Make an API request by the given request object.
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Request  $request
-     * @return array
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function request(Request $request)
     {
-        $response = $this->client->get($request->url(), $this->options($request));
-
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        return $this->client->get($request->url(), $this->options($request));
     }
 
     /**
-     * Make concurrent API requests by the given array of the request objects.
+     * Make the concurrent API requests by the given array of the request objects.
+     *
+     * Returns the associative array of the responses, with the request IDs as the keys.
      *
      * @param  array  $requests
      * @return array
@@ -65,11 +64,7 @@ class GuzzleClient implements Client
      */
     public function concurrentRequests(array $requests)
     {
-        $responses = \GuzzleHttp\Promise\unwrap($this->composePromises($requests));
-
-        return array_map(function (Response $response) {
-            return \GuzzleHttp\json_decode($response->getBody(), true);
-        }, $responses);
+        return \GuzzleHttp\Promise\unwrap($this->composePromises($requests));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http;
 
+use Psr\Http\Message\ResponseInterface;
 use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
 use DmitryIvanov\DarkSkyApi\Http\Client\GuzzleClient;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Api as ApiContract;
@@ -52,9 +53,12 @@ class Api implements ApiContract
         $request = $this->factory->create($parameters);
 
         if ($request instanceof RequestContract) {
-            return $this->client->gzip()->request($request);
+            $response = $this->client->gzip()->request($request);
+            return json_decode($response->getBody(), true);
         }
 
-        return $this->client->gzip()->concurrentRequests($request);
+        return array_map(function (ResponseInterface $response) {
+            return json_decode($response->getBody(), true);
+        }, $this->client->gzip()->concurrentRequests($request));
     }
 }

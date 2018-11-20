@@ -13,7 +13,9 @@
     }],
     "require": {
         "php": ">=5.5.9",
-        "guzzlehttp/guzzle": "^6.3"
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.3",
+        "psr/http-message": "^1.0"
     },
     "require-dev": {
         "illuminate/contracts": "^5.1",

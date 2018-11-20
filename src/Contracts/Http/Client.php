@@ -15,12 +15,14 @@ interface Client
      * Make an API request by the given request object.
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Request  $request
-     * @return array
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function request(Request $request);
 
     /**
-     * Make concurrent API requests by the given array of the request objects.
+     * Make the concurrent API requests by the given array of the request objects.
+     *
+     * Returns the associative array of the responses, with the request IDs as the keys.
      *
      * @param  array  $requests
      * @return array
