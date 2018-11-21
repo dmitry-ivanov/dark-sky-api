@@ -49,6 +49,10 @@ interface Service
      *
      * @param  array|string|null  $blocks
      * @return array
+     *
+     * @throws \Exception on HTTP error
+     * @throws \Throwable on HTTP error in PHP >=7
+     * @throws \InvalidArgumentException on `json_decode()` error
      */
     public function forecast($blocks = null);
 
@@ -58,6 +62,10 @@ interface Service
      * @param  array|string  $dates
      * @param  array|string|null  $blocks
      * @return array
+     *
+     * @throws \Exception on HTTP error
+     * @throws \Throwable on HTTP error in PHP >=7
+     * @throws \InvalidArgumentException on `json_decode()` error
      */
     public function timeMachine($dates, $blocks = null);
 }

@@ -45,6 +45,9 @@ class GuzzleClient implements Client
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Request  $request
      * @return \Psr\Http\Message\ResponseInterface
+     *
+     * @throws \Exception on error
+     * @throws \Throwable on error in PHP >=7
      */
     public function request(Request $request)
     {

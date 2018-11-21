@@ -120,8 +120,9 @@ class Service implements ServiceContract
      * @param  array|string|null  $blocks
      * @return array
      *
-     * @throws \Exception on error
-     * @throws \Throwable on error in PHP >=7
+     * @throws \Exception on HTTP error
+     * @throws \Throwable on HTTP error in PHP >=7
+     * @throws \InvalidArgumentException on `json_decode()` error
      */
     public function forecast($blocks = null)
     {
@@ -135,8 +136,9 @@ class Service implements ServiceContract
      * @param  array|string|null  $blocks
      * @return array
      *
-     * @throws \Exception on error
-     * @throws \Throwable on error in PHP >=7
+     * @throws \Exception on HTTP error
+     * @throws \Throwable on HTTP error in PHP >=7
+     * @throws \InvalidArgumentException on `json_decode()` error
      */
     public function timeMachine($dates, $blocks = null)
     {
@@ -151,8 +153,9 @@ class Service implements ServiceContract
      * @param  array|string|null  $blocks
      * @return array
      *
-     * @throws \Exception on error
-     * @throws \Throwable on error in PHP >=7
+     * @throws \Exception on HTTP error
+     * @throws \Throwable on HTTP error in PHP >=7
+     * @throws \InvalidArgumentException on `json_decode()` error
      */
     protected function request($blocks)
     {

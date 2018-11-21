@@ -45,20 +45,33 @@ class Api implements ApiContract
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
      * @return array
      *
-     * @throws \Exception on error
-     * @throws \Throwable on error in PHP >=7
+     * @throws \Exception on HTTP error
+     * @throws \Throwable on HTTP error in PHP >=7
+     * @throws \InvalidArgumentException on `json_decode()` error
      */
     public function request(Parameters $parameters)
     {
         $request = $this->factory->create($parameters);
 
         if ($request instanceof RequestContract) {
-            $response = $this->client->gzip()->request($request);
-            return json_decode($response->getBody(), true);
+            return $this->composeWeatherData($this->client->gzip()->request($request));
         }
 
         return array_map(function (ResponseInterface $response) {
-            return json_decode($response->getBody(), true);
+            return $this->composeWeatherData($response);
         }, $this->client->gzip()->concurrentRequests($request));
+    }
+
+    /**
+     * Compose the weather data by the given response.
+     *
+     * @param  \Psr\Http\Message\ResponseInterface  $response
+     * @return array
+     *
+     * @throws \InvalidArgumentException
+     */
+    protected function composeWeatherData(ResponseInterface $response)
+    {
+        return \DmitryIvanov\DarkSkyApi\json_decode($response->getBody(), true);
     }
 }
