@@ -5,6 +5,7 @@ namespace Tests\Http;
 use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Api;
 use Psr\Http\Message\ResponseInterface;
+use DmitryIvanov\DarkSkyApi\Weather\Data;
 use Tests\Http\Stubs\Parameters\BaseStub;
 use Tests\Http\Stubs\Parameters\ForecastStub;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
@@ -27,6 +28,9 @@ class ApiTest extends TestCase
         $factory = mock(RequestFactory::class);
         $request = $parameters->expectedRequests();
         $response = mock(ResponseInterface::class);
+        $responseBody = ['status' => 'success'];
+        $responseHeaders = ['X-Response-Time' => [0.123]];
+        $expected = new Data($responseBody, $responseHeaders);
 
         $factory->shouldReceive('create')
             ->with($parameters)
@@ -42,9 +46,13 @@ class ApiTest extends TestCase
 
         $response->shouldReceive('getBody')
             ->withNoArgs()
-            ->andReturn('{"status":"success"}');
+            ->andReturn(json_encode($responseBody));
 
-        $this->assertEquals(['status' => 'success'], (new Api($client, $factory))->request($parameters));
+        $response->shouldReceive('getHeaders')
+            ->withNoArgs()
+            ->andReturn($responseHeaders);
+
+        $this->assertEquals($expected, (new Api($client, $factory))->request($parameters));
     }
 
     /**
@@ -84,14 +92,19 @@ class ApiTest extends TestCase
 
         array_walk($requests, function (Request $request) use (&$responses, &$expected) {
             $response = mock(ResponseInterface::class);
+            $responseBody = ['status' => "success-{$request->id()}"];
+            $responseHeaders = ['X-Response-Time' => [0.123]];
 
-            $id = $request->id();
             $response->shouldReceive('getBody')
                 ->withNoArgs()
-                ->andReturn('{"status":"success-'.$id.'"}');
+                ->andReturn(json_encode($responseBody));
 
-            $responses[$id] = $response;
-            $expected[$id] = ['status' => "success-{$id}"];
+            $response->shouldReceive('getHeaders')
+                ->withNoArgs()
+                ->andReturn($responseHeaders);
+
+            $responses[$request->id()] = $response;
+            $expected[$request->id()] = new Data($responseBody, $responseHeaders);
         });
 
         $client->shouldReceive('concurrentRequests')

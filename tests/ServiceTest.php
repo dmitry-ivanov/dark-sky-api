@@ -5,6 +5,7 @@ namespace Tests;
 use DmitryIvanov\DarkSkyApi\Service;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Api;
 use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
+use DmitryIvanov\DarkSkyApi\Contracts\Weather\Data;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Validator;
 
 class ServiceTest extends TestCase
@@ -99,17 +100,16 @@ class ServiceTest extends TestCase
     public function it_has_the_forecast_method()
     {
         $api = mock(Api::class);
-        $validator = spy(Validator::class);
         $parameters = spy(Parameters::class);
-
+        $validator = spy(Validator::class);
+        $weatherData = mock(Data::class);
         $blocks = ['currently', 'daily'];
-        $response = ['status' => 'success'];
 
         $api->shouldReceive('request')
             ->with($parameters)
-            ->andReturn($response);
+            ->andReturn($weatherData);
 
-        $this->assertEquals($response, (new Service('dummy', $parameters, $validator, $api))->forecast($blocks));
+        $this->assertEquals($weatherData, (new Service('dummy', $parameters, $validator, $api))->forecast($blocks));
 
         $parameters->shouldHaveReceived('setBlocks', [$blocks]);
         $validator->shouldHaveReceived('validate', [$parameters]);
@@ -119,18 +119,17 @@ class ServiceTest extends TestCase
     public function it_has_the_timeMachine_method()
     {
         $api = mock(Api::class);
-        $validator = spy(Validator::class);
         $parameters = spy(Parameters::class);
-
+        $validator = spy(Validator::class);
+        $weatherData = mock(Data::class);
         $blocks = ['currently', 'daily'];
-        $response = ['status' => 'success'];
         $dates = ['2018-10-10', '11 November 2018'];
 
         $api->shouldReceive('request')
             ->with($parameters)
-            ->andReturn($response);
+            ->andReturn($weatherData);
 
-        $this->assertEquals($response, (new Service('dummy', $parameters, $validator, $api))->timeMachine($dates, $blocks));
+        $this->assertEquals($weatherData, (new Service('dummy', $parameters, $validator, $api))->timeMachine($dates, $blocks));
 
         $parameters->shouldHaveReceived('setDates', [$dates]);
         $parameters->shouldHaveReceived('setBlocks', [$blocks]);

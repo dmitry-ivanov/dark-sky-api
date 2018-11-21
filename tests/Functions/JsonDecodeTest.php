@@ -10,9 +10,9 @@ class JsonDecodeTest extends TestCase
     /** @test */
     public function it_decodes_the_valid_json()
     {
-        $json = '{"status":"success"}';
+        $json = '{"valid":"json"}';
 
-        $this->assertEquals(['status' => 'success'], \DmitryIvanov\DarkSkyApi\json_decode($json, true));
+        $this->assertEquals(['valid' => 'json'], \DmitryIvanov\DarkSkyApi\json_decode($json, true));
     }
 
     /** @test */

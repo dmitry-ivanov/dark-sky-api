@@ -48,7 +48,7 @@ interface Service
      * Get the weather forecast data.
      *
      * @param  array|string|null  $blocks
-     * @return array
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Data
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
@@ -59,9 +59,11 @@ interface Service
     /**
      * Get the observed weather data for a given dates.
      *
+     * Returns the weather data object or the array with objects (for the concurrent requests).
+     *
      * @param  array|string  $dates
      * @param  array|string|null  $blocks
-     * @return array
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Data|array
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
