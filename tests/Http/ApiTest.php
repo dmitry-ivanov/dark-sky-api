@@ -28,8 +28,8 @@ class ApiTest extends TestCase
         $factory = mock(RequestFactory::class);
         $request = $parameters->expectedRequests();
         $response = mock(ResponseInterface::class);
-        $responseBody = ['status' => 'success'];
-        $responseHeaders = ['X-Response-Time' => [0.123]];
+        $responseBody = ['dummy-response'];
+        $responseHeaders = ['dummy-headers'];
         $expected = new Data($responseBody, $responseHeaders);
 
         $factory->shouldReceive('create')
@@ -92,8 +92,8 @@ class ApiTest extends TestCase
 
         array_walk($requests, function (Request $request) use (&$responses, &$expected) {
             $response = mock(ResponseInterface::class);
-            $responseBody = ['status' => "success-{$request->id()}"];
-            $responseHeaders = ['X-Response-Time' => [0.123]];
+            $responseBody = ["response-{$request->id()}"];
+            $responseHeaders = ['dummy-headers'];
 
             $response->shouldReceive('getBody')
                 ->withNoArgs()

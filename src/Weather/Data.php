@@ -32,4 +32,14 @@ class Data implements DataContract
         $this->data = $data;
         $this->headers = $headers;
     }
+
+    /**
+     * Get the headers.
+     *
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Headers
+     */
+    public function headers()
+    {
+        return new Headers($this->headers);
+    }
 }
