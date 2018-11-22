@@ -19,8 +19,8 @@ class HeadersTest extends TestCase
      * @param  string  $method
      * @param  array  $expected
      *
-     * @testWith ["cacheControl", ["max-age=3600"]]
-     *           ["forecastApiCalls", ["111"]]
+     * @testWith ["apiCalls", ["111"]]
+     *           ["cacheControl", ["max-age=3600"]]
      *           ["responseTime", ["123ms"]]
      */
     public function it_has_the_methods_for_getting_the_specific_headers($method, array $expected)
@@ -39,8 +39,8 @@ class HeadersTest extends TestCase
      *
      * @param  string  $method
      *
-     * @testWith ["cacheControl"]
-     *           ["forecastApiCalls"]
+     * @testWith ["apiCalls"]
+     *           ["cacheControl"]
      *           ["responseTime"]
      */
     public function if_the_header_does_not_exist_then_an_empty_array_would_be_returned($method)

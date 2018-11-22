@@ -35,6 +35,18 @@ class Headers implements HeadersContract
     }
 
     /**
+     * Get the "API calls" header.
+     *
+     * The number of API requests made by the given API key for today.
+     *
+     * @return array
+     */
+    public function apiCalls()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->headers, 'X-Forecast-API-Calls', []);
+    }
+
+    /**
      * Get the "cache control" header.
      *
      * Conservative value for data caching purposes, based on the data present in the response body.
@@ -44,18 +56,6 @@ class Headers implements HeadersContract
     public function cacheControl()
     {
         return \DmitryIvanov\DarkSkyApi\array_get($this->headers, 'Cache-Control', []);
-    }
-
-    /**
-     * Get the "forecast API calls" header.
-     *
-     * The number of API requests made by the given API key for today.
-     *
-     * @return array
-     */
-    public function forecastApiCalls()
-    {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->headers, 'X-Forecast-API-Calls', []);
     }
 
     /**
