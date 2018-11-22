@@ -32,8 +32,13 @@ class ServiceTest extends TestCase
 
     /**
      * @test
+     *
      * @param  string  $method
-     * @dataProvider methods_with_fluent_interface_provider
+     *
+     * @testWith ["location"]
+     *           ["units"]
+     *           ["language"]
+     *           ["extend"]
      */
     public function it_has_the_methods_providing_the_fluent_interface($method)
     {
@@ -45,29 +50,18 @@ class ServiceTest extends TestCase
     }
 
     /**
-     * The data provider for the methods with fluent interface test.
-     *
-     * @see it_has_the_methods_providing_the_fluent_interface
-     *
-     * @return array
-     */
-    public function methods_with_fluent_interface_provider()
-    {
-        return [
-            ['location'],
-            ['units'],
-            ['language'],
-            ['extend'],
-        ];
-    }
-
-    /**
      * @test
+     *
      * @param  string  $method
      * @param  array  $args
      * @param  string  $paramsMethod
      * @param  array  $paramsArgs
-     * @dataProvider service_parameters_methods_provider
+     *
+     * @testWith ["location", [1.23, 4.56], "setLatitude", [1.23]]
+     *           ["location", [1.23, 4.56], "setLongitude", [4.56]]
+     *           ["units", ["si"], "setUnits", ["si"]]
+     *           ["language", ["ru"], "setLanguage", ["ru"]]
+     *           ["extend", ["hourly"], "setExtendedBlocks", ["hourly"]]
      */
     public function it_has_the_methods_for_changing_the_service_parameters($method, array $args, $paramsMethod, array $paramsArgs)
     {
@@ -76,24 +70,6 @@ class ServiceTest extends TestCase
         call_user_func_array([new Service('dummy', $parameters), $method], $args);
 
         $parameters->shouldHaveReceived($paramsMethod, $paramsArgs);
-    }
-
-    /**
-     * The data provider for the service parameters methods test.
-     *
-     * @see it_has_the_methods_for_changing_the_service_parameters
-     *
-     * @return array
-     */
-    public function service_parameters_methods_provider()
-    {
-        return [
-            ['location', [1.23, 4.56], 'setLatitude', [1.23]],
-            ['location', [1.23, 4.56], 'setLongitude', [4.56]],
-            ['units', ['si'], 'setUnits', ['si']],
-            ['language', ['ru'], 'setLanguage', ['ru']],
-            ['extend', ['hourly'], 'setExtendedBlocks', ['hourly']],
-        ];
     }
 
     /** @test */

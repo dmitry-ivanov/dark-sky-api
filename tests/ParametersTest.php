@@ -8,36 +8,24 @@ class ParametersTest extends TestCase
 {
     /**
      * @test
-     * @param  string  $field
-     * @dataProvider parameter_fields_provider
+     *
+     * @param  string  $parameter
+     *
+     * @testWith ["ApiKey"]
+     *           ["Latitude"]
+     *           ["Longitude"]
+     *           ["Units"]
+     *           ["Language"]
+     *           ["Dates"]
+     *           ["Blocks"]
+     *           ["ExtendedBlocks"]
      */
-    public function each_parameter_field_has_the_getter_and_the_setter_methods($field)
+    public function each_parameter_field_has_the_getter_and_the_setter_methods($parameter)
     {
         $parameters = new Parameters;
 
-        $parameters->{"set{$field}"}('value');
+        $parameters->{"set{$parameter}"}('value');
 
-        $this->assertEquals('value', $parameters->{"get{$field}"}());
-    }
-
-    /**
-     * The data provider for the test.
-     *
-     * @see each_parameter_field_has_the_getter_and_the_setter_methods
-     *
-     * @return array
-     */
-    public function parameter_fields_provider()
-    {
-        return [
-            ['ApiKey'],
-            ['Latitude'],
-            ['Longitude'],
-            ['Units'],
-            ['Language'],
-            ['Dates'],
-            ['Blocks'],
-            ['ExtendedBlocks'],
-        ];
+        $this->assertEquals('value', $parameters->{"get{$parameter}"}());
     }
 }

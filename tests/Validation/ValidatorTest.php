@@ -31,9 +31,11 @@ class ValidatorTest extends TestCase
 
     /**
      * @test
+     *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
      * @param  string  $message
-     * @dataProvider invalid_parameters_provider
+     *
+     * @dataProvider provide_invalid_parameters
      */
     public function the_invalid_parameters_would_not_pass_the_validation_and_exception_would_be_thrown(Parameters $parameters, $message)
     {
@@ -43,13 +45,11 @@ class ValidatorTest extends TestCase
     }
 
     /**
-     * The data provider for the failed validations test.
-     *
-     * @see the_invalid_parameters_would_not_pass_the_validation_and_exception_would_be_thrown
+     * The data provider.
      *
      * @return array
      */
-    public function invalid_parameters_provider()
+    public function provide_invalid_parameters()
     {
         return [
             [new CheesyApiKeyStub, 'The given API key is invalid.'],

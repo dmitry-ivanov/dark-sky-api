@@ -15,6 +15,7 @@ class HeadersTest extends TestCase
 
     /**
      * @test
+     *
      * @param  string  $method
      * @param  array  $expected
      *
@@ -35,6 +36,7 @@ class HeadersTest extends TestCase
 
     /**
      * @test
+     *
      * @param  string  $method
      *
      * @testWith ["cacheControl"]

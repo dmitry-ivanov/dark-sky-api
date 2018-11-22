@@ -6,11 +6,11 @@ use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Api;
 use Psr\Http\Message\ResponseInterface;
 use DmitryIvanov\DarkSkyApi\Weather\Data;
-use Tests\Http\Stubs\Parameters\BaseStub;
 use Tests\Http\Stubs\Parameters\ForecastStub;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
 use Tests\Http\Stubs\Parameters\ForecastWithDatesStub;
+use Tests\Http\Stubs\Parameters\BaseStub as Parameters;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\RequestFactory;
 use Tests\Http\Stubs\Parameters\ForecastWithMultipleDatesStub;
 use Tests\Http\Stubs\Parameters\ForecastWithMultipleDatesLeanStub;
@@ -19,10 +19,12 @@ class ApiTest extends TestCase
 {
     /**
      * @test
+     *
      * @param  \Tests\Http\Stubs\Parameters\BaseStub  $parameters
-     * @dataProvider single_api_request_parameters_provider
+     *
+     * @dataProvider provide_forecast_and_lean_time_machine_parameters
      */
-    public function it_makes_the_single_api_request_for_the_forecast_and_the_lean_time_machines(BaseStub $parameters)
+    public function it_makes_the_single_api_request_for_the_forecast_and_the_lean_time_machine_parameters(Parameters $parameters)
     {
         $client = mock(Client::class);
         $factory = mock(RequestFactory::class);
@@ -56,13 +58,11 @@ class ApiTest extends TestCase
     }
 
     /**
-     * The data provider for the single API request test.
-     *
-     * @see it_makes_the_single_api_request_for_the_forecast_and_the_lean_time_machines
+     * The data provider.
      *
      * @return array
      */
-    public function single_api_request_parameters_provider()
+    public function provide_forecast_and_lean_time_machine_parameters()
     {
         return [
             [new ForecastStub],

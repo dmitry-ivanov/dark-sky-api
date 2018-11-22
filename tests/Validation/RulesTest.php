@@ -17,9 +17,11 @@ class RulesTest extends TestCase
 {
     /**
      * @test
+     *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule  $rule
      * @param  mixed  $value
-     * @dataProvider valid_values_provider
+     *
+     * @dataProvider provide_valid_values
      */
     public function the_valid_value_would_pass_the_validation(Rule $rule, $value)
     {
@@ -27,13 +29,11 @@ class RulesTest extends TestCase
     }
 
     /**
-     * The data provider for the valid values test.
-     *
-     * @see the_valid_value_would_pass_the_validation
+     * The data provider.
      *
      * @return array
      */
-    public function valid_values_provider()
+    public function provide_valid_values()
     {
         return [
             [new ApiKey, 'api-key-12345'],
@@ -82,9 +82,11 @@ class RulesTest extends TestCase
 
     /**
      * @test
+     *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule  $rule
      * @param  mixed  $value
-     * @dataProvider invalid_values_provider
+     *
+     * @dataProvider provide_invalid_values
      */
     public function the_invalid_value_would_not_pass_the_validation(Rule $rule, $value)
     {
@@ -92,13 +94,11 @@ class RulesTest extends TestCase
     }
 
     /**
-     * The data provider for the invalid values test.
-     *
-     * @see the_invalid_value_would_not_pass_the_validation
+     * The data provider.
      *
      * @return array
      */
-    public function invalid_values_provider()
+    public function provide_invalid_values()
     {
         return [
             [new ApiKey, null],
@@ -221,9 +221,11 @@ class RulesTest extends TestCase
 
     /**
      * @test
+     *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule  $rule
      * @param  string  $message
-     * @dataProvider failed_validation_messages_provider
+     *
+     * @dataProvider provide_failed_validation_messages
      */
     public function each_rule_has_the_message_for_the_failed_validation(Rule $rule, $message)
     {
@@ -231,13 +233,11 @@ class RulesTest extends TestCase
     }
 
     /**
-     * The data provider for the failed validation messages test.
-     *
-     * @see each_rule_has_the_message_for_the_failed_validation
+     * The data provider.
      *
      * @return array
      */
-    public function failed_validation_messages_provider()
+    public function provide_failed_validation_messages()
     {
         return [
             [new ApiKey, 'The given API key is invalid.'],
