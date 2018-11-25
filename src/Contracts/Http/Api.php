@@ -16,7 +16,6 @@ interface Api
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
-     * @throws \InvalidArgumentException on `json_decode()` error
      */
     public function request(Parameters $parameters);
 }

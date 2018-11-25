@@ -41,7 +41,10 @@ class Service implements ServiceContract
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Api|null  $api
      * @return void
      */
-    public function __construct($apiKey, ParametersContract $parameters = null, ValidatorContract $validator = null, ApiContract $api = null)
+    public function __construct($apiKey,
+                                ParametersContract $parameters = null,
+                                ValidatorContract $validator = null,
+                                ApiContract $api = null)
     {
         $this->parameters = !is_null($parameters) ? $parameters : new Parameters;
         $this->validator = !is_null($validator) ? $validator : new Validator;
@@ -122,7 +125,6 @@ class Service implements ServiceContract
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
-     * @throws \InvalidArgumentException on `json_decode()` error
      */
     public function forecast($blocks = null)
     {
@@ -140,7 +142,6 @@ class Service implements ServiceContract
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
-     * @throws \InvalidArgumentException on `json_decode()` error
      */
     public function timeMachine($dates, $blocks = null)
     {
@@ -157,7 +158,6 @@ class Service implements ServiceContract
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
-     * @throws \InvalidArgumentException on `json_decode()` error
      */
     protected function request($blocks)
     {
