@@ -10,7 +10,9 @@ class HeadersTest extends TestCase
     /** @test */
     public function it_has_the_all_method()
     {
-        $this->assertEquals(['dummy'], (new Headers(['dummy']))->all());
+        $headers = new Headers(['dummy']);
+
+        $this->assertEquals(['dummy'], $headers->all());
     }
 
     /**
@@ -45,6 +47,8 @@ class HeadersTest extends TestCase
      */
     public function if_the_header_does_not_exist_then_an_empty_array_would_be_returned($method)
     {
-        $this->assertEquals([], (new Headers(['dummy']))->{$method}());
+        $headers = new Headers(['dummy']);
+
+        $this->assertEquals([], $headers->{$method}());
     }
 }

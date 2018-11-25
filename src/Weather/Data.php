@@ -42,4 +42,36 @@ class Data implements DataContract
     {
         return new Headers($this->headers);
     }
+
+    /**
+     * Get the latitude.
+     *
+     * @return float|null
+     */
+    public function latitude()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->data, 'latitude');
+    }
+
+    /**
+     * Get the longitude.
+     *
+     * @return float|null
+     */
+    public function longitude()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->data, 'longitude');
+    }
+
+    /**
+     * Get the timezone.
+     *
+     * The IANA timezone name for the requested location.
+     *
+     * @return string|null
+     */
+    public function timezone()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->data, 'timezone');
+    }
 }
