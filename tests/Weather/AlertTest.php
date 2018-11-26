@@ -15,7 +15,7 @@ class AlertTest extends TestCase
      *
      * @testWith ["description", "FLOOD WATCH REMAINS IN EFFECT THROUGH LATE MONDAY NIGHT..."]
      *           ["expires", 1510036680]
-     *           ["regions", ["Washington", "Oregon"]]
+     *           ["regions", ["Dukes", "Eastern Essex"]]
      *           ["severity", "advisory"]
      *           ["time", 1509993360]
      *           ["title", "Flood Watch for Mason, WA"]
@@ -26,7 +26,7 @@ class AlertTest extends TestCase
         $alert = new Alert([
             'description' => 'FLOOD WATCH REMAINS IN EFFECT THROUGH LATE MONDAY NIGHT...',
             'expires' => 1510036680,
-            'regions' => ['Washington', 'Oregon'],
+            'regions' => ['Dukes', 'Eastern Essex'],
             'severity' => 'advisory',
             'time' => 1509993360,
             'title' => 'Flood Watch for Mason, WA',

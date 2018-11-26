@@ -78,9 +78,13 @@ class Data implements DataContract
     /**
      * Get the alerts.
      *
-     * The alerts array contains objects representing the severe weather warnings
-     * issued for the requested location by a governmental authority.
+     * The alerts array contains objects representing the severe weather
+     * warnings issued for the requested location by a governmental authority.
      *
+     * The alerts would be omitted for the Time Machine Requests:
+     * @see https://darksky.net/dev/docs#time-machine-request
+     *
+     * The list of the data sources:
      * @see https://darksky.net/dev/docs/sources
      *
      * @return array|null
