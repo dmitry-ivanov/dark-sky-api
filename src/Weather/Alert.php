@@ -25,8 +25,6 @@ class Alert implements AlertContract
     }
 
     /**
-     * Get the description.
-     *
      * A detailed description of the alert.
      *
      * @return string|null
@@ -37,8 +35,6 @@ class Alert implements AlertContract
     }
 
     /**
-     * Get the expiration time.
-     *
      * The UNIX time at which the alert will expire.
      *
      * @return int|null
@@ -49,9 +45,7 @@ class Alert implements AlertContract
     }
 
     /**
-     * Get the regions.
-     *
-     * An array of strings representing the names of the regions covered by this weather alert.
+     * The names of the regions covered by this weather alert.
      *
      * @return array|null
      */
@@ -61,7 +55,7 @@ class Alert implements AlertContract
     }
 
     /**
-     * Get the severity.
+     * The severity of the weather alert.
      *
      * Will take one of the following values:
      * "advisory" - an individual should be aware of potentially severe weather,
@@ -77,8 +71,6 @@ class Alert implements AlertContract
     }
 
     /**
-     * Get the time.
-     *
      * The UNIX time at which the alert was issued.
      *
      * @return int|null
@@ -89,8 +81,6 @@ class Alert implements AlertContract
     }
 
     /**
-     * Get the title.
-     *
      * A brief description of the alert.
      *
      * @return string|null
@@ -101,8 +91,6 @@ class Alert implements AlertContract
     }
 
     /**
-     * Get the URI.
-     *
      * An HTTP(S) URI that one may refer to for detailed information about the alert.
      *
      * @return string|null

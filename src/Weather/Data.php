@@ -34,9 +34,7 @@ class Data implements DataContract
     }
 
     /**
-     * Get the headers.
-     *
-     * The API will set several HTTP response headers to values useful to developers.
+     * The HTTP response headers.
      *
      * @see https://darksky.net/dev/docs#response-headers
      *
@@ -48,8 +46,6 @@ class Data implements DataContract
     }
 
     /**
-     * Get the latitude.
-     *
      * The requested latitude.
      *
      * @return float|null
@@ -60,8 +56,6 @@ class Data implements DataContract
     }
 
     /**
-     * Get the longitude.
-     *
      * The requested longitude.
      *
      * @return float|null
@@ -72,8 +66,6 @@ class Data implements DataContract
     }
 
     /**
-     * Get the timezone.
-     *
      * The IANA timezone name for the requested location.
      *
      * @return string|null
@@ -84,15 +76,11 @@ class Data implements DataContract
     }
 
     /**
-     * Get the alerts.
+     * Severe weather warnings issued for the requested location by a governmental authority.
      *
-     * The alerts array contains objects representing the severe weather
-     * warnings issued for the requested location by a governmental authority.
-     *
-     * The alerts would be omitted for the Time Machine Requests:
-     * @see https://darksky.net/dev/docs#time-machine-request
-     *
+     * The alerts would be omitted for the Time Machine Requests.
      * @see https://darksky.net/dev/docs#alerts
+     * @see https://darksky.net/dev/docs#time-machine-request
      *
      * @return array|null
      */
@@ -110,9 +98,7 @@ class Data implements DataContract
     }
 
     /**
-     * Get the flags.
-     *
-     * The flags object contains various metadata information related to the request.
+     * Various metadata information related to the request.
      *
      * @see https://darksky.net/dev/docs#flags
      *

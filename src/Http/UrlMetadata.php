@@ -27,8 +27,7 @@ class UrlMetadata implements UrlMetadataContract
     /**
      * Get the date, for which the URL was generated.
      *
-     * The format is "Y-m-d".
-     *
+     * The format is "Y-m-d":
      * @see http://php.net/manual/en/function.date.php
      *
      * @return string

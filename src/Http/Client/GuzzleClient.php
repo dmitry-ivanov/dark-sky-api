@@ -29,9 +29,8 @@ class GuzzleClient implements Client
     /**
      * Force API requests to accept `gzip` encoding and automatically decode the response.
      *
-     * Implemented for all requests in the `options()` method.
-     *
-     * @see http://docs.guzzlephp.org/en/stable/request-options.html#decode-content
+     * Implemented for all requests in the `options()` method:
+     * @see GuzzleClient::options()
      *
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Client
      */
@@ -89,6 +88,8 @@ class GuzzleClient implements Client
 
     /**
      * Compose the request options.
+     *
+     * @see http://docs.guzzlephp.org/en/stable/request-options.html#decode-content
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Request  $request
      * @return array
