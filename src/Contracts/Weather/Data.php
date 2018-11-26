@@ -7,6 +7,10 @@ interface Data
     /**
      * Get the headers.
      *
+     * The API will set several HTTP response headers to values useful to developers.
+     *
+     * @see https://darksky.net/dev/docs#response-headers
+     *
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Headers
      */
     public function headers();
@@ -14,12 +18,16 @@ interface Data
     /**
      * Get the latitude.
      *
+     * The requested latitude.
+     *
      * @return float|null
      */
     public function latitude();
 
     /**
      * Get the longitude.
+     *
+     * The requested longitude.
      *
      * @return float|null
      */
@@ -43,10 +51,20 @@ interface Data
      * The alerts would be omitted for the Time Machine Requests:
      * @see https://darksky.net/dev/docs#time-machine-request
      *
-     * The list of the data sources:
-     * @see https://darksky.net/dev/docs/sources
+     * @see https://darksky.net/dev/docs#alerts
      *
      * @return array|null
      */
     public function alerts();
+
+    /**
+     * Get the flags.
+     *
+     * The flags object contains various metadata information related to the request.
+     *
+     * @see https://darksky.net/dev/docs#flags
+     *
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Flags|null
+     */
+    public function flags();
 }

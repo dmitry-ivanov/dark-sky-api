@@ -36,6 +36,10 @@ class Data implements DataContract
     /**
      * Get the headers.
      *
+     * The API will set several HTTP response headers to values useful to developers.
+     *
+     * @see https://darksky.net/dev/docs#response-headers
+     *
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Headers
      */
     public function headers()
@@ -46,6 +50,8 @@ class Data implements DataContract
     /**
      * Get the latitude.
      *
+     * The requested latitude.
+     *
      * @return float|null
      */
     public function latitude()
@@ -55,6 +61,8 @@ class Data implements DataContract
 
     /**
      * Get the longitude.
+     *
+     * The requested longitude.
      *
      * @return float|null
      */
@@ -84,8 +92,7 @@ class Data implements DataContract
      * The alerts would be omitted for the Time Machine Requests:
      * @see https://darksky.net/dev/docs#time-machine-request
      *
-     * The list of the data sources:
-     * @see https://darksky.net/dev/docs/sources
+     * @see https://darksky.net/dev/docs#alerts
      *
      * @return array|null
      */
@@ -100,5 +107,25 @@ class Data implements DataContract
         return array_map(function (array $alert) {
             return new Alert($alert);
         }, $alerts);
+    }
+
+    /**
+     * Get the flags.
+     *
+     * The flags object contains various metadata information related to the request.
+     *
+     * @see https://darksky.net/dev/docs#flags
+     *
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Flags|null
+     */
+    public function flags()
+    {
+        $flags = \DmitryIvanov\DarkSkyApi\array_get($this->data, 'flags');
+
+        if (is_null($flags)) {
+            return null;
+        }
+
+        return new Flags($flags);
     }
 }

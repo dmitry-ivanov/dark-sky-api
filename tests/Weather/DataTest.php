@@ -5,6 +5,7 @@ namespace Tests\Weather;
 use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\Data;
 use DmitryIvanov\DarkSkyApi\Weather\Alert;
+use DmitryIvanov\DarkSkyApi\Weather\Flags;
 use DmitryIvanov\DarkSkyApi\Weather\Headers;
 
 class DataTest extends TestCase
@@ -14,7 +15,9 @@ class DataTest extends TestCase
     {
         $data = new Data(['dummy'], ['dummy-headers']);
 
-        $this->assertEquals(new Headers(['dummy-headers']), $data->headers());
+        $expected = new Headers(['dummy-headers']);
+
+        $this->assertEquals($expected, $data->headers());
     }
 
     /**
@@ -38,22 +41,6 @@ class DataTest extends TestCase
         $this->assertEquals($expected, $data->{$method}());
     }
 
-    /**
-     * @test
-     *
-     * @param  string  $method
-     *
-     * @testWith ["latitude"]
-     *           ["longitude"]
-     *           ["timezone"]
-     */
-    public function if_the_property_does_not_exist_then_null_would_be_returned($method)
-    {
-        $data = new Data(['dummy'], ['dummy']);
-
-        $this->assertNull($data->{$method}());
-    }
-
     /** @test */
     public function it_has_the_alerts_method()
     {
@@ -75,10 +62,32 @@ class DataTest extends TestCase
     }
 
     /** @test */
-    public function the_alerts_method_returns_null_if_there_is_no_alerts_data()
+    public function it_has_the_flags_method()
+    {
+        $data = new Data([
+            'flags' => ['dummy-flags'],
+        ], ['dummy']);
+
+        $expected = new Flags(['dummy-flags']);
+
+        $this->assertEquals($expected, $data->flags());
+    }
+
+    /**
+     * @test
+     *
+     * @param  string  $method
+     *
+     * @testWith ["latitude"]
+     *           ["longitude"]
+     *           ["timezone"]
+     *           ["alerts"]
+     *           ["flags"]
+     */
+    public function if_there_is_no_underlying_data_for_the_proper_method_then_null_would_be_returned($method)
     {
         $data = new Data(['dummy'], ['dummy']);
 
-        $this->assertNull($data->alerts());
+        $this->assertNull($data->{$method}());
     }
 }
