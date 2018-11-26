@@ -33,4 +33,16 @@ interface Data
      * @return string|null
      */
     public function timezone();
+
+    /**
+     * Get the alerts.
+     *
+     * The alerts array contains objects representing the severe weather warnings
+     * issued for the requested location by a governmental authority.
+     *
+     * @see https://darksky.net/dev/docs/sources
+     *
+     * @return array|null
+     */
+    public function alerts();
 }

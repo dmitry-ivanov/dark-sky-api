@@ -74,4 +74,27 @@ class Data implements DataContract
     {
         return \DmitryIvanov\DarkSkyApi\array_get($this->data, 'timezone');
     }
+
+    /**
+     * Get the alerts.
+     *
+     * The alerts array contains objects representing the severe weather warnings
+     * issued for the requested location by a governmental authority.
+     *
+     * @see https://darksky.net/dev/docs/sources
+     *
+     * @return array|null
+     */
+    public function alerts()
+    {
+        $alerts = \DmitryIvanov\DarkSkyApi\array_get($this->data, 'alerts');
+
+        if (is_null($alerts)) {
+            return null;
+        }
+
+        return array_map(function (array $alert) {
+            return new Alert($alert);
+        }, $alerts);
+    }
 }

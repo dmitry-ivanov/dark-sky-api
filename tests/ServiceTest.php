@@ -57,8 +57,8 @@ class ServiceTest extends TestCase
      * @param  string  $paramsMethod
      * @param  array  $paramsArgs
      *
-     * @testWith ["location", [1.23, 4.56], "setLatitude", [1.23]]
-     *           ["location", [1.23, 4.56], "setLongitude", [4.56]]
+     * @testWith ["location", [1.234, 5.678], "setLatitude", [1.234]]
+     *           ["location", [1.234, 5.678], "setLongitude", [5.678]]
      *           ["units", ["si"], "setUnits", ["si"]]
      *           ["language", ["ru"], "setLanguage", ["ru"]]
      *           ["extend", ["hourly"], "setExtendedBlocks", ["hourly"]]
