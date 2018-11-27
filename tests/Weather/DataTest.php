@@ -7,6 +7,7 @@ use DmitryIvanov\DarkSkyApi\Weather\Data;
 use DmitryIvanov\DarkSkyApi\Weather\Alert;
 use DmitryIvanov\DarkSkyApi\Weather\Flags;
 use DmitryIvanov\DarkSkyApi\Weather\Headers;
+use DmitryIvanov\DarkSkyApi\Weather\DataPoint;
 
 class DataTest extends TestCase
 {
@@ -39,6 +40,18 @@ class DataTest extends TestCase
         ], ['dummy']);
 
         $this->assertEquals($expected, $data->{$method}());
+    }
+
+    /** @test */
+    public function it_has_the_currently_method()
+    {
+        $data = new Data([
+            'currently' => ['dummy-currently'],
+        ], ['dummy']);
+
+        $expected = new DataPoint(['dummy-currently']);
+
+        $this->assertEquals($expected, $data->currently());
     }
 
     /** @test */
@@ -81,6 +94,7 @@ class DataTest extends TestCase
      * @testWith ["latitude"]
      *           ["longitude"]
      *           ["timezone"]
+     *           ["currently"]
      *           ["alerts"]
      *           ["flags"]
      */

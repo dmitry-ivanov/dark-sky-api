@@ -35,6 +35,17 @@ interface Data
     public function timezone();
 
     /**
+     * The current weather conditions at the requested location.
+     *
+     * For the Time Machine Requests, it refers to the time provided, rather than the current time.
+     * @see https://darksky.net/dev/docs#data-point
+     * @see https://darksky.net/dev/docs#time-machine-request
+     *
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataPoint|null
+     */
+    public function currently();
+
+    /**
      * Severe weather warnings issued for the requested location by a governmental authority.
      *
      * The alerts would be omitted for the Time Machine Requests.

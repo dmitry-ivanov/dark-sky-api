@@ -122,7 +122,7 @@ class DataPoint implements DataPointContract
     }
 
     /**
-     * Same as the icon, but with the specific fixes for the "daily".
+     * Same as the "icon", but with the specific fixes for the "daily".
      *
      * @see https://darksky.net/dev/docs/faq#night-icons
      *
@@ -158,7 +158,7 @@ class DataPoint implements DataPointContract
     /**
      * The approximate direction of the nearest storm in degrees; only on "currently".
      *
-     * With the true north at 0° and progressing clockwise.
+     * With true north at 0° and progressing clockwise.
      *
      * @return float|null
      */
@@ -235,5 +235,200 @@ class DataPoint implements DataPointContract
     public function precipIntensityMaxTime()
     {
         return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipIntensityMaxTime');
+    }
+
+    /**
+     * The probability of precipitation occurring, between 0 and 1, inclusive.
+     *
+     * @return float|null
+     */
+    public function precipProbability()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipProbability');
+    }
+
+    /**
+     * The type of precipitation occurring at the given time.
+     *
+     * If defined, this property will have one of the following values:
+     * "rain", "snow", or "sleet" (which refers to each of freezing rain, ice pellets, and “wintery mix”).
+     *
+     * @return string|null
+     */
+    public function precipType()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipType');
+    }
+
+    /**
+     * The sea-level air pressure.
+     *
+     * @return float|null
+     */
+    public function pressure()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'pressure');
+    }
+
+    /**
+     * A human-readable text summary of this data point.
+     *
+     * @return string|null
+     */
+    public function summary()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'summary');
+    }
+
+    /**
+     * The UNIX time of when the sun will rise during a given day; only on "daily".
+     *
+     * @return int|null
+     */
+    public function sunriseTime()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'sunriseTime');
+    }
+
+    /**
+     * The UNIX time of when the sun will set during a given day; only on "daily".
+     *
+     * @return int|null
+     */
+    public function sunsetTime()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'sunsetTime');
+    }
+
+    /**
+     * The air temperature; not on "minutely".
+     *
+     * @return float|null
+     */
+    public function temperature()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperature');
+    }
+
+    /**
+     * The daytime high temperature; only on "daily".
+     *
+     * @return float|null
+     */
+    public function temperatureHigh()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperatureHigh');
+    }
+
+    /**
+     * The UNIX time representing when the daytime high temperature occurs; only on "daily".
+     *
+     * @return int|null
+     */
+    public function temperatureHighTime()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperatureHighTime');
+    }
+
+    /**
+     * The overnight low temperature; only on "daily".
+     *
+     * @return float|null
+     */
+    public function temperatureLow()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperatureLow');
+    }
+
+    /**
+     * The UNIX time representing when the overnight low temperature occurs; only on "daily".
+     *
+     * @return int|null
+     */
+    public function temperatureLowTime()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperatureLowTime');
+    }
+
+    /**
+     * The UNIX time at which this data point begins.
+     *
+     * @return int|null
+     */
+    public function time()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'time');
+    }
+
+    /**
+     * The UV index.
+     *
+     * @return float|null
+     */
+    public function uvIndex()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'uvIndex');
+    }
+
+    /**
+     * The UNIX time of when the maximum "uvIndex" occurs during a given day; only on "daily".
+     *
+     * @return int|null
+     */
+    public function uvIndexTime()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'uvIndexTime');
+    }
+
+    /**
+     * The average visibility, capped at 10 miles.
+     *
+     * @return float|null
+     */
+    public function visibility()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'visibility');
+    }
+
+    /**
+     * The direction that the wind is coming from in degrees.
+     *
+     * With true north at 0° and progressing clockwise.
+     *
+     * @return float|null
+     */
+    public function windBearing()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windBearing');
+    }
+
+    /**
+     * The wind gust speed.
+     *
+     * @return float|null
+     */
+    public function windGust()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windGust');
+    }
+
+    /**
+     * The time at which the maximum wind gust speed occurs during the day; only on "daily".
+     *
+     * @return int|null
+     */
+    public function windGustTime()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windGustTime');
+    }
+
+    /**
+     * The wind speed.
+     *
+     * @return float|null
+     */
+    public function windSpeed()
+    {
+        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windSpeed');
     }
 }
