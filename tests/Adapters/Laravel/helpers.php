@@ -54,7 +54,7 @@ if (!function_exists('env')) {
     /**
      * Get the value of the environment variable.
      *
-     * Defined here for the tests' backwards compatibility with the Laravel "<5.4".
+     * Defined here for the tests' backward compatibility with the Laravel "<5.4".
      *
      * @param  string  $key
      * @return string

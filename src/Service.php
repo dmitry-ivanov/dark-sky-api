@@ -66,6 +66,8 @@ class Service implements ServiceContract
     /**
      * Set the location.
      *
+     * @see https://darksky.net/dev/docs#request-parameters
+     *
      * @param  float  $latitude
      * @param  float  $longitude
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
@@ -81,6 +83,8 @@ class Service implements ServiceContract
     /**
      * Set the units.
      *
+     * @see https://darksky.net/dev/docs#request-parameters
+     *
      * @param  string  $units
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
      */
@@ -93,6 +97,8 @@ class Service implements ServiceContract
 
     /**
      * Set the language.
+     *
+     * @see https://darksky.net/dev/docs#request-parameters
      *
      * @param  string  $language
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
@@ -107,6 +113,8 @@ class Service implements ServiceContract
     /**
      * Set the extended blocks.
      *
+     * @see https://darksky.net/dev/docs#request-parameters
+     *
      * @param  string  $blocks
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
      */
@@ -120,6 +128,8 @@ class Service implements ServiceContract
     /**
      * Get the weather forecast data.
      *
+     * @see https://darksky.net/dev/docs#forecast-request
+     *
      * @param  array|string|null  $blocks
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Data
      *
@@ -132,9 +142,10 @@ class Service implements ServiceContract
     }
 
     /**
-     * Get the observed weather data for a given dates.
+     * Get the observed weather data for the given dates.
      *
-     * Returns the weather data object or the array with objects (for the concurrent requests).
+     * Returns the weather data object or the array of the weather data objects for the multiple dates.
+     * @see https://darksky.net/dev/docs#time-machine-request
      *
      * @param  array|string  $dates
      * @param  array|string|null  $blocks

@@ -9,7 +9,7 @@ interface Api
     /**
      * Make the API request(s) with the given parameters.
      *
-     * Returns the weather data object or the array with objects (for the concurrent requests).
+     * Returns the weather data object or the array of the weather data objects for the multiple dates.
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Data|array

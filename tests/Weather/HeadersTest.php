@@ -25,7 +25,7 @@ class HeadersTest extends TestCase
      *           ["cacheControl", ["max-age=3600"]]
      *           ["responseTime", ["123ms"]]
      */
-    public function it_has_the_methods_for_getting_the_specific_headers($method, array $expected)
+    public function it_has_the_methods_for_obtaining_specific_headers($method, array $expected)
     {
         $headers = new Headers([
             'Cache-Control' => ['max-age=3600'],

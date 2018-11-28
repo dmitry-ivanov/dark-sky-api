@@ -31,7 +31,7 @@ class Blocks implements Rule
     }
 
     /**
-     * Checks if a given string value is valid.
+     * Check if a given string value is valid.
      *
      * @param  string  $value
      * @return bool
@@ -42,7 +42,7 @@ class Blocks implements Rule
     }
 
     /**
-     * Checks if a given values array is valid.
+     * Check if the given values array is valid.
      *
      * @param  array  $values
      * @return bool

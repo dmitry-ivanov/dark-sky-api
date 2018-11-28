@@ -52,7 +52,7 @@ class DataPointTest extends TestCase
      *           ["windGustTime", 1510023600]
      *           ["windSpeed", 5.59]
      */
-    public function it_has_the_methods_for_getting_the_specific_properties($method, $expected)
+    public function it_has_the_methods_for_obtaining_specific_properties($method, $expected)
     {
         $point = new DataPoint([
             'apparentTemperature' => 66.01,

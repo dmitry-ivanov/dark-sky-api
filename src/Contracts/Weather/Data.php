@@ -35,22 +35,45 @@ interface Data
     public function timezone();
 
     /**
-     * The current weather conditions at the requested location.
+     * A data point containing the current weather conditions at the requested location.
      *
-     * For the Time Machine Requests, it refers to the time provided, rather than the current time.
      * @see https://darksky.net/dev/docs#data-point
-     * @see https://darksky.net/dev/docs#time-machine-request
      *
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataPoint|null
      */
     public function currently();
 
     /**
+     * A data block containing the weather conditions minute-by-minute for the next hour.
+     *
+     * @see https://darksky.net/dev/docs#data-block
+     *
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataBlock|null
+     */
+    public function minutely();
+
+    /**
+     * A data block containing the weather conditions hour-by-hour for the next two days.
+     *
+     * @see https://darksky.net/dev/docs#data-block
+     *
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataBlock|null
+     */
+    public function hourly();
+
+    /**
+     * A data block containing the weather conditions day-by-day for the next week.
+     *
+     * @see https://darksky.net/dev/docs#data-block
+     *
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataBlock|null
+     */
+    public function daily();
+
+    /**
      * Severe weather warnings issued for the requested location by a governmental authority.
      *
-     * The alerts would be omitted for the Time Machine Requests.
      * @see https://darksky.net/dev/docs#alerts
-     * @see https://darksky.net/dev/docs#time-machine-request
      *
      * @return array|null
      */

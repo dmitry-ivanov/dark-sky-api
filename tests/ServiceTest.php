@@ -40,7 +40,7 @@ class ServiceTest extends TestCase
      *           ["language"]
      *           ["extend"]
      */
-    public function it_has_the_methods_providing_the_fluent_interface($method)
+    public function it_has_the_methods_which_provide_the_fluent_interface($method)
     {
         $service = new Service('dummy');
 
@@ -63,7 +63,7 @@ class ServiceTest extends TestCase
      *           ["language", ["ru"], "setLanguage", ["ru"]]
      *           ["extend", ["hourly"], "setExtendedBlocks", ["hourly"]]
      */
-    public function it_has_the_methods_for_changing_the_service_parameters($method, array $args, $paramsMethod, array $paramsArgs)
+    public function it_has_the_methods_which_modify_the_service_parameters($method, array $args, $paramsMethod, array $paramsArgs)
     {
         $parameters = spy(Parameters::class);
 

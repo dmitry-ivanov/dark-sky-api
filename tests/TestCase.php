@@ -23,7 +23,7 @@ class TestCase extends MockeryTestCase
     /**
      * Sets an expectation for the exception.
      *
-     * Provides backwards compatibility with the PHPUnit 4 and PHPUnit 5.
+     * Provides backward compatibility with the PHPUnit 4 and PHPUnit 5.
      *
      * @param  \Exception  $exception
      * @return void

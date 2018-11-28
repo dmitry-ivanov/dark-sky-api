@@ -7,6 +7,7 @@ use DmitryIvanov\DarkSkyApi\Weather\Data;
 use DmitryIvanov\DarkSkyApi\Weather\Alert;
 use DmitryIvanov\DarkSkyApi\Weather\Flags;
 use DmitryIvanov\DarkSkyApi\Weather\Headers;
+use DmitryIvanov\DarkSkyApi\Weather\DataBlock;
 use DmitryIvanov\DarkSkyApi\Weather\DataPoint;
 
 class DataTest extends TestCase
@@ -31,7 +32,7 @@ class DataTest extends TestCase
      *           ["longitude", 5.678]
      *           ["timezone", "America/New_York"]
      */
-    public function it_has_the_methods_for_getting_the_specific_properties($method, $expected)
+    public function it_has_the_methods_for_obtaining_specific_properties($method, $expected)
     {
         $data = new Data([
             'latitude' => 1.234,
@@ -52,6 +53,28 @@ class DataTest extends TestCase
         $expected = new DataPoint(['dummy-currently']);
 
         $this->assertEquals($expected, $data->currently());
+    }
+
+    /**
+     * @test
+     *
+     * @param  string  $method
+     * @param  string  $dataKey
+     * @param  array  $dataBlock
+     *
+     * @testWith ["minutely", "minutely", ["dummy-minutely"]]
+     *           ["hourly", "hourly", ["dummy-hourly"]]
+     *           ["daily", "daily", ["dummy-daily"]]
+     */
+    public function it_has_several_methods_which_return_different_kinds_of_data_blocks($method, $dataKey, array $dataBlock)
+    {
+        $data = new Data([
+            $dataKey => $dataBlock,
+        ], ['dummy']);
+
+        $expected = new DataBlock($dataBlock);
+
+        $this->assertEquals($expected, $data->{$method}());
     }
 
     /** @test */
@@ -95,6 +118,9 @@ class DataTest extends TestCase
      *           ["longitude"]
      *           ["timezone"]
      *           ["currently"]
+     *           ["minutely"]
+     *           ["hourly"]
+     *           ["daily"]
      *           ["alerts"]
      *           ["flags"]
      */

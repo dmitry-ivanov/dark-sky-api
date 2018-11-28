@@ -33,7 +33,7 @@ class Validator implements ValidatorContract
     }
 
     /**
-     * The parameters validations.
+     * Get the parameters' validations.
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
      * @return array

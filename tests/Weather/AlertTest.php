@@ -21,7 +21,7 @@ class AlertTest extends TestCase
      *           ["title", "Flood Watch for Mason, WA"]
      *           ["uri", "http://alerts.weather.gov/cap/wwacapget.php?x=WA1255E4DB8494"]
      */
-    public function it_has_the_methods_for_getting_the_specific_properties($method, $expected)
+    public function it_has_the_methods_for_obtaining_specific_properties($method, $expected)
     {
         $alert = new Alert([
             'description' => 'FLOOD WATCH REMAINS IN EFFECT THROUGH LATE MONDAY NIGHT...',
