@@ -10,7 +10,7 @@ class FlagsTest extends TestCase
     /**
      * @test
      *
-     * @param  array  $flags
+     * @param  array  data
      * @param  bool  $expected
      *
      * @testWith [{"darksky-unavailable": null}, true]
@@ -23,9 +23,11 @@ class FlagsTest extends TestCase
      *           [[], false]
      *           [["dummy"], false]
      */
-    public function it_has_the_isUnavailable_method_which_returns_true_if_the_property_key_exists(array $flags, $expected)
+    public function it_has_the_isUnavailable_method_which_returns_true_if_the_property_key_exists(array $data, $expected)
     {
-        $this->assertEquals($expected, (new Flags($flags))->isUnavailable());
+        $flags = new Flags($data);
+
+        $this->assertEquals($expected, $flags->isUnavailable());
     }
 
     /**

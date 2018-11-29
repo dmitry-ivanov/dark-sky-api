@@ -21,7 +21,9 @@ class RequestFactoryTest extends TestCase
      */
     public function it_creates_the_api_requests_by_the_given_parameters(Parameters $parameters)
     {
-        $this->assertEquals($parameters->expectedRequests(), (new RequestFactory)->create($parameters));
+        $factory = new RequestFactory;
+
+        $this->assertEquals($parameters->expectedRequests(), $factory->create($parameters));
     }
 
     /**

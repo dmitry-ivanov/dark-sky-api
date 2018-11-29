@@ -66,7 +66,9 @@ class GuzzleClient implements Client
      */
     public function concurrentRequests(array $requests)
     {
-        return \GuzzleHttp\Promise\unwrap($this->composePromises($requests));
+        $promises = $this->composePromises($requests);
+
+        return \GuzzleHttp\Promise\unwrap($promises);
     }
 
     /**

@@ -18,11 +18,22 @@ class DarkSkyApiServiceProviderTest extends TestCase
     }
 
     /** @test */
-    public function it_is_deferred_and_provides_the_api_service_contract_binding()
+    public function it_is_deferred()
     {
-        $serviceProvider = new DarkSkyApiServiceProvider(spy(Application::class));
+        $app = spy(Application::class);
+
+        $serviceProvider = new DarkSkyApiServiceProvider($app);
 
         $this->assertTrue($serviceProvider->isDeferred());
+    }
+
+    /** @test */
+    public function it_provides_binding_for_the_api_service_contract()
+    {
+        $app = spy(Application::class);
+
+        $serviceProvider = new DarkSkyApiServiceProvider($app);
+
         $this->assertEquals([ServiceContract::class], $serviceProvider->provides());
     }
 

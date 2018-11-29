@@ -63,8 +63,8 @@ class UrlGenerator implements UrlGeneratorContract
     {
         $forecastUrl = $this->forecastUrl($parameters)->value();
 
-        $date = date('Y-m-d\TH:i:s', strtotime($date));
+        $urlDate = date('Y-m-d\TH:i:s', strtotime($date));
 
-        return new Url("{$forecastUrl},{$date}", new UrlMetadata($date));
+        return new Url("{$forecastUrl},{$urlDate}", new UrlMetadata($date));
     }
 }

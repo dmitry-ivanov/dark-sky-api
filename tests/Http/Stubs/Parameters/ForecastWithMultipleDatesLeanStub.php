@@ -23,8 +23,9 @@ class ForecastWithMultipleDatesLeanStub extends ForecastStub
     {
         $url = parent::expectedUrl()->value();
 
-        $date = '2018-11-11T00:00:00';
+        $date = '11 November 2018';
+        $urlDate = '2018-11-11T00:00:00';
 
-        return new Url("{$url},{$date}", new UrlMetadata($date));
+        return new Url("{$url},{$urlDate}", new UrlMetadata($date));
     }
 }

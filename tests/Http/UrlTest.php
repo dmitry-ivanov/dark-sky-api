@@ -11,16 +11,18 @@ class UrlTest extends TestCase
     /** @test */
     public function it_has_the_value_method()
     {
-        $value = 'http://example.com';
+        $url = new Url('http://example.com');
 
-        $this->assertEquals($value, (new Url($value))->value());
+        $this->assertEquals('http://example.com', $url->value());
     }
 
     /** @test */
     public function it_has_the_metadata_method()
     {
-        $metadata = new UrlMetadata('dummy');
+        $url = new Url('dummy', new UrlMetadata('dummy'));
 
-        $this->assertEquals($metadata, (new Url('dummy', $metadata))->metadata());
+        $expected = new UrlMetadata('dummy');
+
+        $this->assertEquals($expected, $url->metadata());
     }
 }

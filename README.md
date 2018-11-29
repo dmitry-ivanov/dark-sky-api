@@ -15,33 +15,54 @@
 
 PHP Library for the [Dark Sky API](https://darksky.net/dev).
 
--------
+The package provides a convenient way to interact with the [Dark Sky API](https://darksky.net/dev/docs).
+It covers all the API functionality, including object-level access to the [response headers](https://darksky.net/dev/docs#response-headers), [weather alerts](https://darksky.net/dev/docs#alerts) and [flags](https://darksky.net/dev/docs#flags).
 
-# Refactoring now...
+- Requires [PHP 5.5.9+](https://php.net/releases#5.5.9).
+- [Framework-independent](#basic-usage).
+- [Laravel support](???) is implemented.
+- [HTTP compression](https://darksky.net/dev/docs#response-notes) is used for all API requests.
+- Multiple [time machine requests](https://darksky.net/dev/docs#time-machine-request) are sent concurrently.
 
--------
+## Installation
 
-## Table of contents
+Use [Composer](https://getcomposer.org) to install Dark Sky API into your project:
 
-- [Usage](#usage)
-- [Forecast](#forecast)
-- [Time Machine](#time-machine)
-- [Customization](#customization)
-  - [Language](#language)
-  - [Units](#units)
-  - [Extend](#extend)
-- [Advanced](#advanced)
-  - [Configuration](#configuration)
-  - [Caching, caching, caching!](#caching-caching-caching)
-- [License](#license)
+```bash
+composer require dmitry-ivanov/dark-sky-api
+```
+
+## Basic Usage
+
+### Forecast Request
+
+```php
+use DmitryIvanov\DarkSkyApi\DarkSkyApi;
+
+$forecast = (new DarkSkyApi('secret-key'))
+    ->location(46.482, 30.723)
+    ->forecast();
+
+echo $forecast->currently()->summary();
+```
+
+### Time Machine Request
+
+```php
+// Example here
+```
+
+
+-----------------------------------
+
+# In Progress...
+
+-----------------------------------
+
+
+
 
 ## Usage
-
-1. Install the package via Composer:
-
-    ```shell
-    composer require illuminated/dark-sky
-    ```
 
 2. Set the key in the `.env` file:
 
@@ -58,6 +79,14 @@ PHP Library for the [Dark Sky API](https://darksky.net/dev).
     ```
 
     > Check the [Dark Sky API](https://darksky.net/dev/docs) for more information about the response format.
+
+    ---
+
+    You can publish config to override default language, units, etc:
+
+    ```shell
+    php artisan vendor:publish --provider="Illuminated\DarkSky\ServiceProvider"
+    ```
 
 ## Forecast
 
@@ -95,64 +124,8 @@ $weather = DarkSky::at($latitude, $longitude)->timeMachine('1986-05-11', 'daily'
 $weather = DarkSky::at($latitude, $longitude)->timeMachine('1986-05-11', ['daily', 'hourly']);
 ```
 
-## Customization
-
-### Language
-
-Change the language of response properties:
-
-```php
-$forecast = DarkSky::at($latitude, $longitude)->lang('ru')->forecast();
-```
-
-```php
-$weather  = DarkSky::at($latitude, $longitude)->lang('ru')->timeMachine('1986-05-11');
-```
-
-### Units
-
-Change the units of response weather conditions:
-
-```php
-$forecast = DarkSky::at($latitude, $longitude)->units('si')->forecast();
-```
-
-```php
-$weather  = DarkSky::at($latitude, $longitude)->units('si')->timeMachine('1986-05-11');
-```
-
-### Extend
-
-Extend hour-by-hour forecast to the next 168 hours, instead of the next 48:
-
-```php
-$forecast = DarkSky::at($latitude, $longitude)->extend()->forecast();
-```
-
-## Advanced
-
-### Configuration
-
-You can publish config to override default language, units, etc:
-
-```shell
-php artisan vendor:publish --provider="Illuminated\DarkSky\ServiceProvider"
-```
-
-### Caching, caching, caching!
-
-> Each time you get the weather - you do the real API calls!
-
-Use caching to improve your application speed and reduce API load:
-
-```php
-$forecast = Cache::remember($key, $minutes, function () {
-    return DarkSky::at($latitude, $longitude)->forecast();
-});
-```
-
 ## License
 
-The MIT License. Please see [License File](LICENSE.md) for more information.
+Dark Sky API is open-sourced software licensed under the [MIT license](LICENSE.md).
 
 [<img src="https://raw.githubusercontent.com/dmitry-ivanov/dark-sky-api/master/art/support-on-patreon.png" alt="Support on Patreon" width="125" />](https://patreon.com/dmitryivanov)

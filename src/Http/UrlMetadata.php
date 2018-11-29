@@ -21,14 +21,11 @@ class UrlMetadata implements UrlMetadataContract
      */
     public function __construct($date)
     {
-        $this->date = date('Y-m-d', strtotime($date));
+        $this->date = $date;
     }
 
     /**
      * Get the date, for which the URL was generated.
-     *
-     * The format is "Y-m-d":
-     * @see https://php.net/manual/en/function.date.php
      *
      * @return string
      */

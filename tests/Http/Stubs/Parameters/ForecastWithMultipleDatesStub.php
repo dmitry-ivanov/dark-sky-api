@@ -12,7 +12,7 @@ class ForecastWithMultipleDatesStub extends ForecastStub
      *
      * @var array|string|null
      */
-    protected $dates = ['2018-09-09', '10 October 2018', '11 November 2018'];
+    protected $dates = ['09 Sep 2018', '10 October 2018', '2018-11-11 11:00:00'];
 
     /**
      * The expected URL(s).
@@ -23,14 +23,18 @@ class ForecastWithMultipleDatesStub extends ForecastStub
     {
         $url = parent::expectedUrl()->value();
 
-        $date1 = '2018-09-09T00:00:00';
-        $date2 = '2018-10-10T00:00:00';
-        $date3 = '2018-11-11T00:00:00';
+        $date1 = '09 Sep 2018';
+        $date2 = '10 October 2018';
+        $date3 = '2018-11-11 11:00:00';
+
+        $urlDate1 = '2018-09-09T00:00:00';
+        $urlDate2 = '2018-10-10T00:00:00';
+        $urlDate3 = '2018-11-11T11:00:00';
 
         return [
-            new Url("{$url},{$date1}", new UrlMetadata($date1)),
-            new Url("{$url},{$date2}", new UrlMetadata($date2)),
-            new Url("{$url},{$date3}", new UrlMetadata($date3)),
+            new Url("{$url},{$urlDate1}", new UrlMetadata($date1)),
+            new Url("{$url},{$urlDate2}", new UrlMetadata($date2)),
+            new Url("{$url},{$urlDate3}", new UrlMetadata($date3)),
         ];
     }
 }

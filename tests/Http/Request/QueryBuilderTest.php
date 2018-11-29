@@ -26,7 +26,9 @@ class QueryBuilderTest extends TestCase
      */
     public function it_builds_the_request_query_string_by_the_given_parameters(Parameters $parameters)
     {
-        $this->assertEquals($parameters->expectedQuery(), (new QueryBuilder)->build($parameters));
+        $queryBuilder = new QueryBuilder;
+
+        $this->assertEquals($parameters->expectedQuery(), $queryBuilder->build($parameters));
     }
 
     /**

@@ -21,7 +21,9 @@ class UrlGeneratorTest extends TestCase
      */
     public function it_generates_the_request_urls_by_the_given_parameters(Parameters $parameters)
     {
-        $this->assertEquals($parameters->expectedUrl(), (new UrlGenerator)->generate($parameters));
+        $urlGenerator = new UrlGenerator;
+
+        $this->assertEquals($parameters->expectedUrl(), $urlGenerator->generate($parameters));
     }
 
     /**

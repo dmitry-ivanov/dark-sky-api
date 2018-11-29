@@ -56,7 +56,8 @@ class Api implements ApiContract
         $request = $this->factory->create($parameters);
 
         if ($request instanceof RequestContract) {
-            return $this->composeWeatherData($this->client->gzip()->request($request));
+            $response = $this->client->gzip()->request($request);
+            return $this->composeWeatherData($response);
         }
 
         return array_map(function (ResponseInterface $response) {

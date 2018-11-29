@@ -7,9 +7,6 @@ interface UrlMetadata
     /**
      * Get the date, for which the URL was generated.
      *
-     * The format is "Y-m-d":
-     * @see https://php.net/manual/en/function.date.php
-     *
      * @return string
      */
     public function date();

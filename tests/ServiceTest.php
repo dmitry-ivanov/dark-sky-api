@@ -44,9 +44,9 @@ class ServiceTest extends TestCase
     {
         $service = new Service('dummy');
 
-        $fluent = call_user_func_array([$service, $method], ['dummy', 'dummy']);
+        $result = call_user_func_array([$service, $method], ['dummy', 'dummy']);
 
-        $this->assertEquals($service, $fluent);
+        $this->assertEquals($service, $result);
     }
 
     /**
@@ -67,7 +67,8 @@ class ServiceTest extends TestCase
     {
         $parameters = spy(Parameters::class);
 
-        call_user_func_array([new Service('dummy', $parameters), $method], $args);
+        $service = new Service('dummy', $parameters);
+        call_user_func_array([$service, $method], $args);
 
         $parameters->shouldHaveReceived($paramsMethod, $paramsArgs);
     }
@@ -85,7 +86,8 @@ class ServiceTest extends TestCase
             ->with($parameters)
             ->andReturn($weatherData);
 
-        $this->assertEquals($weatherData, (new Service('dummy', $parameters, $validator, $api))->forecast($blocks));
+        $service = new Service('dummy', $parameters, $validator, $api);
+        $this->assertEquals($weatherData, $service->forecast($blocks));
 
         $parameters->shouldHaveReceived('setBlocks', [$blocks]);
         $validator->shouldHaveReceived('validate', [$parameters]);
@@ -99,13 +101,14 @@ class ServiceTest extends TestCase
         $validator = spy(Validator::class);
         $weatherData = mock(Data::class);
         $blocks = ['currently', 'daily'];
-        $dates = ['2018-10-10', '11 November 2018'];
+        $dates = ['09 Sep 2018', '10 October 2018', '2018-11-11 11:00:00'];
 
         $api->shouldReceive('request')
             ->with($parameters)
             ->andReturn($weatherData);
 
-        $this->assertEquals($weatherData, (new Service('dummy', $parameters, $validator, $api))->timeMachine($dates, $blocks));
+        $service = new Service('dummy', $parameters, $validator, $api);
+        $this->assertEquals($weatherData, $service->timeMachine($dates, $blocks));
 
         $parameters->shouldHaveReceived('setDates', [$dates]);
         $parameters->shouldHaveReceived('setBlocks', [$blocks]);

@@ -54,7 +54,8 @@ class ApiTest extends TestCase
             ->withNoArgs()
             ->andReturn($responseHeaders);
 
-        $this->assertEquals($expected, (new Api($client, $factory))->request($parameters));
+        $api = new Api($client, $factory);
+        $this->assertEquals($expected, $api->request($parameters));
     }
 
     /**
@@ -111,6 +112,7 @@ class ApiTest extends TestCase
             ->with($requests)
             ->andReturn($responses);
 
-        $this->assertEquals($expected, (new Api($client, $factory))->request($parameters));
+        $api = new Api($client, $factory);
+        $this->assertEquals($expected, $api->request($parameters));
     }
 }

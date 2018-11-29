@@ -77,7 +77,11 @@ class ForecastStub extends BaseStub
      */
     protected function createRequest(UrlContract $url, $query)
     {
-        $id = ($metadata = $url->metadata()) ? $metadata->date() : null;
+        $id = null;
+
+        if ($urlMetadata = $url->metadata()) {
+            $id = $urlMetadata->date();
+        }
 
         return new Request($url->value(), $query, $id);
     }
