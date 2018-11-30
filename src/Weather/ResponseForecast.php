@@ -2,9 +2,9 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\Data as DataContract;
+use DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseForecast as ResponseContract;
 
-class Data implements DataContract
+class ResponseForecast implements ResponseContract
 {
     /**
      * The data.
@@ -21,7 +21,7 @@ class Data implements DataContract
     protected $headers;
 
     /**
-     * Create a new instance of the weather data.
+     * Create a new instance of the forecast response.
      *
      * @param  array  $data
      * @param  array  $headers

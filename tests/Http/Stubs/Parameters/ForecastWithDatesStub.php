@@ -12,7 +12,7 @@ class ForecastWithDatesStub extends ForecastStub
      *
      * @var array|string|null
      */
-    protected $dates = '11 November 2018';
+    protected $dates = '11 Nov 2018';
 
     /**
      * The expected URL(s).
@@ -23,7 +23,7 @@ class ForecastWithDatesStub extends ForecastStub
     {
         $url = parent::expectedUrl()->value();
 
-        $date = '11 November 2018';
+        $date = '11 Nov 2018';
         $urlDate = '2018-11-11T00:00:00';
 
         return new Url("{$url},{$urlDate}", new UrlMetadata($date));

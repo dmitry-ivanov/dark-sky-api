@@ -126,30 +126,33 @@ class Service implements ServiceContract
     }
 
     /**
-     * Get the weather forecast data.
+     * Get the weather forecast.
      *
      * @see https://darksky.net/dev/docs#forecast-request
      *
      * @param  array|string|null  $blocks
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Data
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseForecast
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
      */
     public function forecast($blocks = null)
     {
-        return $this->request($blocks);
+        $this->parameters->setBlocks($blocks);
+
+        $this->validator->validate($this->parameters);
+
+        return $this->api->forecast($this->parameters);
     }
 
     /**
-     * Get the observed weather data for the given dates.
+     * Get the observed weather for the given date(s).
      *
-     * Returns the weather data object or the array of the weather data objects for the multiple dates.
      * @see https://darksky.net/dev/docs#time-machine-request
      *
      * @param  array|string  $dates
      * @param  array|string|null  $blocks
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Data|array
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseTimeMachine|array
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
@@ -157,25 +160,10 @@ class Service implements ServiceContract
     public function timeMachine($dates, $blocks = null)
     {
         $this->parameters->setDates($dates);
-
-        return $this->request($blocks);
-    }
-
-    /**
-     * Make the API request.
-     *
-     * @param  array|string|null  $blocks
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Data|array
-     *
-     * @throws \Exception on HTTP error
-     * @throws \Throwable on HTTP error in PHP >=7
-     */
-    protected function request($blocks)
-    {
         $this->parameters->setBlocks($blocks);
 
         $this->validator->validate($this->parameters);
 
-        return $this->api->request($this->parameters);
+        return $this->api->timeMachine($this->parameters);
     }
 }

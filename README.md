@@ -13,20 +13,19 @@
 [![Total Downloads](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/downloads)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
 [![License](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/license)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
 
-PHP Library for the [Dark Sky API](https://darksky.net/dev).
+The package provides a convenient way to interact with [Dark Sky API](https://darksky.net/dev/docs).
 
-The package provides a convenient way to interact with the [Dark Sky API](https://darksky.net/dev/docs).
 It covers all the API functionality, including object-level access to the [response headers](https://darksky.net/dev/docs#response-headers), [weather alerts](https://darksky.net/dev/docs#alerts) and [flags](https://darksky.net/dev/docs#flags).
 
 - Requires [PHP 5.5.9+](https://php.net/releases#5.5.9).
-- [Framework-independent](#basic-usage).
-- [Laravel support](???) is implemented.
-- [HTTP compression](https://darksky.net/dev/docs#response-notes) is used for all API requests.
-- Multiple [time machine requests](https://darksky.net/dev/docs#time-machine-request) are sent concurrently.
+- [Stand-alone](#basic-usage) PHP package.
+- Ready-to-use in [Laravel](???) application.
+- Each request utilizes [HTTP compression](https://darksky.net/dev/docs#response-notes).
+- [Time Machine Requests](https://darksky.net/dev/docs#time-machine-request) are sent concurrently.
 
 ## Installation
 
-Use [Composer](https://getcomposer.org) to install Dark Sky API into your project:
+Use [Composer](https://getcomposer.org) to install the package:
 
 ```bash
 composer require dmitry-ivanov/dark-sky-api

@@ -13,6 +13,7 @@ class UrlMetadataTest extends TestCase
      * @param  string  $date
      *
      * @testWith ["2018-11-11"]
+     *           ["11 Nov 2018"]
      *           ["11 November 2018"]
      *           ["2018-11-11 11:00:00"]
      */

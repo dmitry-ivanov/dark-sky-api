@@ -5,8 +5,9 @@ namespace Tests;
 use DmitryIvanov\DarkSkyApi\Service;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Api;
 use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\Data;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Validator;
+use DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseForecast;
+use DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseTimeMachine;
 
 class ServiceTest extends TestCase
 {
@@ -79,15 +80,15 @@ class ServiceTest extends TestCase
         $api = mock(Api::class);
         $parameters = spy(Parameters::class);
         $validator = spy(Validator::class);
-        $weatherData = mock(Data::class);
         $blocks = ['currently', 'daily'];
+        $response = mock(ResponseForecast::class);
 
-        $api->shouldReceive('request')
+        $api->shouldReceive('forecast')
             ->with($parameters)
-            ->andReturn($weatherData);
+            ->andReturn($response);
 
         $service = new Service('dummy', $parameters, $validator, $api);
-        $this->assertEquals($weatherData, $service->forecast($blocks));
+        $this->assertEquals($response, $service->forecast($blocks));
 
         $parameters->shouldHaveReceived('setBlocks', [$blocks]);
         $validator->shouldHaveReceived('validate', [$parameters]);
@@ -99,16 +100,16 @@ class ServiceTest extends TestCase
         $api = mock(Api::class);
         $parameters = spy(Parameters::class);
         $validator = spy(Validator::class);
-        $weatherData = mock(Data::class);
-        $blocks = ['currently', 'daily'];
         $dates = ['09 Sep 2018', '10 October 2018', '2018-11-11 11:00:00'];
+        $blocks = ['currently', 'daily'];
+        $response = mock(ResponseTimeMachine::class);
 
-        $api->shouldReceive('request')
+        $api->shouldReceive('timeMachine')
             ->with($parameters)
-            ->andReturn($weatherData);
+            ->andReturn($response);
 
         $service = new Service('dummy', $parameters, $validator, $api);
-        $this->assertEquals($weatherData, $service->timeMachine($dates, $blocks));
+        $this->assertEquals($response, $service->timeMachine($dates, $blocks));
 
         $parameters->shouldHaveReceived('setDates', [$dates]);
         $parameters->shouldHaveReceived('setBlocks', [$blocks]);

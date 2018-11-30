@@ -2,7 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Contracts\Weather;
 
-interface Data
+interface ResponseForecast
 {
     /**
      * The HTTP response headers.

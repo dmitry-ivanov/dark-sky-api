@@ -3,23 +3,23 @@
 namespace Tests\Weather;
 
 use Tests\TestCase;
-use DmitryIvanov\DarkSkyApi\Weather\Data;
 use DmitryIvanov\DarkSkyApi\Weather\Alert;
 use DmitryIvanov\DarkSkyApi\Weather\Flags;
 use DmitryIvanov\DarkSkyApi\Weather\Headers;
 use DmitryIvanov\DarkSkyApi\Weather\DataBlock;
 use DmitryIvanov\DarkSkyApi\Weather\DataPoint;
+use DmitryIvanov\DarkSkyApi\Weather\ResponseForecast;
 
-class DataTest extends TestCase
+class ResponseForecastTest extends TestCase
 {
     /** @test */
     public function it_has_the_headers_method()
     {
-        $data = new Data(['dummy'], ['dummy-headers']);
+        $response = new ResponseForecast(['dummy'], ['dummy-headers']);
 
         $expected = new Headers(['dummy-headers']);
 
-        $this->assertEquals($expected, $data->headers());
+        $this->assertEquals($expected, $response->headers());
     }
 
     /**
@@ -34,53 +34,54 @@ class DataTest extends TestCase
      */
     public function it_has_the_methods_for_obtaining_specific_properties($method, $expected)
     {
-        $data = new Data([
+        $response = new ResponseForecast([
             'latitude' => 1.234,
             'longitude' => 5.678,
             'timezone' => 'America/New_York',
         ], ['dummy']);
 
-        $this->assertEquals($expected, $data->{$method}());
+        $this->assertEquals($expected, $response->{$method}());
     }
 
     /** @test */
     public function it_has_the_currently_method()
     {
-        $data = new Data([
+        $response = new ResponseForecast([
             'currently' => ['dummy-currently'],
         ], ['dummy']);
 
         $expected = new DataPoint(['dummy-currently']);
 
-        $this->assertEquals($expected, $data->currently());
+        $this->assertEquals($expected, $response->currently());
     }
 
     /**
      * @test
      *
      * @param  string  $method
-     * @param  string  $dataKey
-     * @param  array  $dataBlock
+     * @param  array  $block
      *
-     * @testWith ["minutely", "minutely", ["dummy-minutely"]]
-     *           ["hourly", "hourly", ["dummy-hourly"]]
-     *           ["daily", "daily", ["dummy-daily"]]
+     * @testWith ["minutely", ["dummy-minutely"]]
+     *           ["hourly", ["dummy-hourly"]]
+     *           ["daily", ["dummy-daily"]]
      */
-    public function it_has_several_methods_which_return_different_kinds_of_data_blocks($method, $dataKey, array $dataBlock)
+    public function it_has_several_methods_which_return_different_kinds_of_data_blocks($method, array $block)
     {
-        $data = new Data([
-            $dataKey => $dataBlock,
+        $response = new ResponseForecast([
+            'minutely' => ['dummy-minutely'],
+            'hourly' => ['dummy-hourly'],
+            'daily' => ['dummy-daily'],
         ], ['dummy']);
 
-        $expected = new DataBlock($dataBlock);
+        $expected = new DataBlock($block);
 
-        $this->assertEquals($expected, $data->{$method}());
+        $this->assertEquals($expected, $response->{$method}());
     }
 
     /** @test */
     public function it_has_the_alerts_method()
     {
-        $data = new Data([
+        $response = new ResponseForecast([
             'alerts' => [
                 $alert1 = ['dummy-alert-1'],
                 $alert2 = ['dummy-alert-2'],
@@ -94,19 +95,19 @@ class DataTest extends TestCase
             new Alert($alert3),
         ];
 
-        $this->assertEquals($expected, $data->alerts());
+        $this->assertEquals($expected, $response->alerts());
     }
 
     /** @test */
     public function it_has_the_flags_method()
     {
-        $data = new Data([
+        $response = new ResponseForecast([
             'flags' => ['dummy-flags'],
         ], ['dummy']);
 
         $expected = new Flags(['dummy-flags']);
 
-        $this->assertEquals($expected, $data->flags());
+        $this->assertEquals($expected, $response->flags());
     }
 
     /**
@@ -126,8 +127,8 @@ class DataTest extends TestCase
      */
     public function if_there_is_no_underlying_data_for_the_proper_method_then_null_would_be_returned($method)
     {
-        $data = new Data(['dummy'], ['dummy']);
+        $response = new ResponseForecast(['dummy'], ['dummy']);
 
-        $this->assertNull($data->{$method}());
+        $this->assertNull($response->{$method}());
     }
 }
