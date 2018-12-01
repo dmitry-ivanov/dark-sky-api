@@ -50,7 +50,7 @@ interface Service
      * @param  string  $blocks
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
      */
-    public function extend($blocks);
+    public function extend($blocks = 'hourly');
 
     /**
      * Get the weather forecast.

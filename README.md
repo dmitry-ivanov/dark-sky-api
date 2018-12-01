@@ -19,7 +19,7 @@ It covers all the API functionality, including object-level access to the [respo
 
 - Requires [PHP 5.5.9+](https://php.net/releases#5.5.9).
 - [Stand-alone](#basic-usage) PHP package.
-- Ready-to-use in [Laravel](???) application.
+- Ready-to-use in [Laravel](#laravel-support) application.
 - Each request utilizes [HTTP compression](https://darksky.net/dev/docs#response-notes).
 - [Time Machine Requests](https://darksky.net/dev/docs#time-machine-request) are sent concurrently.
 
@@ -40,93 +40,68 @@ use DmitryIvanov\DarkSkyApi\DarkSkyApi;
 
 $forecast = (new DarkSkyApi('secret-key'))
     ->location(46.482, 30.723)
-    ->forecast();
+    ->units('si')
+    ->language('ru')
+    ->forecast('currently');
 
 echo $forecast->currently()->summary();
 ```
 
-### Time Machine Request
+### Time Machine Requests
 
 ```php
 use DmitryIvanov\DarkSkyApi\DarkSkyApi;
 
 $timeMachine = (new DarkSkyApi('secret-key'))
     ->location(46.482, 30.723)
-    ->timeMachine('2018-12-01');
+    ->units('si')
+    ->language('ru')
+    ->timeMachine('2018-12-01', ['daily', 'flags']);
 
 echo $timeMachine->daily()->summary();
 ```
 
-
------------------------------------
-
-# In Progress...
-
------------------------------------
-
-
-
-
-## Usage
-
-2. Set the key in the `.env` file:
-
-    ```
-    DARK_SKY_KEY=[Your Secret Key]
-    ```
-
-3. Use `DarkSky` class:
-
-    ```php
-    use DarkSky;
-
-    $forecast = DarkSky::at($latitude, $longitude)->forecast();
-    ```
-
-    > Check the [Dark Sky API](https://darksky.net/dev/docs) for more information about the response format.
-
-    ---
-
-    You can publish config to override default language, units, etc:
-
-    ```shell
-    php artisan vendor:publish --provider="Illuminated\DarkSky\ServiceProvider"
-    ```
-
-## Forecast
-
-Get the weather forecast:
+Multiple requests are sent concurrently:
 
 ```php
-$forecast = DarkSky::at($latitude, $longitude)->forecast();
+use DmitryIvanov\DarkSkyApi\DarkSkyApi;
+
+$timeMachine = (new DarkSkyApi('secret-key'))
+    ->location(46.482, 30.723)
+    ->timeMachine(['2018-12-01', '2018-12-02', '2018-12-03']);
+
+echo $timeMachine['2018-12-02']->daily()->summary();
 ```
 
-Specify desired data blocks to reduce the response size:
+## Laravel Support
 
-```php
-$forecast = DarkSky::at($latitude, $longitude)->forecast('daily');
-$forecast = DarkSky::at($latitude, $longitude)->forecast(['daily', 'hourly']);
+> If you're using Laravel <5.5, you have to register the service provider and alias by yourself.
+
+Dark Sky API utilizes [Laravel Package Discovery](https://laravel.com/docs/master/packages#package-discovery). You get the service provider, config file, facade with its alias out-of-the-box.
+
+Set your [secret key](https://darksky.net/dev/register) in `.env` file:
+
+```dotenv
+DARK_SKY_API_KEY=[Your Secret Key]
 ```
 
-## Time Machine
-
-Get the weather conditions for a particular date:
+You may use the configured facade now:
 
 ```php
-$weather = DarkSky::at($latitude, $longitude)->timeMachine('1986-05-11');
+use DarkSkyApi;
+
+$forecast = DarkSkyApi::location(46.482, 30.723)
+    ->units('si')
+    ->language('ru')
+    ->forecast('currently');
+
+echo $forecast->currently()->summary();
 ```
 
-Or get the weather conditions for several dates via [concurrent requests](http://docs.guzzlephp.org/en/stable/quickstart.html#concurrent-requests):
+Publish the config file to override the request parameters (optionally):
 
-```php
-$weather = DarkSky::at($latitude, $longitude)->timeMachine(['1986-05-11', '1987-05-11']);
-```
-
-Specify desired data blocks to reduce the response size:
-
-```php
-$weather = DarkSky::at($latitude, $longitude)->timeMachine('1986-05-11', 'daily');
-$weather = DarkSky::at($latitude, $longitude)->timeMachine('1986-05-11', ['daily', 'hourly']);
+```bash
+php artisan vendor:publish --provider="DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider"
 ```
 
 ## License
