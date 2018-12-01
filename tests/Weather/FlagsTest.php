@@ -13,17 +13,17 @@ class FlagsTest extends TestCase
      * @param  array  data
      * @param  bool  $expected
      *
-     * @testWith [{"darksky-unavailable": null}, true]
+     * @testWith [[], false]
+     *           [["dummy"], false]
+     *           [{"darksky-unavailable": null}, true]
      *           [{"darksky-unavailable": ""}, true]
      *           [{"darksky-unavailable": true}, true]
      *           [{"darksky-unavailable": false}, true]
      *           [{"darksky-unavailable": 0}, true]
      *           [{"darksky-unavailable": 1}, true]
      *           [{"darksky-unavailable": "dummy"}, true]
-     *           [[], false]
-     *           [["dummy"], false]
      */
-    public function it_has_the_isUnavailable_method_which_returns_true_if_the_property_key_exists(array $data, $expected)
+    public function it_has_the_isUnavailable_method(array $data, $expected)
     {
         $flags = new Flags($data);
 

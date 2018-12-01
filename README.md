@@ -48,7 +48,13 @@ echo $forecast->currently()->summary();
 ### Time Machine Request
 
 ```php
-// Example here
+use DmitryIvanov\DarkSkyApi\DarkSkyApi;
+
+$timeMachine = (new DarkSkyApi('secret-key'))
+    ->location(46.482, 30.723)
+    ->timeMachine('2018-12-01');
+
+echo $timeMachine->daily()->summary();
 ```
 
 

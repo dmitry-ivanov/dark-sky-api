@@ -38,13 +38,13 @@ class RulesTest extends TestCase
         return [
             [new ApiKey, 'api-key-12345'],
 
-            [new Latitude, -89.9],
             [new Latitude, 0],
-            [new Latitude, 89.9],
+            [new Latitude, -89.9],
+            [new Latitude, +89.9],
 
-            [new Longitude, -179.9],
             [new Longitude, 0],
-            [new Longitude, 179.9],
+            [new Longitude, -179.9],
+            [new Longitude, +179.9],
 
             [new Units, null],
             [new Units, 'auto'],
@@ -121,7 +121,7 @@ class RulesTest extends TestCase
             [new Latitude, 'a1'],
             [new Latitude, [1]],
             [new Latitude, -90.1],
-            [new Latitude, 90.1],
+            [new Latitude, +90.1],
 
             [new Longitude, null],
             [new Longitude, ''],
@@ -131,7 +131,7 @@ class RulesTest extends TestCase
             [new Longitude, 'a1'],
             [new Longitude, [1]],
             [new Longitude, -180.1],
-            [new Longitude, 180.1],
+            [new Longitude, +180.1],
 
             [new Units, ''],
             [new Units, true],

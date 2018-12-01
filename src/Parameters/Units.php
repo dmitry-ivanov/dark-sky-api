@@ -5,7 +5,7 @@ namespace DmitryIvanov\DarkSkyApi\Parameters;
 class Units
 {
     /**
-     * Get the supported units values.
+     * Get the supported units.
      *
      * @return array
      */

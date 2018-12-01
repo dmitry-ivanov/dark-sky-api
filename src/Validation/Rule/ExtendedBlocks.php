@@ -14,7 +14,8 @@ class ExtendedBlocks implements Rule
      */
     public function passes($value)
     {
-        return is_null($value) || ($value === 'hourly');
+        return is_null($value)
+            || ($value === 'hourly');
     }
 
     /**

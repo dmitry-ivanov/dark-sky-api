@@ -9,7 +9,7 @@ use Mockery\Adapter\Phpunit\MockeryTestCase;
 class TestCase extends MockeryTestCase
 {
     /**
-     * Asserts that the object has the given class as one of its parents or implements it.
+     * Assert that the object has the given class as one of its parents or implements it.
      *
      * @param  object|string  $object
      * @param  string  $class
@@ -21,7 +21,7 @@ class TestCase extends MockeryTestCase
     }
 
     /**
-     * Sets an expectation for the exception.
+     * Set an expectation for the exception.
      *
      * Provides backward compatibility with the PHPUnit 4 and PHPUnit 5.
      *

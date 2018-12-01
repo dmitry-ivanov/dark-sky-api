@@ -12,7 +12,7 @@ use DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseTimeMachine;
 class ServiceTest extends TestCase
 {
     /** @test */
-    public function the_key_passed_to_the_constructor_would_be_set_to_the_apiKey_service_parameter()
+    public function the_api_key_passed_to_the_constructor_would_be_set_to_the_service_parameters()
     {
         $parameters = spy(Parameters::class);
 
@@ -29,25 +29,6 @@ class ServiceTest extends TestCase
         $service = new Service('dummy', $parameters);
 
         $this->assertEquals($parameters, $service->getParameters());
-    }
-
-    /**
-     * @test
-     *
-     * @param  string  $method
-     *
-     * @testWith ["location"]
-     *           ["units"]
-     *           ["language"]
-     *           ["extend"]
-     */
-    public function it_has_the_methods_which_provide_the_fluent_interface($method)
-    {
-        $service = new Service('dummy');
-
-        $result = call_user_func_array([$service, $method], ['dummy', 'dummy']);
-
-        $this->assertEquals($service, $result);
     }
 
     /**
@@ -72,6 +53,25 @@ class ServiceTest extends TestCase
         call_user_func_array([$service, $method], $args);
 
         $parameters->shouldHaveReceived($paramsMethod, $paramsArgs);
+    }
+
+    /**
+     * @test
+     *
+     * @param  string  $method
+     *
+     * @testWith ["location"]
+     *           ["units"]
+     *           ["language"]
+     *           ["extend"]
+     */
+    public function the_methods_which_modify_the_service_parameters_provide_the_fluent_interface($method)
+    {
+        $service = new Service('dummy');
+
+        $result = call_user_func_array([$service, $method], ['dummy', 'dummy']);
+
+        $this->assertEquals($service, $result);
     }
 
     /** @test */

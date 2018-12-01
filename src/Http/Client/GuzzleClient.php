@@ -56,7 +56,7 @@ class GuzzleClient implements Client
     /**
      * Make the concurrent API requests by the given array of the request objects.
      *
-     * Returns the associative array of the responses, with the request IDs as the keys.
+     * Returns an associative array of the responses, with the request IDs used as the keys.
      *
      * @param  array  $requests
      * @return array

@@ -5,7 +5,7 @@ namespace DmitryIvanov\DarkSkyApi\Parameters;
 class Language
 {
     /**
-     * Get the supported language values.
+     * Get the supported languages.
      *
      * @return array
      */

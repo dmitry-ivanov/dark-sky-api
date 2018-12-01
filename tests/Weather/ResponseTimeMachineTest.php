@@ -15,7 +15,7 @@ class ResponseTimeMachineTest extends TestCase
             'daily' => [
                 'data' => [
                     ['dummy-point'],
-                ]
+                ],
             ],
         ], ['dummy']);
 

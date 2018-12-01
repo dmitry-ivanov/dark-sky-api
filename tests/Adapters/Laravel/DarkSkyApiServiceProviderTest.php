@@ -57,7 +57,8 @@ class DarkSkyApiServiceProviderTest extends TestCase
     /** @test */
     public function it_registers_and_setups_the_api_service_in_the_container()
     {
-        $serviceProvider = mock(DarkSkyApiServiceProvider::class, [$app = mock(Application::class)]);
+        $app = mock(Application::class);
+        $serviceProvider = mock(DarkSkyApiServiceProvider::class, [$app]);
 
         $serviceProvider->makePartial()
             ->shouldAllowMockingProtectedMethods();

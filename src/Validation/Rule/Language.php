@@ -15,8 +15,12 @@ class Language implements Rule
      */
     public function passes($value)
     {
-        return is_null($value)
-            || (is_string($value) && in_array($value, LanguageParameter::values()));
+        if (is_null($value)) {
+            return true;
+        }
+
+        return is_string($value)
+            && in_array($value, LanguageParameter::values());
     }
 
     /**

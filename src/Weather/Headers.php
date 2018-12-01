@@ -14,7 +14,7 @@ class Headers implements HeadersContract
     protected $headers;
 
     /**
-     * Create a new instance of the weather headers.
+     * Create a new instance of the weather response headers.
      *
      * @param  array  $headers
      * @return void

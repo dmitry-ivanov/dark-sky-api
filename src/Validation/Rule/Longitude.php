@@ -14,9 +14,9 @@ class Longitude implements Rule
      */
     public function passes($value)
     {
-        return isset($value)
-            && is_numeric($value)
-            && ($value >= -180) && ($value <= 180);
+        return is_numeric($value)
+            && ($value >= -180)
+            && ($value <= +180);
     }
 
     /**

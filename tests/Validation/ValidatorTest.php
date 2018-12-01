@@ -25,7 +25,6 @@ class ValidatorTest extends TestCase
     public function the_valid_parameters_would_pass_the_validation()
     {
         $validator = new Validator;
-
         $validator->validate(new AcceptableStub);
     }
 
@@ -42,7 +41,6 @@ class ValidatorTest extends TestCase
         $this->isExpectingException(new InvalidArgumentException($message));
 
         $validator = new Validator;
-
         $validator->validate($parameters);
     }
 

@@ -14,7 +14,8 @@ class ApiKey implements Rule
      */
     public function passes($value)
     {
-        return !empty($value) && is_string($value);
+        return is_string($value)
+            && !empty($value);
     }
 
     /**

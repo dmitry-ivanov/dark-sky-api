@@ -14,9 +14,9 @@ class Latitude implements Rule
      */
     public function passes($value)
     {
-        return isset($value)
-            && is_numeric($value)
-            && ($value >= -90) && ($value <= 90);
+        return is_numeric($value)
+            && ($value >= -90)
+            && ($value <= +90);
     }
 
     /**

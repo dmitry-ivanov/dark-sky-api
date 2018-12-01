@@ -5,7 +5,7 @@ namespace DmitryIvanov\DarkSkyApi\Parameters;
 class Blocks
 {
     /**
-     * Get the supported blocks values.
+     * Get the supported blocks.
      *
      * @return array
      */
