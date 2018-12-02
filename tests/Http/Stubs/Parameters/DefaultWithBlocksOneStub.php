@@ -2,14 +2,14 @@
 
 namespace Tests\Http\Stubs\Parameters;
 
-class ForecastWithMultipleBlocksStub extends ForecastStub
+class DefaultWithBlocksOneStub extends DefaultStub
 {
     /**
      * The blocks.
      *
      * @var array|string|null
      */
-    protected $blocks = ['currently', 'daily'];
+    protected $blocks = ['currently'];
 
     /**
      * The expected query string.
@@ -18,6 +18,6 @@ class ForecastWithMultipleBlocksStub extends ForecastStub
      */
     public function expectedQuery()
     {
-        return 'exclude=minutely,hourly,alerts,flags';
+        return 'exclude=minutely,hourly,daily,alerts,flags';
     }
 }

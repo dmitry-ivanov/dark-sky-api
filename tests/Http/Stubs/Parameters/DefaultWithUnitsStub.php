@@ -2,14 +2,14 @@
 
 namespace Tests\Http\Stubs\Parameters;
 
-class ForecastWithExtendedBlocksStub extends ForecastStub
+class DefaultWithUnitsStub extends DefaultStub
 {
     /**
-     * The extended blocks.
+     * The units.
      *
      * @var string|null
      */
-    protected $extendedBlocks = 'hourly';
+    protected $units = 'si';
 
     /**
      * The expected query string.
@@ -18,6 +18,6 @@ class ForecastWithExtendedBlocksStub extends ForecastStub
      */
     public function expectedQuery()
     {
-        return 'extend=hourly';
+        return 'units=si';
     }
 }

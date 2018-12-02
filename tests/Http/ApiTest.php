@@ -5,21 +5,21 @@ namespace Tests\Http;
 use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Api;
 use Psr\Http\Message\ResponseInterface;
+use Tests\Http\Stubs\Parameters\DefaultStub;
 use DmitryIvanov\DarkSkyApi\Weather\Forecast;
-use Tests\Http\Stubs\Parameters\ForecastStub;
 use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
-use Tests\Http\Stubs\Parameters\ForecastWithDatesStub;
+use Tests\Http\Stubs\Parameters\DefaultWithDateStub;
+use Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\RequestFactory;
-use Tests\Http\Stubs\Parameters\ForecastWithMultipleDatesStub;
 
 class ApiTest extends TestCase
 {
     /** @test */
     public function it_has_the_forecast_method()
     {
-        $parameters = new ForecastStub;
+        $parameters = new DefaultStub;
 
         $client = mock(Client::class);
         $factory = mock(RequestFactory::class);
@@ -57,7 +57,7 @@ class ApiTest extends TestCase
     /** @test */
     public function it_has_the_timeMachine_method()
     {
-        $parameters = new ForecastWithDatesStub;
+        $parameters = new DefaultWithDateStub;
 
         $client = mock(Client::class);
         $factory = mock(RequestFactory::class);
@@ -95,7 +95,7 @@ class ApiTest extends TestCase
     /** @test */
     public function the_timeMachine_method_would_make_the_concurrent_requests_for_the_multiple_dates()
     {
-        $parameters = new ForecastWithMultipleDatesStub;
+        $parameters = new DefaultWithDatesStub;
 
         $client = mock(Client::class);
         $factory = mock(RequestFactory::class);

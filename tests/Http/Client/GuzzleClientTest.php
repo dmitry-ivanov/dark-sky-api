@@ -6,17 +6,17 @@ use Tests\TestCase;
 use GuzzleHttp\Client as Guzzle;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Promise\PromiseInterface;
-use Tests\Http\Stubs\Parameters\ForecastStub;
+use Tests\Http\Stubs\Parameters\DefaultStub;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
 use DmitryIvanov\DarkSkyApi\Http\Client\GuzzleClient;
-use Tests\Http\Stubs\Parameters\ForecastWithMultipleDatesStub;
+use Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
 
 class GuzzleClientTest extends TestCase
 {
     /** @test */
     public function it_has_the_request_method()
     {
-        $parameters = new ForecastStub;
+        $parameters = new DefaultStub;
 
         $guzzle = mock(Guzzle::class);
         $request = $parameters->expectedRequests();
@@ -33,7 +33,7 @@ class GuzzleClientTest extends TestCase
     /** @test */
     public function it_has_the_concurrent_requests_method()
     {
-        $parameters = new ForecastWithMultipleDatesStub;
+        $parameters = new DefaultWithDatesStub;
 
         $guzzle = mock(Guzzle::class);
         $requests = $parameters->expectedRequests();

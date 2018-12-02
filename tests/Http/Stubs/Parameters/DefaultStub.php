@@ -6,7 +6,7 @@ use DmitryIvanov\DarkSkyApi\Http\Url;
 use DmitryIvanov\DarkSkyApi\Http\Request;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Url as UrlContract;
 
-class ForecastStub extends BaseStub
+class DefaultStub extends AbstractStub
 {
     /**
      * The API key.

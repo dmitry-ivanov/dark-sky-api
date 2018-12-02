@@ -2,7 +2,7 @@
 
 namespace Tests\Http\Stubs\Parameters;
 
-class ForecastWithMultipleBlocksAllStub extends ForecastStub
+class DefaultWithBlocksAllStub extends DefaultStub
 {
     /**
      * The blocks.

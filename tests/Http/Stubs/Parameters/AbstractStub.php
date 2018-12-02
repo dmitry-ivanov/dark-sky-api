@@ -4,7 +4,7 @@ namespace Tests\Http\Stubs\Parameters;
 
 use DmitryIvanov\DarkSkyApi\Parameters;
 
-abstract class BaseStub extends Parameters
+abstract class AbstractStub extends Parameters
 {
     /**
      * The expected URL(s).

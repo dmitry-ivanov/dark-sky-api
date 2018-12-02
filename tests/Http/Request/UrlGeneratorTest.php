@@ -3,23 +3,23 @@
 namespace Tests\Http\Request;
 
 use Tests\TestCase;
-use Tests\Http\Stubs\Parameters\ForecastStub;
+use Tests\Http\Stubs\Parameters\DefaultStub;
+use Tests\Http\Stubs\Parameters\AbstractStub;
+use Tests\Http\Stubs\Parameters\DefaultWithDateStub;
+use Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
 use DmitryIvanov\DarkSkyApi\Http\Request\UrlGenerator;
-use Tests\Http\Stubs\Parameters\ForecastWithDatesStub;
-use Tests\Http\Stubs\Parameters\BaseStub as Parameters;
-use Tests\Http\Stubs\Parameters\ForecastWithMultipleDatesStub;
-use Tests\Http\Stubs\Parameters\ForecastWithMultipleDatesLeanStub;
+use Tests\Http\Stubs\Parameters\DefaultWithDatesOneStub;
 
 class UrlGeneratorTest extends TestCase
 {
     /**
      * @test
      *
-     * @param  \Tests\Http\Stubs\Parameters\BaseStub  $parameters
+     * @param  \Tests\Http\Stubs\Parameters\AbstractStub  $parameters
      *
      * @dataProvider provide_parameters
      */
-    public function it_generates_the_request_urls_by_the_given_parameters(Parameters $parameters)
+    public function it_generates_the_request_urls_by_the_given_parameters(AbstractStub $parameters)
     {
         $urlGenerator = new UrlGenerator;
 
@@ -34,10 +34,10 @@ class UrlGeneratorTest extends TestCase
     public function provide_parameters()
     {
         return [
-            [new ForecastStub],
-            [new ForecastWithDatesStub],
-            [new ForecastWithMultipleDatesStub],
-            [new ForecastWithMultipleDatesLeanStub],
+            [new DefaultStub],
+            [new DefaultWithDateStub],
+            [new DefaultWithDatesStub],
+            [new DefaultWithDatesOneStub],
         ];
     }
 }

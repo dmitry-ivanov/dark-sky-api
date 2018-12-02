@@ -2,7 +2,7 @@
 
 namespace Tests\Http\Stubs\Parameters;
 
-class ForecastWithLanguageStub extends ForecastStub
+class DefaultWithLanguageStub extends DefaultStub
 {
     /**
      * The language.

@@ -2,7 +2,7 @@
 
 namespace Tests\Http\Stubs\Parameters;
 
-class ForecastWithParametersMixStub extends ForecastStub
+class DefaultWithParamsMixStub extends DefaultStub
 {
     /**
      * The units.

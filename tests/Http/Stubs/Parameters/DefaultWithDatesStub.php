@@ -5,7 +5,7 @@ namespace Tests\Http\Stubs\Parameters;
 use DmitryIvanov\DarkSkyApi\Http\Url;
 use DmitryIvanov\DarkSkyApi\Http\UrlMetadata;
 
-class ForecastWithMultipleDatesStub extends ForecastStub
+class DefaultWithDatesStub extends DefaultStub
 {
     /**
      * The dates for the time machine requests.

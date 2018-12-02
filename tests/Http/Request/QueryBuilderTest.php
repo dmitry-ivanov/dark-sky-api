@@ -3,28 +3,28 @@
 namespace Tests\Http\Request;
 
 use Tests\TestCase;
-use Tests\Http\Stubs\Parameters\ForecastStub;
+use Tests\Http\Stubs\Parameters\DefaultStub;
+use Tests\Http\Stubs\Parameters\AbstractStub;
+use Tests\Http\Stubs\Parameters\DefaultWithBlockStub;
+use Tests\Http\Stubs\Parameters\DefaultWithUnitsStub;
 use DmitryIvanov\DarkSkyApi\Http\Request\QueryBuilder;
-use Tests\Http\Stubs\Parameters\ForecastWithUnitsStub;
-use Tests\Http\Stubs\Parameters\BaseStub as Parameters;
-use Tests\Http\Stubs\Parameters\ForecastWithBlocksStub;
-use Tests\Http\Stubs\Parameters\ForecastWithLanguageStub;
-use Tests\Http\Stubs\Parameters\ForecastWithParametersMixStub;
-use Tests\Http\Stubs\Parameters\ForecastWithExtendedBlocksStub;
-use Tests\Http\Stubs\Parameters\ForecastWithMultipleBlocksStub;
-use Tests\Http\Stubs\Parameters\ForecastWithMultipleBlocksAllStub;
-use Tests\Http\Stubs\Parameters\ForecastWithMultipleBlocksLeanStub;
+use Tests\Http\Stubs\Parameters\DefaultWithBlocksStub;
+use Tests\Http\Stubs\Parameters\DefaultWithLanguageStub;
+use Tests\Http\Stubs\Parameters\DefaultWithBlocksAllStub;
+use Tests\Http\Stubs\Parameters\DefaultWithBlocksOneStub;
+use Tests\Http\Stubs\Parameters\DefaultWithParamsMixStub;
+use Tests\Http\Stubs\Parameters\DefaultWithExtendedBlockStub;
 
 class QueryBuilderTest extends TestCase
 {
     /**
      * @test
      *
-     * @param  \Tests\Http\Stubs\Parameters\BaseStub  $parameters
+     * @param  \Tests\Http\Stubs\Parameters\AbstractStub  $parameters
      *
      * @dataProvider provide_parameters
      */
-    public function it_builds_the_request_query_string_by_the_given_parameters(Parameters $parameters)
+    public function it_builds_the_request_query_string_by_the_given_parameters(AbstractStub $parameters)
     {
         $queryBuilder = new QueryBuilder;
 
@@ -39,15 +39,15 @@ class QueryBuilderTest extends TestCase
     public function provide_parameters()
     {
         return [
-            [new ForecastStub],
-            [new ForecastWithUnitsStub],
-            [new ForecastWithBlocksStub],
-            [new ForecastWithLanguageStub],
-            [new ForecastWithParametersMixStub],
-            [new ForecastWithExtendedBlocksStub],
-            [new ForecastWithMultipleBlocksStub],
-            [new ForecastWithMultipleBlocksAllStub],
-            [new ForecastWithMultipleBlocksLeanStub],
+            [new DefaultStub],
+            [new DefaultWithUnitsStub],
+            [new DefaultWithLanguageStub],
+            [new DefaultWithBlockStub],
+            [new DefaultWithBlocksStub],
+            [new DefaultWithBlocksOneStub],
+            [new DefaultWithBlocksAllStub],
+            [new DefaultWithExtendedBlockStub],
+            [new DefaultWithParamsMixStub],
         ];
     }
 }
