@@ -2,7 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Contracts\Weather;
 
-interface ResponseTimeMachine extends ResponseForecast
+interface TimeMachine extends Forecast
 {
     /**
      * A data point containing the weather conditions for the requested time.

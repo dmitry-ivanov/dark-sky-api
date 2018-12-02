@@ -5,12 +5,12 @@ namespace Tests\Http;
 use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Api;
 use Psr\Http\Message\ResponseInterface;
+use DmitryIvanov\DarkSkyApi\Weather\Forecast;
 use Tests\Http\Stubs\Parameters\ForecastStub;
+use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
-use DmitryIvanov\DarkSkyApi\Weather\ResponseForecast;
 use Tests\Http\Stubs\Parameters\ForecastWithDatesStub;
-use DmitryIvanov\DarkSkyApi\Weather\ResponseTimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\RequestFactory;
 use Tests\Http\Stubs\Parameters\ForecastWithMultipleDatesStub;
 
@@ -48,7 +48,7 @@ class ApiTest extends TestCase
             ->withNoArgs()
             ->andReturn($responseHeaders);
 
-        $expected = new ResponseForecast($responseBody, $responseHeaders);
+        $expected = new Forecast($responseBody, $responseHeaders);
 
         $api = new Api($client, $factory);
         $this->assertEquals($expected, $api->forecast($parameters));
@@ -86,7 +86,7 @@ class ApiTest extends TestCase
             ->withNoArgs()
             ->andReturn($responseHeaders);
 
-        $expected = new ResponseTimeMachine($responseBody, $responseHeaders);
+        $expected = new TimeMachine($responseBody, $responseHeaders);
 
         $api = new Api($client, $factory);
         $this->assertEquals($expected, $api->timeMachine($parameters));
@@ -126,7 +126,7 @@ class ApiTest extends TestCase
                 ->andReturn($responseHeaders);
 
             $clientHttpResponses[$id] = $httpResponse;
-            $expected[$id] = new ResponseTimeMachine($responseBody, $responseHeaders);
+            $expected[$id] = new TimeMachine($responseBody, $responseHeaders);
         });
 
         $client->shouldReceive('concurrentRequests')

@@ -2,9 +2,9 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseForecast as ResponseContract;
+use DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast as ForecastContract;
 
-class ResponseForecast implements ResponseContract
+class Forecast implements ForecastContract
 {
     /**
      * The data.

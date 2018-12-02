@@ -4,14 +4,14 @@ namespace Tests\Weather;
 
 use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\DataPoint;
-use DmitryIvanov\DarkSkyApi\Weather\ResponseTimeMachine;
+use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 
-class ResponseTimeMachineTest extends TestCase
+class TimeMachineTest extends TestCase
 {
     /** @test */
     public function it_has_the_daily_method_which_returns_the_data_point_instead_of_the_data_block()
     {
-        $response = new ResponseTimeMachine([
+        $timeMachine = new TimeMachine([
             'daily' => [
                 'data' => [
                     ['dummy-point'],
@@ -21,7 +21,7 @@ class ResponseTimeMachineTest extends TestCase
 
         $expected = new DataPoint(['dummy-point']);
 
-        $this->assertEquals($expected, $response->daily());
+        $this->assertEquals($expected, $timeMachine->daily());
     }
 
     /**
@@ -34,8 +34,8 @@ class ResponseTimeMachineTest extends TestCase
      */
     public function the_daily_method_returns_null_if_there_is_no_underlying_data(array $data)
     {
-        $response = new ResponseTimeMachine($data, ['dummy']);
+        $timeMachine = new TimeMachine($data, ['dummy']);
 
-        $this->assertNull($response->daily());
+        $this->assertNull($timeMachine->daily());
     }
 }

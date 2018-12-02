@@ -3,10 +3,10 @@
 namespace DmitryIvanov\DarkSkyApi\Http;
 
 use Psr\Http\Message\ResponseInterface;
+use DmitryIvanov\DarkSkyApi\Weather\Forecast;
+use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
 use DmitryIvanov\DarkSkyApi\Http\Client\GuzzleClient;
-use DmitryIvanov\DarkSkyApi\Weather\ResponseForecast;
-use DmitryIvanov\DarkSkyApi\Weather\ResponseTimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Api as ApiContract;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client as ClientContract;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Request as RequestContract;
@@ -45,7 +45,7 @@ class Api implements ApiContract
      * Make the forecast request.
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseForecast
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
@@ -63,7 +63,7 @@ class Api implements ApiContract
      * Make the time machine request(s).
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseTimeMachine|array
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine|array
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
@@ -88,7 +88,7 @@ class Api implements ApiContract
      * Compose the forecast response.
      *
      * @param  \Psr\Http\Message\ResponseInterface  $response
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseForecast
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast
      *
      * @throws \InvalidArgumentException
      */
@@ -96,14 +96,14 @@ class Api implements ApiContract
     {
         $data = \DmitryIvanov\DarkSkyApi\json_decode($response->getBody(), true);
 
-        return new ResponseForecast($data, $response->getHeaders());
+        return new Forecast($data, $response->getHeaders());
     }
 
     /**
      * Compose the time machine response.
      *
      * @param  \Psr\Http\Message\ResponseInterface  $response
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseTimeMachine
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine
      *
      * @throws \InvalidArgumentException
      */
@@ -111,6 +111,6 @@ class Api implements ApiContract
     {
         $data = \DmitryIvanov\DarkSkyApi\json_decode($response->getBody(), true);
 
-        return new ResponseTimeMachine($data, $response->getHeaders());
+        return new TimeMachine($data, $response->getHeaders());
     }
 }

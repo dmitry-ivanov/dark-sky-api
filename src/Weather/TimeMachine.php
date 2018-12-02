@@ -2,9 +2,9 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseTimeMachine as ResponseContract;
+use DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine as TimeMachineContract;
 
-class ResponseTimeMachine extends ResponseForecast implements ResponseContract
+class TimeMachine extends Forecast implements TimeMachineContract
 {
     /**
      * A data point containing the weather conditions for the requested date.

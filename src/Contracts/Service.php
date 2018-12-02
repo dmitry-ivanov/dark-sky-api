@@ -58,7 +58,7 @@ interface Service
      * @see https://darksky.net/dev/docs#forecast-request
      *
      * @param  array|string|null  $blocks
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseForecast
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
@@ -72,7 +72,7 @@ interface Service
      *
      * @param  array|string  $dates
      * @param  array|string|null  $blocks
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseTimeMachine|array
+     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine|array
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7

@@ -5,9 +5,9 @@ namespace Tests;
 use DmitryIvanov\DarkSkyApi\Service;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Api;
 use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
+use DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast;
+use DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Validator;
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseForecast;
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\ResponseTimeMachine;
 
 class ServiceTest extends TestCase
 {
@@ -81,14 +81,14 @@ class ServiceTest extends TestCase
         $parameters = spy(Parameters::class);
         $validator = spy(Validator::class);
         $blocks = ['currently', 'daily'];
-        $response = mock(ResponseForecast::class);
+        $forecast = mock(Forecast::class);
 
         $api->shouldReceive('forecast')
             ->with($parameters)
-            ->andReturn($response);
+            ->andReturn($forecast);
 
         $service = new Service('dummy', $parameters, $validator, $api);
-        $this->assertEquals($response, $service->forecast($blocks));
+        $this->assertEquals($forecast, $service->forecast($blocks));
 
         $parameters->shouldHaveReceived('setBlocks', [$blocks]);
         $validator->shouldHaveReceived('validate', [$parameters]);
@@ -102,14 +102,14 @@ class ServiceTest extends TestCase
         $validator = spy(Validator::class);
         $dates = ['09 Sep 2018', '10 October 2018', '2018-11-11 11:00:00'];
         $blocks = ['currently', 'daily'];
-        $response = mock(ResponseTimeMachine::class);
+        $timeMachine = mock(TimeMachine::class);
 
         $api->shouldReceive('timeMachine')
             ->with($parameters)
-            ->andReturn($response);
+            ->andReturn($timeMachine);
 
         $service = new Service('dummy', $parameters, $validator, $api);
-        $this->assertEquals($response, $service->timeMachine($dates, $blocks));
+        $this->assertEquals($timeMachine, $service->timeMachine($dates, $blocks));
 
         $parameters->shouldHaveReceived('setDates', [$dates]);
         $parameters->shouldHaveReceived('setBlocks', [$blocks]);

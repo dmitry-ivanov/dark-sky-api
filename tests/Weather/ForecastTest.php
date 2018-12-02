@@ -6,20 +6,20 @@ use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\Alert;
 use DmitryIvanov\DarkSkyApi\Weather\Flags;
 use DmitryIvanov\DarkSkyApi\Weather\Headers;
+use DmitryIvanov\DarkSkyApi\Weather\Forecast;
 use DmitryIvanov\DarkSkyApi\Weather\DataBlock;
 use DmitryIvanov\DarkSkyApi\Weather\DataPoint;
-use DmitryIvanov\DarkSkyApi\Weather\ResponseForecast;
 
-class ResponseForecastTest extends TestCase
+class ForecastTest extends TestCase
 {
     /** @test */
     public function it_has_the_headers_method()
     {
-        $response = new ResponseForecast(['dummy'], ['dummy-headers']);
+        $forecast = new Forecast(['dummy'], ['dummy-headers']);
 
         $expected = new Headers(['dummy-headers']);
 
-        $this->assertEquals($expected, $response->headers());
+        $this->assertEquals($expected, $forecast->headers());
     }
 
     /**
@@ -34,25 +34,25 @@ class ResponseForecastTest extends TestCase
      */
     public function it_has_the_methods_for_obtaining_specific_properties($method, $expected)
     {
-        $response = new ResponseForecast([
+        $forecast = new Forecast([
             'latitude' => 1.234,
             'longitude' => 5.678,
             'timezone' => 'America/New_York',
         ], ['dummy']);
 
-        $this->assertEquals($expected, $response->{$method}());
+        $this->assertEquals($expected, $forecast->{$method}());
     }
 
     /** @test */
     public function it_has_the_currently_method()
     {
-        $response = new ResponseForecast([
+        $forecast = new Forecast([
             'currently' => ['dummy-currently'],
         ], ['dummy']);
 
         $expected = new DataPoint(['dummy-currently']);
 
-        $this->assertEquals($expected, $response->currently());
+        $this->assertEquals($expected, $forecast->currently());
     }
 
     /**
@@ -67,7 +67,7 @@ class ResponseForecastTest extends TestCase
      */
     public function it_has_several_methods_which_return_different_kinds_of_data_blocks($method, array $block)
     {
-        $response = new ResponseForecast([
+        $forecast = new Forecast([
             'minutely' => ['dummy-minutely'],
             'hourly' => ['dummy-hourly'],
             'daily' => ['dummy-daily'],
@@ -75,13 +75,13 @@ class ResponseForecastTest extends TestCase
 
         $expected = new DataBlock($block);
 
-        $this->assertEquals($expected, $response->{$method}());
+        $this->assertEquals($expected, $forecast->{$method}());
     }
 
     /** @test */
     public function it_has_the_alerts_method()
     {
-        $response = new ResponseForecast([
+        $forecast = new Forecast([
             'alerts' => [
                 $alert1 = ['dummy-alert-1'],
                 $alert2 = ['dummy-alert-2'],
@@ -95,19 +95,19 @@ class ResponseForecastTest extends TestCase
             new Alert($alert3),
         ];
 
-        $this->assertEquals($expected, $response->alerts());
+        $this->assertEquals($expected, $forecast->alerts());
     }
 
     /** @test */
     public function it_has_the_flags_method()
     {
-        $response = new ResponseForecast([
+        $forecast = new Forecast([
             'flags' => ['dummy-flags'],
         ], ['dummy']);
 
         $expected = new Flags(['dummy-flags']);
 
-        $this->assertEquals($expected, $response->flags());
+        $this->assertEquals($expected, $forecast->flags());
     }
 
     /**
@@ -127,8 +127,8 @@ class ResponseForecastTest extends TestCase
      */
     public function if_there_is_no_underlying_data_for_the_proper_method_then_null_would_be_returned($method)
     {
-        $response = new ResponseForecast(['dummy'], ['dummy']);
+        $forecast = new Forecast(['dummy'], ['dummy']);
 
-        $this->assertNull($response->{$method}());
+        $this->assertNull($forecast->{$method}());
     }
 }
