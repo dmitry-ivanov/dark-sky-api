@@ -77,7 +77,7 @@ echo $timeMachine['2018-12-02']->daily()->summary();
 
 > If you're using Laravel <5.5, you have to register the service provider and alias by yourself.
 
-Dark Sky API utilizes [Laravel Package Discovery](https://laravel.com/docs/master/packages#package-discovery). You get the service provider, config file, facade with its alias out-of-the-box.
+The package utilizes [Laravel Package Discovery](https://laravel.com/docs/master/packages#package-discovery), so you'll get the service provider and alias registered out-of-the-box.
 
 Set your [secret key](https://darksky.net/dev/register) in `.env` file:
 
