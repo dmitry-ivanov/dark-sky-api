@@ -431,4 +431,14 @@ class DataPoint implements DataPointContract
     {
         return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windSpeed');
     }
+
+    /**
+     * Get an array representation of the data point.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->point;
+    }
 }

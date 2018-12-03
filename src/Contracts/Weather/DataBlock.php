@@ -30,4 +30,11 @@ interface DataBlock
      * @return string|null
      */
     public function summary();
+
+    /**
+     * Get an array representation of the data block.
+     *
+     * @return array
+     */
+    public function toArray();
 }

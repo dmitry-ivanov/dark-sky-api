@@ -58,4 +58,11 @@ interface Alert
      * @return string|null
      */
     public function uri();
+
+    /**
+     * Get an array representation of the alert.
+     *
+     * @return array
+     */
+    public function toArray();
 }

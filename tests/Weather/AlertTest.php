@@ -55,4 +55,12 @@ class AlertTest extends TestCase
 
         $this->assertNull($alert->{$method}());
     }
+
+    /** @test */
+    public function it_has_toArray_method()
+    {
+        $alert = new Alert(['dummy']);
+
+        $this->assertEquals(['dummy'], $alert->toArray());
+    }
 }

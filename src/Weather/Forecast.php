@@ -184,4 +184,14 @@ class Forecast implements ForecastContract
 
         return new Flags($flags);
     }
+
+    /**
+     * Get an array representation of the forecast response.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->data;
+    }
 }

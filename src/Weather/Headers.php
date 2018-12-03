@@ -25,16 +25,6 @@ class Headers implements HeadersContract
     }
 
     /**
-     * Get all headers.
-     *
-     * @return array
-     */
-    public function all()
-    {
-        return $this->headers;
-    }
-
-    /**
      * The number of API requests made by the given API key for today.
      *
      * @return array
@@ -62,5 +52,15 @@ class Headers implements HeadersContract
     public function responseTime()
     {
         return \DmitryIvanov\DarkSkyApi\array_get($this->headers, 'X-Response-Time', []);
+    }
+
+    /**
+     * Get an array representation of the headers.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->headers;
     }
 }

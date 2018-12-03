@@ -7,14 +7,6 @@ use DmitryIvanov\DarkSkyApi\Weather\Headers;
 
 class HeadersTest extends TestCase
 {
-    /** @test */
-    public function it_has_the_all_method()
-    {
-        $headers = new Headers(['dummy']);
-
-        $this->assertEquals(['dummy'], $headers->all());
-    }
-
     /**
      * @test
      *
@@ -50,5 +42,13 @@ class HeadersTest extends TestCase
         $headers = new Headers(['dummy']);
 
         $this->assertEquals([], $headers->{$method}());
+    }
+
+    /** @test */
+    public function it_has_toArray_method()
+    {
+        $headers = new Headers(['dummy']);
+
+        $this->assertEquals(['dummy'], $headers->toArray());
     }
 }

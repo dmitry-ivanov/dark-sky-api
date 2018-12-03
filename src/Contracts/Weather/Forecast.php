@@ -87,4 +87,11 @@ interface Forecast
      * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Flags|null
      */
     public function flags();
+
+    /**
+     * Get an array representation of the forecast response.
+     *
+     * @return array
+     */
+    public function toArray();
 }

@@ -63,4 +63,14 @@ class DataBlock implements DataBlockContract
     {
         return \DmitryIvanov\DarkSkyApi\array_get($this->block, 'summary');
     }
+
+    /**
+     * Get an array representation of the data block.
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->block;
+    }
 }

@@ -69,4 +69,12 @@ class DataBlockTest extends TestCase
 
         $this->assertNull($block->{$method}());
     }
+
+    /** @test */
+    public function it_has_toArray_method()
+    {
+        $block = new DataBlock(['dummy']);
+
+        $this->assertEquals(['dummy'], $block->toArray());
+    }
 }

@@ -39,4 +39,11 @@ interface Flags
      * @return string|null
      */
     public function units();
+
+    /**
+     * Get an array representation of the flags.
+     *
+     * @return array
+     */
+    public function toArray();
 }

@@ -66,4 +66,12 @@ class FlagsTest extends TestCase
 
         $this->assertNull($flags->{$method}());
     }
+
+    /** @test */
+    public function it_has_toArray_method()
+    {
+        $flags = new Flags(['dummy']);
+
+        $this->assertEquals(['dummy'], $flags->toArray());
+    }
 }

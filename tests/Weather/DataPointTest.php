@@ -156,4 +156,12 @@ class DataPointTest extends TestCase
 
         $this->assertNull($point->{$method}());
     }
+
+    /** @test */
+    public function it_has_toArray_method()
+    {
+        $point = new DataPoint(['dummy']);
+
+        $this->assertEquals(['dummy'], $point->toArray());
+    }
 }

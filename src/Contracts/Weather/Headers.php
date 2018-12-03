@@ -5,13 +5,6 @@ namespace DmitryIvanov\DarkSkyApi\Contracts\Weather;
 interface Headers
 {
     /**
-     * Get all headers.
-     *
-     * @return array
-     */
-    public function all();
-
-    /**
      * The number of API requests made by the given API key for today.
      *
      * @return array
@@ -31,4 +24,11 @@ interface Headers
      * @return array
      */
     public function responseTime();
+
+    /**
+     * Get an array representation of the headers.
+     *
+     * @return array
+     */
+    public function toArray();
 }

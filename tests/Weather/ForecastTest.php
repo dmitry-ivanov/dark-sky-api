@@ -131,4 +131,12 @@ class ForecastTest extends TestCase
 
         $this->assertNull($forecast->{$method}());
     }
+
+    /** @test */
+    public function it_has_toArray_method()
+    {
+        $forecast = new Forecast(['dummy-response'], ['dummy-headers']);
+
+        $this->assertEquals(['dummy-response'], $forecast->toArray());
+    }
 }

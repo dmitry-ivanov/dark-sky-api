@@ -287,4 +287,11 @@ interface DataPoint
      * @return float|null
      */
     public function windSpeed();
+
+    /**
+     * Get an array representation of the data point.
+     *
+     * @return array
+     */
+    public function toArray();
 }
