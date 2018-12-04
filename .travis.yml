@@ -9,8 +9,6 @@ php:
   - 7.2
   - 7.3
 
-sudo: false
-
 install:
   - travis_retry composer install --no-interaction --prefer-dist
   - travis_retry composer require --no-interaction --prefer-dist --dev php-coveralls/php-coveralls
