@@ -17,7 +17,9 @@ class TestCase extends MockeryTestCase
      */
     protected function assertSubclassOf($object, $class)
     {
-        $this->assertTrue(is_subclass_of($object, $class));
+        $isSubclassOf = is_subclass_of($object, $class);
+
+        $this->assertTrue($isSubclassOf);
     }
 
     /**

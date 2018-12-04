@@ -96,7 +96,8 @@ class DarkSkyApiServiceProviderTest extends TestCase
                 $from = array_keys($paths)[0];
                 $to = array_values($paths)[0];
 
-                return $this->matchesPackageConfigPath($from) && ($to === config_path('dark-sky-api.php'));
+                return $this->matchesPackageConfigPath($from)
+                    && ($to === config_path('dark-sky-api.php'));
             }));
 
         $serviceProvider->boot();

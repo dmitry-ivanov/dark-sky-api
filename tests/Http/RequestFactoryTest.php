@@ -23,7 +23,9 @@ class RequestFactoryTest extends TestCase
     {
         $factory = new RequestFactory;
 
-        $this->assertEquals($parameters->expectedRequests(), $factory->create($parameters));
+        $expected = $parameters->expectedRequests();
+
+        $this->assertEquals($expected, $factory->create($parameters));
     }
 
     /**

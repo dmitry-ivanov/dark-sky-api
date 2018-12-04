@@ -20,10 +20,11 @@ class GuzzleClientTest extends TestCase
 
         $guzzle = mock(Guzzle::class);
         $request = $parameters->expectedRequests();
+        $requestOptions = ['decode_content' => 'gzip', 'query' => $request->query()];
         $response = mock(ResponseInterface::class);
 
         $guzzle->shouldReceive('get')
-            ->with($request->url(), ['decode_content' => 'gzip', 'query' => $request->query()])
+            ->with($request->url(), $requestOptions)
             ->andReturn($response);
 
         $client = new GuzzleClient($guzzle);
@@ -40,11 +41,12 @@ class GuzzleClientTest extends TestCase
         $expected = [];
 
         array_walk($requests, function (Request $request) use ($guzzle, &$expected) {
+            $requestOptions = ['decode_content' => 'gzip', 'query' => $request->query()];
             $promise = mock(PromiseInterface::class);
             $response = mock(ResponseInterface::class);
 
             $guzzle->shouldReceive('getAsync')
-                ->with($request->url(), ['decode_content' => 'gzip', 'query' => $request->query()])
+                ->with($request->url(), $requestOptions)
                 ->andReturn($promise);
 
             $promise->shouldReceive('wait')

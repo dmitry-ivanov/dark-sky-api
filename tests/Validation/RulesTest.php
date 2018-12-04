@@ -25,7 +25,9 @@ class RulesTest extends TestCase
      */
     public function the_valid_value_would_pass_the_validation(Rule $rule, $value)
     {
-        $this->assertTrue($rule->passes($value));
+        $passes = $rule->passes($value);
+
+        $this->assertTrue($passes);
     }
 
     /**
@@ -93,7 +95,9 @@ class RulesTest extends TestCase
      */
     public function the_invalid_value_would_not_pass_the_validation(Rule $rule, $value)
     {
-        $this->assertFalse($rule->passes($value));
+        $passes = $rule->passes($value);
+
+        $this->assertFalse($passes);
     }
 
     /**

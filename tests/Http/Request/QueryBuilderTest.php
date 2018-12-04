@@ -28,7 +28,9 @@ class QueryBuilderTest extends TestCase
     {
         $queryBuilder = new QueryBuilder;
 
-        $this->assertEquals($parameters->expectedQuery(), $queryBuilder->build($parameters));
+        $expected = $parameters->expectedQuery();
+
+        $this->assertEquals($expected, $queryBuilder->build($parameters));
     }
 
     /**

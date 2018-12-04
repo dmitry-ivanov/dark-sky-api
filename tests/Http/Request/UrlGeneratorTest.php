@@ -23,7 +23,9 @@ class UrlGeneratorTest extends TestCase
     {
         $urlGenerator = new UrlGenerator;
 
-        $this->assertEquals($parameters->expectedUrl(), $urlGenerator->generate($parameters));
+        $expected = $parameters->expectedUrl();
+
+        $this->assertEquals($expected, $urlGenerator->generate($parameters));
     }
 
     /**

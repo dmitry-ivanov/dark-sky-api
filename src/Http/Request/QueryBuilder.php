@@ -39,9 +39,8 @@ class QueryBuilder implements QueryBuilderContract
         }
 
         $included = is_array($included) ? $included : [$included];
+        $excluded = array_diff(Blocks::values(), $included);
 
-        return ($excluded = array_diff(Blocks::values(), $included))
-            ? implode(',', $excluded)
-            : null;
+        return $excluded ? implode(',', $excluded) : null;
     }
 }
