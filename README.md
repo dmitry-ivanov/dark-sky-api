@@ -79,10 +79,10 @@ echo $timeMachine['2018-12-02']->daily()->summary();
 
 The package utilizes [Laravel Package Discovery](https://laravel.com/docs/master/packages#package-discovery), so you'll get the service provider and alias registered out-of-the-box.
 
-Set your [secret key](https://darksky.net/dev/register) in `.env` file:
+Set your [Secret Key](https://darksky.net/dev/register) in `.env` file:
 
 ```dotenv
-DARK_SKY_API_KEY=[Your Secret Key]
+DARK_SKY_KEY=[Your Secret Key]
 ```
 
 You may use the configured facade now:
