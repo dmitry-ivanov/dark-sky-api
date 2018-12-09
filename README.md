@@ -82,7 +82,7 @@ The package utilizes [Laravel Package Discovery](https://laravel.com/docs/master
 Set your [Secret Key](https://darksky.net/dev/register) in `.env` file:
 
 ```dotenv
-DARK_SKY_KEY=[Your Secret Key]
+DARK_SKY_KEY="Your Secret Key"
 ```
 
 You may use the configured facade now:
