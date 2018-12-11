@@ -98,7 +98,7 @@ $forecast = DarkSkyApi::location(46.482, 30.723)
 echo $forecast->currently()->summary();
 ```
 
-Publish the config file to override the request parameters (optionally):
+Publish the config file to override request parameters (optionally):
 
 ```bash
 php artisan vendor:publish --provider="DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider"
