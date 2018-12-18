@@ -104,6 +104,10 @@ Publish the config file to override request parameters (optionally):
 php artisan vendor:publish --provider="DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider"
 ```
 
+## Further Reading
+
+You can find more information in [my article](https://medium.com/@dmitry.g.ivanov/weather-forecast-in-php-95bca6b0ed18) entirely dedicated to this Library.
+
 ## License
 
 Dark Sky API is open-sourced software licensed under the [MIT license](LICENSE.md).
