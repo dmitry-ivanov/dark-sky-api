@@ -2,9 +2,10 @@
 
 namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
+use DmitryIvanov\DarkSkyApi\Parameters\Language;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
 
-class Latitude implements Rule
+class LanguageRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -14,9 +15,12 @@ class Latitude implements Rule
      */
     public function passes($value)
     {
-        return is_numeric($value)
-            && ($value >= -90)
-            && ($value <= +90);
+        if (is_null($value)) {
+            return true;
+        }
+
+        return is_string($value)
+            && in_array($value, Language::values());
     }
 
     /**
@@ -26,6 +30,6 @@ class Latitude implements Rule
      */
     public function message()
     {
-        return 'The given latitude is invalid.';
+        return 'The given language is invalid.';
     }
 }

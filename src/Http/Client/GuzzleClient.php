@@ -3,8 +3,8 @@
 namespace DmitryIvanov\DarkSkyApi\Http\Client;
 
 use GuzzleHttp\Client as Guzzle;
+use DmitryIvanov\DarkSkyApi\Http\Request;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
 
 class GuzzleClient implements Client
 {
@@ -32,7 +32,7 @@ class GuzzleClient implements Client
      * Implemented for all requests in the `options()` method:
      * @see GuzzleClient::options()
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Client
+     * @return $this
      */
     public function gzip()
     {
@@ -42,7 +42,7 @@ class GuzzleClient implements Client
     /**
      * Make an API request by the given request object.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Request  $request
+     * @param  \DmitryIvanov\DarkSkyApi\Http\Request  $request
      * @return \Psr\Http\Message\ResponseInterface
      *
      * @throws \Exception on error
@@ -58,8 +58,8 @@ class GuzzleClient implements Client
      *
      * Returns an associative array of the responses, with the request IDs used as the keys.
      *
-     * @param  array  $requests
-     * @return array
+     * @param  \DmitryIvanov\DarkSkyApi\Http\Request[]  $requests
+     * @return \Psr\Http\Message\ResponseInterface[]
      *
      * @throws \Exception on error
      * @throws \Throwable on error in PHP >=7
@@ -74,8 +74,8 @@ class GuzzleClient implements Client
     /**
      * Compose the promises for the concurrent requests.
      *
-     * @param  array  $requests
-     * @return array
+     * @param  \DmitryIvanov\DarkSkyApi\Http\Request[]  $requests
+     * @return \GuzzleHttp\Promise\PromiseInterface[]
      */
     protected function composePromises(array $requests)
     {
@@ -93,7 +93,7 @@ class GuzzleClient implements Client
      *
      * @see http://docs.guzzlephp.org/en/stable/request-options.html#decode-content
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Request  $request
+     * @param  \DmitryIvanov\DarkSkyApi\Http\Request  $request
      * @return array
      */
     protected function options(Request $request)

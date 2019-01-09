@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\Flags as FlagsContract;
-
-class Flags implements FlagsContract
+class Flags
 {
     /**
      * The flags.

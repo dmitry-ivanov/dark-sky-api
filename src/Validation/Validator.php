@@ -3,24 +3,23 @@
 namespace DmitryIvanov\DarkSkyApi\Validation;
 
 use InvalidArgumentException;
-use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\Dates;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\Units;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\ApiKey;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\Blocks;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\Language;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\Latitude;
+use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\Longitude;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\ExtendedBlocks;
-use DmitryIvanov\DarkSkyApi\Contracts\Validation\Validator as ValidatorContract;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\DatesRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\UnitsRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\ApiKeyRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\BlocksRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\LanguageRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\LatitudeRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\LongitudeRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\ExtendedBlocksRule;
 
-class Validator implements ValidatorContract
+class Validator
 {
     /**
      * Validate the given parameters.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
      * @return void
      *
      * @throws \InvalidArgumentException
@@ -35,20 +34,20 @@ class Validator implements ValidatorContract
     /**
      * Get the parameters' validations.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
      * @return array
      */
     protected function validations(Parameters $parameters)
     {
         return [
-            ['rule' => new ApiKey, 'value' => $parameters->getApiKey()],
-            ['rule' => new Latitude, 'value' => $parameters->getLatitude()],
-            ['rule' => new Longitude, 'value' => $parameters->getLongitude()],
-            ['rule' => new Units, 'value' => $parameters->getUnits()],
-            ['rule' => new Language, 'value' => $parameters->getLanguage()],
-            ['rule' => new Dates, 'value' => $parameters->getDates()],
-            ['rule' => new Blocks, 'value' => $parameters->getBlocks()],
-            ['rule' => new ExtendedBlocks, 'value' => $parameters->getExtendedBlocks()],
+            ['rule' => new ApiKeyRule, 'value' => $parameters->getApiKey()],
+            ['rule' => new LatitudeRule, 'value' => $parameters->getLatitude()],
+            ['rule' => new LongitudeRule, 'value' => $parameters->getLongitude()],
+            ['rule' => new UnitsRule, 'value' => $parameters->getUnits()],
+            ['rule' => new LanguageRule, 'value' => $parameters->getLanguage()],
+            ['rule' => new DatesRule, 'value' => $parameters->getDates()],
+            ['rule' => new BlocksRule, 'value' => $parameters->getBlocks()],
+            ['rule' => new ExtendedBlocksRule, 'value' => $parameters->getExtendedBlocks()],
         ];
     }
 

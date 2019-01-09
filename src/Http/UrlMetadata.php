@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Http\UrlMetadata as UrlMetadataContract;
-
-class UrlMetadata implements UrlMetadataContract
+class UrlMetadata
 {
     /**
      * The date, for which the URL was generated.

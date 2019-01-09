@@ -4,10 +4,9 @@ namespace DmitryIvanov\DarkSkyApi\Adapters\Laravel;
 
 use DmitryIvanov\DarkSkyApi\Service;
 use DmitryIvanov\DarkSkyApi\Parameters;
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use DmitryIvanov\DarkSkyApi\Contracts\Service as ServiceContract;
+use Illuminate\Support\ServiceProvider;
 
-class DarkSkyApiServiceProvider extends BaseServiceProvider
+class DarkSkyApiServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -35,9 +34,10 @@ class DarkSkyApiServiceProvider extends BaseServiceProvider
      */
     protected function registerApiService()
     {
-        $service = new Service(config('dark-sky-api.key'), $this->apiServiceParameters());
-
-        $this->app->instance(ServiceContract::class, $service);
+        $this->app->instance(
+            Service::class,
+            new Service(config('dark-sky-api.key'), $this->apiServiceParameters())
+        );
     }
 
     /**
@@ -73,6 +73,6 @@ class DarkSkyApiServiceProvider extends BaseServiceProvider
      */
     public function provides()
     {
-        return [ServiceContract::class];
+        return [Service::class];
     }
 }

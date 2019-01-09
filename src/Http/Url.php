@@ -2,10 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Http\UrlMetadata;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Url as UrlContract;
-
-class Url implements UrlContract
+class Url
 {
     /**
      * The URL.
@@ -17,7 +14,7 @@ class Url implements UrlContract
     /**
      * The metadata.
      *
-     * @var \DmitryIvanov\DarkSkyApi\Contracts\Http\UrlMetadata|null
+     * @var \DmitryIvanov\DarkSkyApi\Http\UrlMetadata|null
      */
     protected $metadata;
 
@@ -25,7 +22,7 @@ class Url implements UrlContract
      * Create a new instance of the URL.
      *
      * @param  string  $value
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\UrlMetadata|null  $metadata
+     * @param  \DmitryIvanov\DarkSkyApi\Http\UrlMetadata|null  $metadata
      * @return void
      */
     public function __construct($value, UrlMetadata $metadata = null)
@@ -47,7 +44,7 @@ class Url implements UrlContract
     /**
      * Get the metadata.
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\UrlMetadata|null
+     * @return \DmitryIvanov\DarkSkyApi\Http\UrlMetadata|null
      */
     public function metadata()
     {

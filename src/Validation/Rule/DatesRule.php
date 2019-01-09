@@ -4,7 +4,7 @@ namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
 
-class Dates implements Rule
+class DatesRule implements Rule
 {
     /**
      * Determine if the validation rule passes.

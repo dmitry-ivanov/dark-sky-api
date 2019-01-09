@@ -4,31 +4,27 @@ namespace DmitryIvanov\DarkSkyApi;
 
 use DmitryIvanov\DarkSkyApi\Http\Api;
 use DmitryIvanov\DarkSkyApi\Validation\Validator;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Api as ApiContract;
-use DmitryIvanov\DarkSkyApi\Contracts\Service as ServiceContract;
-use DmitryIvanov\DarkSkyApi\Contracts\Parameters as ParametersContract;
-use DmitryIvanov\DarkSkyApi\Contracts\Validation\Validator as ValidatorContract;
 
-class Service implements ServiceContract
+class Service
 {
     /**
      * The parameters.
      *
-     * @var \DmitryIvanov\DarkSkyApi\Contracts\Parameters
+     * @var \DmitryIvanov\DarkSkyApi\Parameters
      */
     protected $parameters;
 
     /**
      * The validator.
      *
-     * @var \DmitryIvanov\DarkSkyApi\Contracts\Validation\Validator
+     * @var \DmitryIvanov\DarkSkyApi\Validation\Validator
      */
     protected $validator;
 
     /**
      * The HTTP API.
      *
-     * @var \DmitryIvanov\DarkSkyApi\Contracts\Http\Api
+     * @var \DmitryIvanov\DarkSkyApi\Http\Api
      */
     protected $api;
 
@@ -36,15 +32,12 @@ class Service implements ServiceContract
      * Create a new instance of the Dark Sky API service.
      *
      * @param  string  $apiKey
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters|null  $parameters
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Validation\Validator|null  $validator
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Api|null  $api
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters|null  $parameters
+     * @param  \DmitryIvanov\DarkSkyApi\Validation\Validator|null  $validator
+     * @param  \DmitryIvanov\DarkSkyApi\Http\Api|null  $api
      * @return void
      */
-    public function __construct($apiKey,
-                                ParametersContract $parameters = null,
-                                ValidatorContract $validator = null,
-                                ApiContract $api = null)
+    public function __construct($apiKey, Parameters $parameters = null, Validator $validator = null, Api $api = null)
     {
         $this->parameters = !is_null($parameters) ? $parameters : new Parameters;
         $this->validator = !is_null($validator) ? $validator : new Validator;
@@ -56,7 +49,7 @@ class Service implements ServiceContract
     /**
      * Get the parameters.
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Parameters
+     * @return \DmitryIvanov\DarkSkyApi\Parameters
      */
     public function getParameters()
     {
@@ -70,7 +63,7 @@ class Service implements ServiceContract
      *
      * @param  float  $latitude
      * @param  float  $longitude
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
+     * @return $this
      */
     public function location($latitude, $longitude)
     {
@@ -86,7 +79,7 @@ class Service implements ServiceContract
      * @see https://darksky.net/dev/docs#request-parameters
      *
      * @param  string  $units
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
+     * @return $this
      */
     public function units($units)
     {
@@ -101,7 +94,7 @@ class Service implements ServiceContract
      * @see https://darksky.net/dev/docs#request-parameters
      *
      * @param  string  $language
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
+     * @return $this
      */
     public function language($language)
     {
@@ -116,7 +109,7 @@ class Service implements ServiceContract
      * @see https://darksky.net/dev/docs#request-parameters
      *
      * @param  string  $blocks
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Service
+     * @return $this
      */
     public function extend($blocks = 'hourly')
     {
@@ -131,7 +124,7 @@ class Service implements ServiceContract
      * @see https://darksky.net/dev/docs#forecast-request
      *
      * @param  array|string|null  $blocks
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast
+     * @return \DmitryIvanov\DarkSkyApi\Weather\Forecast
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
@@ -152,7 +145,7 @@ class Service implements ServiceContract
      *
      * @param  array|string  $dates
      * @param  array|string|null  $blocks
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine|array
+     * @return \DmitryIvanov\DarkSkyApi\Weather\TimeMachine|\DmitryIvanov\DarkSkyApi\Weather\TimeMachine[]
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7

@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\DataPoint as DataPointContract;
-
-class DataPoint implements DataPointContract
+class DataPoint
 {
     /**
      * The data point.

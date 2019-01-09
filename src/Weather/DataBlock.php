@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\DataBlock as DataBlockContract;
-
-class DataBlock implements DataBlockContract
+class DataBlock
 {
     /**
      * The data block.
@@ -28,9 +26,8 @@ class DataBlock implements DataBlockContract
      * An array of data points, ordered by time.
      *
      * These points together describe the weather conditions at the requested location over time.
-     * @see \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataPoint
      *
-     * @return array
+     * @return \DmitryIvanov\DarkSkyApi\Weather\DataPoint[]
      */
     public function data()
     {
@@ -45,7 +42,7 @@ class DataBlock implements DataBlockContract
      * A machine-readable text summary of this data block.
      *
      * May take on the same values as the "icon" property of data points.
-     * @see \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataPoint::icon()
+     * @see \DmitryIvanov\DarkSkyApi\Weather\DataPoint::icon()
      *
      * @return string|null
      */

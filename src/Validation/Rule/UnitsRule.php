@@ -2,10 +2,10 @@
 
 namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
+use DmitryIvanov\DarkSkyApi\Parameters\Units;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
-use DmitryIvanov\DarkSkyApi\Parameters\Units as UnitsParameter;
 
-class Units implements Rule
+class UnitsRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -20,7 +20,7 @@ class Units implements Rule
         }
 
         return is_string($value)
-            && in_array($value, UnitsParameter::values());
+            && in_array($value, Units::values());
     }
 
     /**

@@ -2,17 +2,14 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http;
 
+use DmitryIvanov\DarkSkyApi\Parameters;
 use Psr\Http\Message\ResponseInterface;
 use DmitryIvanov\DarkSkyApi\Weather\Forecast;
 use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
-use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
+use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
 use DmitryIvanov\DarkSkyApi\Http\Client\GuzzleClient;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Api as ApiContract;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Client as ClientContract;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Request as RequestContract;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\RequestFactory as RequestFactoryContract;
 
-class Api implements ApiContract
+class Api
 {
     /**
      * The HTTP client.
@@ -24,7 +21,7 @@ class Api implements ApiContract
     /**
      * The request factory.
      *
-     * @var \DmitryIvanov\DarkSkyApi\Contracts\Http\RequestFactory
+     * @var \DmitryIvanov\DarkSkyApi\Http\RequestFactory
      */
     protected $factory;
 
@@ -32,10 +29,10 @@ class Api implements ApiContract
      * Create a new instance of the API.
      *
      * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Client|null  $client
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\RequestFactory|null  $factory
+     * @param  \DmitryIvanov\DarkSkyApi\Http\RequestFactory|null  $factory
      * @return void
      */
-    public function __construct(ClientContract $client = null, RequestFactoryContract $factory = null)
+    public function __construct(Client $client = null, RequestFactory $factory = null)
     {
         $this->client = isset($client) ? $client : new GuzzleClient;
         $this->factory = isset($factory) ? $factory : new RequestFactory;
@@ -44,8 +41,8 @@ class Api implements ApiContract
     /**
      * Make the forecast request.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
+     * @return \DmitryIvanov\DarkSkyApi\Weather\Forecast
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
@@ -62,8 +59,8 @@ class Api implements ApiContract
     /**
      * Make the time machine request(s).
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine|array
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
+     * @return \DmitryIvanov\DarkSkyApi\Weather\TimeMachine|\DmitryIvanov\DarkSkyApi\Weather\TimeMachine[]
      *
      * @throws \Exception on HTTP error
      * @throws \Throwable on HTTP error in PHP >=7
@@ -72,7 +69,7 @@ class Api implements ApiContract
     {
         $request = $this->factory->create($parameters);
 
-        if ($request instanceof RequestContract) {
+        if ($request instanceof Request) {
             $response = $this->client->gzip()->request($request);
             return $this->composeTimeMachineResponse($response);
         }
@@ -88,7 +85,7 @@ class Api implements ApiContract
      * Compose the forecast response.
      *
      * @param  \Psr\Http\Message\ResponseInterface  $response
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast
+     * @return \DmitryIvanov\DarkSkyApi\Weather\Forecast
      *
      * @throws \InvalidArgumentException
      */
@@ -103,7 +100,7 @@ class Api implements ApiContract
      * Compose the time machine response.
      *
      * @param  \Psr\Http\Message\ResponseInterface  $response
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine
+     * @return \DmitryIvanov\DarkSkyApi\Weather\TimeMachine
      *
      * @throws \InvalidArgumentException
      */

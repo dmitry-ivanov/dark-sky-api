@@ -3,17 +3,16 @@
 namespace DmitryIvanov\DarkSkyApi\Http\Request;
 
 use DmitryIvanov\DarkSkyApi\Http\Url;
+use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Http\UrlMetadata;
-use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Request\UrlGenerator as UrlGeneratorContract;
 
-class UrlGenerator implements UrlGeneratorContract
+class UrlGenerator
 {
     /**
      * Generate the request URL(s) by the given parameters.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Url|array
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
+     * @return \DmitryIvanov\DarkSkyApi\Http\Url|\DmitryIvanov\DarkSkyApi\Http\Url[]
      */
     public function generate(Parameters $parameters)
     {
@@ -39,8 +38,8 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Compose the forecast URL by the given parameters.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Url
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
+     * @return \DmitryIvanov\DarkSkyApi\Http\Url
      */
     protected function forecastUrl(Parameters $parameters)
     {
@@ -55,9 +54,9 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Compose the "time machine" URL by the given parameters and date.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
      * @param  string  $date
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Url
+     * @return \DmitryIvanov\DarkSkyApi\Http\Url
      */
     protected function timeMachineUrl(Parameters $parameters, $date)
     {

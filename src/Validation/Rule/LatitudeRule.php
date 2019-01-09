@@ -4,7 +4,7 @@ namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
 
-class ExtendedBlocks implements Rule
+class LatitudeRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -14,8 +14,9 @@ class ExtendedBlocks implements Rule
      */
     public function passes($value)
     {
-        return is_null($value)
-            || ($value === 'hourly');
+        return is_numeric($value)
+            && ($value >= -90)
+            && ($value <= +90);
     }
 
     /**
@@ -25,6 +26,6 @@ class ExtendedBlocks implements Rule
      */
     public function message()
     {
-        return 'The given extended blocks are invalid.';
+        return 'The given latitude is invalid.';
     }
 }

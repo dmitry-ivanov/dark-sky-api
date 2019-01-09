@@ -4,7 +4,7 @@ namespace Tests\Validation;
 
 use Tests\TestCase;
 use InvalidArgumentException;
-use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
+use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Validation\Validator;
 use Tests\Validation\Stubs\Parameters\AcceptableStub;
 use Tests\Validation\Stubs\Parameters\CheesyDatesStub;
@@ -31,7 +31,7 @@ class ValidatorTest extends TestCase
     /**
      * @test
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
      * @param  string  $message
      *
      * @dataProvider provide_invalid_parameters

@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Parameters as ParametersContract;
-
-class Parameters implements ParametersContract
+class Parameters
 {
     /**
      * The API key.

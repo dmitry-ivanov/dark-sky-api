@@ -5,14 +5,14 @@ namespace Tests\Http;
 use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Api;
 use Psr\Http\Message\ResponseInterface;
+use DmitryIvanov\DarkSkyApi\Http\Request;
 use Tests\Http\Stubs\Parameters\DefaultStub;
 use DmitryIvanov\DarkSkyApi\Weather\Forecast;
+use DmitryIvanov\DarkSkyApi\Http\RequestFactory;
 use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Request;
 use Tests\Http\Stubs\Parameters\DefaultWithDateStub;
 use Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\RequestFactory;
 
 class ApiTest extends TestCase
 {

@@ -4,7 +4,7 @@ namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
 
-class ApiKey implements Rule
+class ExtendedBlocksRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -14,8 +14,8 @@ class ApiKey implements Rule
      */
     public function passes($value)
     {
-        return is_string($value)
-            && !empty($value);
+        return is_null($value)
+            || ($value === 'hourly');
     }
 
     /**
@@ -25,6 +25,6 @@ class ApiKey implements Rule
      */
     public function message()
     {
-        return 'The given API key is invalid.';
+        return 'The given extended blocks are invalid.';
     }
 }

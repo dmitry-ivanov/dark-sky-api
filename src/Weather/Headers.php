@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\Headers as HeadersContract;
-
-class Headers implements HeadersContract
+class Headers
 {
     /**
      * The headers.

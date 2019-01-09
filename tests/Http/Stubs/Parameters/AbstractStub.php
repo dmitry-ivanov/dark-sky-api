@@ -9,7 +9,7 @@ abstract class AbstractStub extends Parameters
     /**
      * The expected URL(s).
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Url|array
+     * @return \DmitryIvanov\DarkSkyApi\Http\Url|\DmitryIvanov\DarkSkyApi\Http\Url[]
      */
     abstract public function expectedUrl();
 
@@ -23,7 +23,7 @@ abstract class AbstractStub extends Parameters
     /**
      * The expected request(s).
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Request|array
+     * @return \DmitryIvanov\DarkSkyApi\Http\Request|\DmitryIvanov\DarkSkyApi\Http\Request[]
      */
     abstract public function expectedRequests();
 }

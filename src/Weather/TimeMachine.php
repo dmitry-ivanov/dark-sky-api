@@ -2,16 +2,14 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine as TimeMachineContract;
-
-class TimeMachine extends Forecast implements TimeMachineContract
+class TimeMachine extends Forecast
 {
     /**
      * A data point containing the weather conditions for the requested date.
      *
      * @see https://darksky.net/dev/docs#data-point
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataPoint|null
+     * @return \DmitryIvanov\DarkSkyApi\Weather\DataPoint|null
      */
     public function daily()
     {

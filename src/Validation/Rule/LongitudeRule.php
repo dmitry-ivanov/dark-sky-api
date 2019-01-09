@@ -4,7 +4,7 @@ namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
 
-class Longitude implements Rule
+class LongitudeRule implements Rule
 {
     /**
      * Determine if the validation rule passes.

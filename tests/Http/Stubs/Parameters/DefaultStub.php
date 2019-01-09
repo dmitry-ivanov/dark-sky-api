@@ -4,7 +4,6 @@ namespace Tests\Http\Stubs\Parameters;
 
 use DmitryIvanov\DarkSkyApi\Http\Url;
 use DmitryIvanov\DarkSkyApi\Http\Request;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Url as UrlContract;
 
 class DefaultStub extends AbstractStub
 {
@@ -32,7 +31,7 @@ class DefaultStub extends AbstractStub
     /**
      * The expected URL(s).
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Url|array
+     * @return \DmitryIvanov\DarkSkyApi\Http\Url|\DmitryIvanov\DarkSkyApi\Http\Url[]
      */
     public function expectedUrl()
     {
@@ -52,7 +51,7 @@ class DefaultStub extends AbstractStub
     /**
      * The expected request(s).
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Request|array
+     * @return \DmitryIvanov\DarkSkyApi\Http\Request|\DmitryIvanov\DarkSkyApi\Http\Request[]
      */
     public function expectedRequests()
     {
@@ -71,11 +70,11 @@ class DefaultStub extends AbstractStub
     /**
      * Create a request by the given URL object and the query string.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Http\Url  $url
+     * @param  \DmitryIvanov\DarkSkyApi\Http\Url  $url
      * @param  string  $query
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Request
+     * @return \DmitryIvanov\DarkSkyApi\Http\Request
      */
-    protected function createRequest(UrlContract $url, $query)
+    protected function createRequest(Url $url, $query)
     {
         $id = null;
 

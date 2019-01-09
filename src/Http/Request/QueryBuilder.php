@@ -2,16 +2,15 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http\Request;
 
+use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Parameters\Blocks;
-use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Request\QueryBuilder as QueryBuilderContract;
 
-class QueryBuilder implements QueryBuilderContract
+class QueryBuilder
 {
     /**
      * Build the request query string by the given parameters.
      *
-     * @param  \DmitryIvanov\DarkSkyApi\Contracts\Parameters  $parameters
+     * @param  \DmitryIvanov\DarkSkyApi\Parameters  $parameters
      * @return string
      */
     public function build(Parameters $parameters)

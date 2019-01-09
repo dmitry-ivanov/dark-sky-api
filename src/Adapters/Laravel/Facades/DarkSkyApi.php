@@ -2,10 +2,10 @@
 
 namespace DmitryIvanov\DarkSkyApi\Adapters\Laravel\Facades;
 
+use DmitryIvanov\DarkSkyApi\Service;
 use Illuminate\Support\Facades\Facade;
-use DmitryIvanov\DarkSkyApi\Contracts\Service;
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast;
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine;
+use DmitryIvanov\DarkSkyApi\Weather\Forecast;
+use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 
 /**
  * @method static Service location(float $latitude, float $longitude)
@@ -15,7 +15,7 @@ use DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine;
  * @method static Forecast forecast(array|string|null $blocks = null)
  * @method static TimeMachine|array timeMachine(array|string $dates, array|string|null $blocks = null)
  *
- * @see \DmitryIvanov\DarkSkyApi\Contracts\Service
+ * @see \DmitryIvanov\DarkSkyApi\Service
  */
 class DarkSkyApi extends Facade
 {

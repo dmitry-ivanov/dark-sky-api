@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Request as RequestContract;
-
-class Request implements RequestContract
+class Request
 {
     /**
      * The ID.

@@ -3,9 +3,8 @@
 namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
-use DmitryIvanov\DarkSkyApi\Parameters\Language as LanguageParameter;
 
-class Language implements Rule
+class ApiKeyRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -15,12 +14,8 @@ class Language implements Rule
      */
     public function passes($value)
     {
-        if (is_null($value)) {
-            return true;
-        }
-
         return is_string($value)
-            && in_array($value, LanguageParameter::values());
+            && !empty($value);
     }
 
     /**
@@ -30,6 +25,6 @@ class Language implements Rule
      */
     public function message()
     {
-        return 'The given language is invalid.';
+        return 'The given API key is invalid.';
     }
 }

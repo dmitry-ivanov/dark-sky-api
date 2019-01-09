@@ -4,9 +4,9 @@ namespace Tests\Adapters\Laravel;
 
 use Mockery;
 use Tests\TestCase;
+use DmitryIvanov\DarkSkyApi\Service;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
-use DmitryIvanov\DarkSkyApi\Contracts\Service as ServiceContract;
 use DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider;
 
 class DarkSkyApiServiceProviderTest extends TestCase
@@ -28,13 +28,13 @@ class DarkSkyApiServiceProviderTest extends TestCase
     }
 
     /** @test */
-    public function it_provides_binding_for_the_api_service_contract()
+    public function it_provides_binding_for_the_api_service_class()
     {
         $app = spy(Application::class);
 
         $serviceProvider = new DarkSkyApiServiceProvider($app);
 
-        $this->assertEquals([ServiceContract::class], $serviceProvider->provides());
+        $this->assertEquals([Service::class], $serviceProvider->provides());
     }
 
     /** @test */
@@ -67,7 +67,7 @@ class DarkSkyApiServiceProviderTest extends TestCase
             ->withAnyArgs();
 
         $app->shouldReceive('instance')
-            ->with(ServiceContract::class, Mockery::on(function (ServiceContract $service) {
+            ->with(Service::class, Mockery::on(function (Service $service) {
                 $parameters = $service->getParameters();
 
                 return ($parameters->getApiKey() == config('dark-sky-api.key'))

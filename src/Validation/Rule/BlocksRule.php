@@ -2,10 +2,10 @@
 
 namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
+use DmitryIvanov\DarkSkyApi\Parameters\Blocks;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
-use DmitryIvanov\DarkSkyApi\Parameters\Blocks as BlocksParameter;
 
-class Blocks implements Rule
+class BlocksRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -38,7 +38,7 @@ class Blocks implements Rule
      */
     protected function isValidString($value)
     {
-        return in_array($value, BlocksParameter::values());
+        return in_array($value, Blocks::values());
     }
 
     /**

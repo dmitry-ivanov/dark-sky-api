@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\Alert as AlertContract;
-
-class Alert implements AlertContract
+class Alert
 {
     /**
      * The alert.

@@ -3,11 +3,11 @@
 namespace Tests;
 
 use DmitryIvanov\DarkSkyApi\Service;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Api;
-use DmitryIvanov\DarkSkyApi\Contracts\Parameters;
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast;
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\TimeMachine;
-use DmitryIvanov\DarkSkyApi\Contracts\Validation\Validator;
+use DmitryIvanov\DarkSkyApi\Http\Api;
+use DmitryIvanov\DarkSkyApi\Parameters;
+use DmitryIvanov\DarkSkyApi\Weather\Forecast;
+use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
+use DmitryIvanov\DarkSkyApi\Validation\Validator;
 
 class ServiceTest extends TestCase
 {

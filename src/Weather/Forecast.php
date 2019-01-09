@@ -2,9 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
-use DmitryIvanov\DarkSkyApi\Contracts\Weather\Forecast as ForecastContract;
-
-class Forecast implements ForecastContract
+class Forecast
 {
     /**
      * The data.
@@ -38,7 +36,7 @@ class Forecast implements ForecastContract
      *
      * @see https://darksky.net/dev/docs#response-headers
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Headers
+     * @return \DmitryIvanov\DarkSkyApi\Weather\Headers
      */
     public function headers()
     {
@@ -80,7 +78,7 @@ class Forecast implements ForecastContract
      *
      * @see https://darksky.net/dev/docs#data-point
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataPoint|null
+     * @return \DmitryIvanov\DarkSkyApi\Weather\DataPoint|null
      */
     public function currently()
     {
@@ -98,7 +96,7 @@ class Forecast implements ForecastContract
      *
      * @see https://darksky.net/dev/docs#data-block
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataBlock|null
+     * @return \DmitryIvanov\DarkSkyApi\Weather\DataBlock|null
      */
     public function minutely()
     {
@@ -116,7 +114,7 @@ class Forecast implements ForecastContract
      *
      * @see https://darksky.net/dev/docs#data-block
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataBlock|null
+     * @return \DmitryIvanov\DarkSkyApi\Weather\DataBlock|null
      */
     public function hourly()
     {
@@ -134,7 +132,7 @@ class Forecast implements ForecastContract
      *
      * @see https://darksky.net/dev/docs#data-block
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\DataBlock|null
+     * @return \DmitryIvanov\DarkSkyApi\Weather\DataBlock|null
      */
     public function daily()
     {
@@ -152,7 +150,7 @@ class Forecast implements ForecastContract
      *
      * @see https://darksky.net/dev/docs#alerts
      *
-     * @return array|null
+     * @return \DmitryIvanov\DarkSkyApi\Weather\Alert[]|null
      */
     public function alerts()
     {
@@ -172,7 +170,7 @@ class Forecast implements ForecastContract
      *
      * @see https://darksky.net/dev/docs#flags
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Weather\Flags|null
+     * @return \DmitryIvanov\DarkSkyApi\Weather\Flags|null
      */
     public function flags()
     {

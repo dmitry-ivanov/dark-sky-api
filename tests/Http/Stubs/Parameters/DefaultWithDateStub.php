@@ -17,7 +17,7 @@ class DefaultWithDateStub extends DefaultStub
     /**
      * The expected URL(s).
      *
-     * @return \DmitryIvanov\DarkSkyApi\Contracts\Http\Url|array
+     * @return \DmitryIvanov\DarkSkyApi\Http\Url|\DmitryIvanov\DarkSkyApi\Http\Url[]
      */
     public function expectedUrl()
     {
