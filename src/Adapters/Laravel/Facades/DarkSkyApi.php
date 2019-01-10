@@ -13,7 +13,7 @@ use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
  * @method static Service language(string $language)
  * @method static Service extend(string $blocks = 'hourly')
  * @method static Forecast forecast(array|string|null $blocks = null)
- * @method static TimeMachine|array timeMachine(array|string $dates, array|string|null $blocks = null)
+ * @method static TimeMachine|TimeMachine[] timeMachine(array|string $dates, array|string|null $blocks = null)
  *
  * @see \DmitryIvanov\DarkSkyApi\Service
  */
