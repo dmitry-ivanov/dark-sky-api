@@ -17,7 +17,7 @@ The package provides a convenient way to interact with [Dark Sky API](https://da
 
 It covers all the API functionality, including object-level access to the [response headers](https://darksky.net/dev/docs#response-headers), [weather alerts](https://darksky.net/dev/docs#alerts) and [flags](https://darksky.net/dev/docs#flags).
 
-- Requires [PHP 5.5.9+](https://php.net/releases#5.5.9).
+- Requires [PHP 5.6+](https://php.net/releases/#5.6.0).
 - [Stand-alone](#basic-usage) PHP package.
 - Ready-to-use in [Laravel](#laravel-support) application.
 - Each request utilizes [HTTP compression](https://darksky.net/dev/docs#response-notes).
