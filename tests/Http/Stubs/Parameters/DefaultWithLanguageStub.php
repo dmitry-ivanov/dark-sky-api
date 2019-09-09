@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Http\Stubs\Parameters;
+namespace DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters;
 
 class DefaultWithLanguageStub extends DefaultStub
 {

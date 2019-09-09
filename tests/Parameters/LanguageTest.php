@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Parameters;
+namespace DmitryIvanov\DarkSkyApi\Tests\Parameters;
 
-use Tests\TestCase;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Parameters\Language;
 
 class LanguageTest extends TestCase

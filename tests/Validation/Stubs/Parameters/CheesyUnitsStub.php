@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Validation\Stubs\Parameters;
+namespace DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters;
 
 class CheesyUnitsStub extends AcceptableStub
 {

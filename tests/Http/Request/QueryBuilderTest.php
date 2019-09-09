@@ -1,26 +1,26 @@
 <?php
 
-namespace Tests\Http\Request;
+namespace DmitryIvanov\DarkSkyApi\Tests\Http\Request;
 
-use Tests\TestCase;
-use Tests\Http\Stubs\Parameters\DefaultStub;
-use Tests\Http\Stubs\Parameters\AbstractStub;
-use Tests\Http\Stubs\Parameters\DefaultWithBlockStub;
-use Tests\Http\Stubs\Parameters\DefaultWithUnitsStub;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Request\QueryBuilder;
-use Tests\Http\Stubs\Parameters\DefaultWithBlocksStub;
-use Tests\Http\Stubs\Parameters\DefaultWithLanguageStub;
-use Tests\Http\Stubs\Parameters\DefaultWithBlocksAllStub;
-use Tests\Http\Stubs\Parameters\DefaultWithBlocksOneStub;
-use Tests\Http\Stubs\Parameters\DefaultWithParamsMixStub;
-use Tests\Http\Stubs\Parameters\DefaultWithExtendedBlockStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\AbstractStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlockStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithUnitsStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlocksStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithLanguageStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlocksAllStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlocksOneStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithParamsMixStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithExtendedBlockStub;
 
 class QueryBuilderTest extends TestCase
 {
     /**
      * @test
      *
-     * @param  \Tests\Http\Stubs\Parameters\AbstractStub  $parameters
+     * @param  \DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\AbstractStub  $parameters
      *
      * @dataProvider provide_parameters
      */

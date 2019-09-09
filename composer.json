@@ -36,7 +36,7 @@
             "tests/Adapters/Laravel/helpers.php"
         ],
         "psr-4": {
-            "Tests\\": "tests/"
+            "DmitryIvanov\\DarkSkyApi\\Tests\\": "tests/"
         }
     },
     "extra": {

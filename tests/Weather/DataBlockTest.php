@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Weather;
+namespace DmitryIvanov\DarkSkyApi\Tests\Weather;
 
-use Tests\TestCase;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\DataBlock;
 use DmitryIvanov\DarkSkyApi\Weather\DataPoint;
 

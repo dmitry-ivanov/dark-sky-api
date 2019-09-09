@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Adapters\Laravel;
+namespace DmitryIvanov\DarkSkyApi\Tests\Adapters\Laravel;
 
 use Mockery;
-use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Service;
 use Illuminate\Support\ServiceProvider;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use Illuminate\Contracts\Foundation\Application;
 use DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider;
 

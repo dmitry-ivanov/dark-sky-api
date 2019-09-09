@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Weather;
+namespace DmitryIvanov\DarkSkyApi\Tests\Weather;
 
-use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\Flags;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class FlagsTest extends TestCase
 {

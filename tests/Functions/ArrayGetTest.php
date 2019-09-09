@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Functions;
+namespace DmitryIvanov\DarkSkyApi\Tests\Functions;
 
-use Tests\TestCase;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class ArrayGetTest extends TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Weather;
+namespace DmitryIvanov\DarkSkyApi\Tests\Weather;
 
-use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\Alert;
 use DmitryIvanov\DarkSkyApi\Weather\Flags;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\Headers;
 use DmitryIvanov\DarkSkyApi\Weather\Forecast;
 use DmitryIvanov\DarkSkyApi\Weather\DataBlock;

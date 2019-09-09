@@ -1,18 +1,18 @@
 <?php
 
-namespace Tests\Http;
+namespace DmitryIvanov\DarkSkyApi\Tests\Http;
 
-use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Api;
 use Psr\Http\Message\ResponseInterface;
 use DmitryIvanov\DarkSkyApi\Http\Request;
-use Tests\Http\Stubs\Parameters\DefaultStub;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\Forecast;
 use DmitryIvanov\DarkSkyApi\Http\RequestFactory;
 use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
-use Tests\Http\Stubs\Parameters\DefaultWithDateStub;
-use Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDateStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
 
 class ApiTest extends TestCase
 {

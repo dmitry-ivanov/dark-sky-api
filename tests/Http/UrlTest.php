@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Http;
+namespace DmitryIvanov\DarkSkyApi\Tests\Http;
 
-use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Url;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\UrlMetadata;
 
 class UrlTest extends TestCase

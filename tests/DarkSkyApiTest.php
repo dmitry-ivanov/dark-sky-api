@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace DmitryIvanov\DarkSkyApi\Tests;
 
 use DmitryIvanov\DarkSkyApi\Service;
 use DmitryIvanov\DarkSkyApi\DarkSkyApi;

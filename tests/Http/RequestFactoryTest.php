@@ -1,21 +1,21 @@
 <?php
 
-namespace Tests\Http;
+namespace DmitryIvanov\DarkSkyApi\Tests\Http;
 
-use Tests\TestCase;
-use Tests\Http\Stubs\Parameters\DefaultStub;
-use Tests\Http\Stubs\Parameters\AbstractStub;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\RequestFactory;
-use Tests\Http\Stubs\Parameters\DefaultWithDateStub;
-use Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
-use Tests\Http\Stubs\Parameters\DefaultWithDatesOneStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\AbstractStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDateStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesOneStub;
 
 class RequestFactoryTest extends TestCase
 {
     /**
      * @test
      *
-     * @param  \Tests\Http\Stubs\Parameters\AbstractStub  $parameters
+     * @param  \DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\AbstractStub  $parameters
      *
      * @dataProvider provide_parameters
      */

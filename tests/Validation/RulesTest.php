@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Validation;
+namespace DmitryIvanov\DarkSkyApi\Tests\Validation;
 
-use Tests\TestCase;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
 use DmitryIvanov\DarkSkyApi\Validation\Rule\DatesRule;
 use DmitryIvanov\DarkSkyApi\Validation\Rule\UnitsRule;

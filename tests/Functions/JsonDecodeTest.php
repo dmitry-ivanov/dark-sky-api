@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Functions;
+namespace DmitryIvanov\DarkSkyApi\Tests\Functions;
 
-use Tests\TestCase;
 use InvalidArgumentException;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class JsonDecodeTest extends TestCase
 {

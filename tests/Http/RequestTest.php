@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Http;
+namespace DmitryIvanov\DarkSkyApi\Tests\Http;
 
-use Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Request;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class RequestTest extends TestCase
 {

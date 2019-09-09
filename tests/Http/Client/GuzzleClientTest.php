@@ -1,15 +1,15 @@
 <?php
 
-namespace Tests\Http\Client;
+namespace DmitryIvanov\DarkSkyApi\Tests\Http\Client;
 
-use Tests\TestCase;
 use GuzzleHttp\Client as Guzzle;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Promise\PromiseInterface;
 use DmitryIvanov\DarkSkyApi\Http\Request;
-use Tests\Http\Stubs\Parameters\DefaultStub;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Client\GuzzleClient;
-use Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
 
 class GuzzleClientTest extends TestCase
 {

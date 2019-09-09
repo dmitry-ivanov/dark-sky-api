@@ -1,10 +1,12 @@
 <?php
 
-namespace Tests;
+namespace DmitryIvanov\DarkSkyApi\Tests;
 
+use Mockery;
+use Exception;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 
-\Mockery::globalHelpers();
+Mockery::globalHelpers();
 
 class TestCase extends MockeryTestCase
 {
@@ -30,7 +32,7 @@ class TestCase extends MockeryTestCase
      * @param  \Exception  $exception
      * @return void
      */
-    protected function isExpectingException(\Exception $exception)
+    protected function isExpectingException(Exception $exception)
     {
         if (method_exists($this, 'expectExceptionObject')) {
             $this->expectExceptionObject($exception);
