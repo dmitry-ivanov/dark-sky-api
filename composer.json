@@ -21,7 +21,8 @@
         "illuminate/contracts": "^5.1",
         "illuminate/support": "^5.1",
         "mockery/mockery": "^0.9|^1.0",
-        "phpunit/phpunit": "^4.0|^5.0|^6.0|^7.0"
+        "phpunit/phpunit": "^4.0|^5.0|^6.0|^7.0",
+        "vlucas/phpdotenv": "^3.3"
     },
     "autoload": {
         "files": [
