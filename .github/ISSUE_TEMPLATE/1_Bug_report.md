@@ -1,7 +1,9 @@
 ---
 name: "🐛 Bug Report"
-about: 'Report an issue.'
+about: 'If you want to report an issue.'
 ---
+
+### Versions:
 
 - Package Version: #.#.#
 - PHP Version: #.#.#
