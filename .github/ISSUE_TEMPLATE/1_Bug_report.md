@@ -12,6 +12,6 @@ about: 'If you want to report an issue.'
 
 ...
 
-### Steps To Reproduce:
+### Steps to reproduce:
 
 ...
