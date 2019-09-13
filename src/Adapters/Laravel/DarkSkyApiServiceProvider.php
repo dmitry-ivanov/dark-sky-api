@@ -9,13 +9,6 @@ use Illuminate\Support\ServiceProvider;
 class DarkSkyApiServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
-    /**
      * Register the service provider.
      *
      * @return void
@@ -64,15 +57,5 @@ class DarkSkyApiServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([__DIR__.'/config/dark-sky-api.php' => config_path('dark-sky-api.php')]);
-    }
-
-    /**
-     * Get the provided services.
-     *
-     * @return array
-     */
-    public function provides()
-    {
-        return [Service::class];
     }
 }
