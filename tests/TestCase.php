@@ -39,7 +39,13 @@ class TestCase extends MockeryTestCase
             return;
         }
 
-        $method = 'setExpectedException';
-        $this->{$method}(get_class($exception), $exception->getMessage(), $exception->getCode());
+        if (method_exists($this, 'setExpectedException')) {
+            $this->setExpectedException(get_class($exception), $exception->getMessage(), $exception->getCode());
+            return;
+        }
+
+        $this->expectException(get_class($exception));
+        $this->expectExceptionCode($exception->getCode());
+        $this->expectExceptionMessage($exception->getMessage());
     }
 }
