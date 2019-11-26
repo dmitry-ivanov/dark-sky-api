@@ -48,6 +48,9 @@ class UrlGenerator
         $latitude = round($parameters->getLatitude(), 3);
         $longitude = round($parameters->getLongitude(), 3);
 
+        $latitude = number_format($latitude, 3);
+        $longitude = number_format($longitude, 3);
+
         return new Url("https://api.darksky.net/forecast/{$key}/{$latitude},{$longitude}");
     }
 
