@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests;
 
-use DmitryIvanov\DarkSkyApi\Service;
 use DmitryIvanov\DarkSkyApi\DarkSkyApi;
+use DmitryIvanov\DarkSkyApi\Service;
 
 class DarkSkyApiTest extends TestCase
 {

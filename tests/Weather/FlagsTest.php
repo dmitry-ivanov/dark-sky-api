@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Weather;
 
-use DmitryIvanov\DarkSkyApi\Weather\Flags;
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
+use DmitryIvanov\DarkSkyApi\Weather\Flags;
 
 class FlagsTest extends TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Adapters\Laravel;
 
-use DmitryIvanov\DarkSkyApi\Service;
 use DmitryIvanov\DarkSkyApi\Parameters;
+use DmitryIvanov\DarkSkyApi\Service;
 use Illuminate\Support\ServiceProvider;
 
 class DarkSkyApiServiceProvider extends ServiceProvider

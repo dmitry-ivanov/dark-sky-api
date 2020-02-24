@@ -2,6 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
+use function DmitryIvanov\DarkSkyApi\array_get;
+
 class Alert
 {
     /**
@@ -29,7 +31,7 @@ class Alert
      */
     public function description()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->alert, 'description');
+        return array_get($this->alert, 'description');
     }
 
     /**
@@ -39,7 +41,7 @@ class Alert
      */
     public function expires()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->alert, 'expires');
+        return array_get($this->alert, 'expires');
     }
 
     /**
@@ -49,7 +51,7 @@ class Alert
      */
     public function regions()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->alert, 'regions');
+        return array_get($this->alert, 'regions');
     }
 
     /**
@@ -65,7 +67,7 @@ class Alert
      */
     public function severity()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->alert, 'severity');
+        return array_get($this->alert, 'severity');
     }
 
     /**
@@ -75,7 +77,7 @@ class Alert
      */
     public function time()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->alert, 'time');
+        return array_get($this->alert, 'time');
     }
 
     /**
@@ -85,7 +87,7 @@ class Alert
      */
     public function title()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->alert, 'title');
+        return array_get($this->alert, 'title');
     }
 
     /**
@@ -95,7 +97,7 @@ class Alert
      */
     public function uri()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->alert, 'uri');
+        return array_get($this->alert, 'uri');
     }
 
     /**

@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Parameters;
 
-use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Parameters\Language;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class LanguageTest extends TestCase
 {

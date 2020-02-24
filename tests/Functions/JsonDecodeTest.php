@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Functions;
 
-use InvalidArgumentException;
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
+use InvalidArgumentException;
 
 class JsonDecodeTest extends TestCase
 {

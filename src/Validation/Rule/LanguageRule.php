@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
-use DmitryIvanov\DarkSkyApi\Parameters\Language;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
+use DmitryIvanov\DarkSkyApi\Parameters\Language;
 
 class LanguageRule implements Rule
 {

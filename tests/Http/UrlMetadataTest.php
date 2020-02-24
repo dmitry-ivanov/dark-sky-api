@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Http;
 
-use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\UrlMetadata;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class UrlMetadataTest extends TestCase
 {

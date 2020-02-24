@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Weather;
 
-use DmitryIvanov\DarkSkyApi\Weather\Alert;
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
+use DmitryIvanov\DarkSkyApi\Weather\Alert;
 
 class AlertTest extends TestCase
 {

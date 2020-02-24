@@ -2,6 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
+use function DmitryIvanov\DarkSkyApi\array_get;
+
 class Forecast
 {
     /**
@@ -50,7 +52,7 @@ class Forecast
      */
     public function latitude()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->data, 'latitude');
+        return array_get($this->data, 'latitude');
     }
 
     /**
@@ -60,7 +62,7 @@ class Forecast
      */
     public function longitude()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->data, 'longitude');
+        return array_get($this->data, 'longitude');
     }
 
     /**
@@ -70,7 +72,7 @@ class Forecast
      */
     public function timezone()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->data, 'timezone');
+        return array_get($this->data, 'timezone');
     }
 
     /**
@@ -82,7 +84,7 @@ class Forecast
      */
     public function currently()
     {
-        $currently = \DmitryIvanov\DarkSkyApi\array_get($this->data, 'currently');
+        $currently = array_get($this->data, 'currently');
 
         if (is_null($currently)) {
             return null;
@@ -100,7 +102,7 @@ class Forecast
      */
     public function minutely()
     {
-        $minutely = \DmitryIvanov\DarkSkyApi\array_get($this->data, 'minutely');
+        $minutely = array_get($this->data, 'minutely');
 
         if (is_null($minutely)) {
             return null;
@@ -118,7 +120,7 @@ class Forecast
      */
     public function hourly()
     {
-        $hourly = \DmitryIvanov\DarkSkyApi\array_get($this->data, 'hourly');
+        $hourly = array_get($this->data, 'hourly');
 
         if (is_null($hourly)) {
             return null;
@@ -136,7 +138,7 @@ class Forecast
      */
     public function daily()
     {
-        $daily = \DmitryIvanov\DarkSkyApi\array_get($this->data, 'daily');
+        $daily = array_get($this->data, 'daily');
 
         if (is_null($daily)) {
             return null;
@@ -154,7 +156,7 @@ class Forecast
      */
     public function alerts()
     {
-        $alerts = \DmitryIvanov\DarkSkyApi\array_get($this->data, 'alerts');
+        $alerts = array_get($this->data, 'alerts');
 
         if (is_null($alerts)) {
             return null;
@@ -174,7 +176,7 @@ class Forecast
      */
     public function flags()
     {
-        $flags = \DmitryIvanov\DarkSkyApi\array_get($this->data, 'flags');
+        $flags = array_get($this->data, 'flags');
 
         if (is_null($flags)) {
             return null;

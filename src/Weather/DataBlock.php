@@ -2,6 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
+use function DmitryIvanov\DarkSkyApi\array_get;
+
 class DataBlock
 {
     /**
@@ -31,7 +33,7 @@ class DataBlock
      */
     public function data()
     {
-        $data = \DmitryIvanov\DarkSkyApi\array_get($this->block, 'data', []);
+        $data = array_get($this->block, 'data', []);
 
         return array_map(function (array $point) {
             return new DataPoint($point);
@@ -48,7 +50,7 @@ class DataBlock
      */
     public function icon()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->block, 'icon');
+        return array_get($this->block, 'icon');
     }
 
     /**
@@ -58,7 +60,7 @@ class DataBlock
      */
     public function summary()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->block, 'summary');
+        return array_get($this->block, 'summary');
     }
 
     /**

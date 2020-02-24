@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters;
 
-use DmitryIvanov\DarkSkyApi\Http\Url;
 use DmitryIvanov\DarkSkyApi\Http\Request;
+use DmitryIvanov\DarkSkyApi\Http\Url;
 
 class DefaultStub extends AbstractStub
 {

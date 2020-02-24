@@ -2,9 +2,10 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http\Client;
 
-use GuzzleHttp\Client as Guzzle;
-use DmitryIvanov\DarkSkyApi\Http\Request;
+use function GuzzleHttp\Promise\unwrap;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
+use DmitryIvanov\DarkSkyApi\Http\Request;
+use GuzzleHttp\Client as Guzzle;
 
 class GuzzleClient implements Client
 {
@@ -68,7 +69,7 @@ class GuzzleClient implements Client
     {
         $promises = $this->composePromises($requests);
 
-        return \GuzzleHttp\Promise\unwrap($promises);
+        return unwrap($promises);
     }
 
     /**

@@ -9,5 +9,5 @@ class CheesyLatitudeStub extends AcceptableStub
      *
      * @var float
      */
-    protected $latitude = null;
+    protected $latitude;
 }

@@ -2,17 +2,17 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Http;
 
+use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
 use DmitryIvanov\DarkSkyApi\Http\Api;
-use Psr\Http\Message\ResponseInterface;
 use DmitryIvanov\DarkSkyApi\Http\Request;
+use DmitryIvanov\DarkSkyApi\Http\RequestFactory;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDateStub;
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Weather\Forecast;
-use DmitryIvanov\DarkSkyApi\Http\RequestFactory;
 use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
-use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDateStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
+use Psr\Http\Message\ResponseInterface;
 
 class ApiTest extends TestCase
 {

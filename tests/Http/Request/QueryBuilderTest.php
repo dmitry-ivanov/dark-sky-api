@@ -2,18 +2,18 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Http\Request;
 
-use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Request\QueryBuilder;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
 use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\AbstractStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlockStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithUnitsStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlocksStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithLanguageStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
 use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlocksAllStub;
 use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlocksOneStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithParamsMixStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlocksStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithBlockStub;
 use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithExtendedBlockStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithLanguageStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithParamsMixStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithUnitsStub;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class QueryBuilderTest extends TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
-use DmitryIvanov\DarkSkyApi\Parameters\Blocks;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
+use DmitryIvanov\DarkSkyApi\Parameters\Blocks;
 
 class BlocksRule implements Rule
 {

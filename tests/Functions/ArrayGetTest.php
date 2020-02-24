@@ -2,6 +2,7 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Functions;
 
+use function DmitryIvanov\DarkSkyApi\array_get;
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class ArrayGetTest extends TestCase
@@ -11,7 +12,7 @@ class ArrayGetTest extends TestCase
     {
         $array = ['name' => 'John'];
 
-        $this->assertEquals('John', \DmitryIvanov\DarkSkyApi\array_get($array, 'name'));
+        $this->assertEquals('John', array_get($array, 'name'));
     }
 
     /** @test */
@@ -19,6 +20,6 @@ class ArrayGetTest extends TestCase
     {
         $array = ['name' => 'John'];
 
-        $this->assertEquals(30, \DmitryIvanov\DarkSkyApi\array_get($array, 'age', 30));
+        $this->assertEquals(30, array_get($array, 'age', 30));
     }
 }

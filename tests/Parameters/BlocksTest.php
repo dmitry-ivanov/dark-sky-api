@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Parameters;
 
-use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Parameters\Blocks;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class BlocksTest extends TestCase
 {

@@ -2,14 +2,14 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Http\Client;
 
-use GuzzleHttp\Client as Guzzle;
-use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\Promise\PromiseInterface;
-use DmitryIvanov\DarkSkyApi\Http\Request;
-use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Client\GuzzleClient;
+use DmitryIvanov\DarkSkyApi\Http\Request;
 use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
 use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
+use GuzzleHttp\Client as Guzzle;
+use GuzzleHttp\Promise\PromiseInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class GuzzleClientTest extends TestCase
 {

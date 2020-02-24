@@ -2,9 +2,9 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http;
 
-use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Http\Request\QueryBuilder;
 use DmitryIvanov\DarkSkyApi\Http\Request\UrlGenerator;
+use DmitryIvanov\DarkSkyApi\Parameters;
 
 class RequestFactory
 {

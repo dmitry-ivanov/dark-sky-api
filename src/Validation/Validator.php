@@ -2,17 +2,17 @@
 
 namespace DmitryIvanov\DarkSkyApi\Validation;
 
-use InvalidArgumentException;
-use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\DatesRule;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\UnitsRule;
+use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Validation\Rule\ApiKeyRule;
 use DmitryIvanov\DarkSkyApi\Validation\Rule\BlocksRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\DatesRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\ExtendedBlocksRule;
 use DmitryIvanov\DarkSkyApi\Validation\Rule\LanguageRule;
 use DmitryIvanov\DarkSkyApi\Validation\Rule\LatitudeRule;
 use DmitryIvanov\DarkSkyApi\Validation\Rule\LongitudeRule;
-use DmitryIvanov\DarkSkyApi\Validation\Rule\ExtendedBlocksRule;
+use DmitryIvanov\DarkSkyApi\Validation\Rule\UnitsRule;
+use InvalidArgumentException;
 
 class Validator
 {

@@ -2,19 +2,19 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Validation;
 
-use InvalidArgumentException;
 use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
-use DmitryIvanov\DarkSkyApi\Validation\Validator;
 use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\AcceptableStub;
-use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyDatesStub;
-use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyUnitsStub;
 use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyApiKeyStub;
 use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyBlocksStub;
+use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyDatesStub;
+use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyExtendedBlocksStub;
 use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyLanguageStub;
 use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyLatitudeStub;
 use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyLongitudeStub;
-use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyExtendedBlocksStub;
+use DmitryIvanov\DarkSkyApi\Tests\Validation\Stubs\Parameters\CheesyUnitsStub;
+use DmitryIvanov\DarkSkyApi\Validation\Validator;
+use InvalidArgumentException;
 
 class ValidatorTest extends TestCase
 {

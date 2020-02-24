@@ -2,12 +2,12 @@
 
 namespace DmitryIvanov\DarkSkyApi\Http;
 
-use DmitryIvanov\DarkSkyApi\Parameters;
-use Psr\Http\Message\ResponseInterface;
-use DmitryIvanov\DarkSkyApi\Weather\Forecast;
-use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
 use DmitryIvanov\DarkSkyApi\Contracts\Http\Client;
 use DmitryIvanov\DarkSkyApi\Http\Client\GuzzleClient;
+use DmitryIvanov\DarkSkyApi\Parameters;
+use DmitryIvanov\DarkSkyApi\Weather\Forecast;
+use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
+use Psr\Http\Message\ResponseInterface;
 
 class Api
 {

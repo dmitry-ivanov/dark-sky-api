@@ -9,5 +9,5 @@ class CheesyApiKeyStub extends AcceptableStub
      *
      * @var string
      */
-    protected $apiKey = null;
+    protected $apiKey;
 }

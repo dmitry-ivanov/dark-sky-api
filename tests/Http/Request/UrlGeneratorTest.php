@@ -2,13 +2,13 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Http\Request;
 
-use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Http\Request\UrlGenerator;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
 use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\AbstractStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDateStub;
-use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultStub;
 use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesOneStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDatesStub;
+use DmitryIvanov\DarkSkyApi\Tests\Http\Stubs\Parameters\DefaultWithDateStub;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 
 class UrlGeneratorTest extends TestCase
 {

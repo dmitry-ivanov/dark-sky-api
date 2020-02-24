@@ -2,6 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
+use function DmitryIvanov\DarkSkyApi\array_get;
+
 class Flags
 {
     /**
@@ -45,7 +47,7 @@ class Flags
      */
     public function nearestStation()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->flags, 'nearest-station');
+        return array_get($this->flags, 'nearest-station');
     }
 
     /**
@@ -57,7 +59,7 @@ class Flags
      */
     public function sources()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->flags, 'sources');
+        return array_get($this->flags, 'sources');
     }
 
     /**
@@ -67,7 +69,7 @@ class Flags
      */
     public function units()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->flags, 'units');
+        return array_get($this->flags, 'units');
     }
 
     /**

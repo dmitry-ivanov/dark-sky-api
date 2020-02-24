@@ -2,10 +2,10 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Adapters\Laravel\Facades;
 
-use DmitryIvanov\DarkSkyApi\Service;
-use Illuminate\Support\Facades\Facade;
-use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use DmitryIvanov\DarkSkyApi\Adapters\Laravel\Facades\DarkSkyApi;
+use DmitryIvanov\DarkSkyApi\Service;
+use DmitryIvanov\DarkSkyApi\Tests\TestCase;
+use Illuminate\Support\Facades\Facade;
 
 class DarkSkyApiTest extends TestCase
 {

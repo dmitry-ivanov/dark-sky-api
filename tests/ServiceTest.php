@@ -2,12 +2,12 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests;
 
-use DmitryIvanov\DarkSkyApi\Service;
 use DmitryIvanov\DarkSkyApi\Http\Api;
 use DmitryIvanov\DarkSkyApi\Parameters;
+use DmitryIvanov\DarkSkyApi\Service;
+use DmitryIvanov\DarkSkyApi\Validation\Validator;
 use DmitryIvanov\DarkSkyApi\Weather\Forecast;
 use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
-use DmitryIvanov\DarkSkyApi\Validation\Validator;
 
 class ServiceTest extends TestCase
 {
@@ -69,7 +69,7 @@ class ServiceTest extends TestCase
     {
         $service = new Service('dummy');
 
-        $result = call_user_func_array([$service, $method], ['dummy', 'dummy']);
+        $result = $service->$method('dummy', 'dummy');
 
         $this->assertEquals($service, $result);
     }

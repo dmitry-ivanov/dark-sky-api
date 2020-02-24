@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests;
 
-use Mockery;
 use Exception;
+use Mockery;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 Mockery::globalHelpers();

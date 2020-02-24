@@ -2,6 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
+use function DmitryIvanov\DarkSkyApi\array_get;
+
 class Headers
 {
     /**
@@ -29,7 +31,7 @@ class Headers
      */
     public function apiCalls()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->headers, 'X-Forecast-API-Calls', []);
+        return array_get($this->headers, 'X-Forecast-API-Calls', []);
     }
 
     /**
@@ -39,7 +41,7 @@ class Headers
      */
     public function cacheControl()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->headers, 'Cache-Control', []);
+        return array_get($this->headers, 'Cache-Control', []);
     }
 
     /**
@@ -49,7 +51,7 @@ class Headers
      */
     public function responseTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->headers, 'X-Response-Time', []);
+        return array_get($this->headers, 'X-Response-Time', []);
     }
 
     /**

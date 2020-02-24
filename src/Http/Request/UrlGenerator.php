@@ -3,8 +3,8 @@
 namespace DmitryIvanov\DarkSkyApi\Http\Request;
 
 use DmitryIvanov\DarkSkyApi\Http\Url;
-use DmitryIvanov\DarkSkyApi\Parameters;
 use DmitryIvanov\DarkSkyApi\Http\UrlMetadata;
+use DmitryIvanov\DarkSkyApi\Parameters;
 
 class UrlGenerator
 {

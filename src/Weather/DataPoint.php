@@ -2,6 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Weather;
 
+use function DmitryIvanov\DarkSkyApi\array_get;
+
 class DataPoint
 {
     /**
@@ -29,7 +31,7 @@ class DataPoint
      */
     public function apparentTemperature()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'apparentTemperature');
+        return array_get($this->point, 'apparentTemperature');
     }
 
     /**
@@ -39,7 +41,7 @@ class DataPoint
      */
     public function apparentTemperatureHigh()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'apparentTemperatureHigh');
+        return array_get($this->point, 'apparentTemperatureHigh');
     }
 
     /**
@@ -49,7 +51,7 @@ class DataPoint
      */
     public function apparentTemperatureHighTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'apparentTemperatureHighTime');
+        return array_get($this->point, 'apparentTemperatureHighTime');
     }
 
     /**
@@ -59,7 +61,7 @@ class DataPoint
      */
     public function apparentTemperatureLow()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'apparentTemperatureLow');
+        return array_get($this->point, 'apparentTemperatureLow');
     }
 
     /**
@@ -69,7 +71,7 @@ class DataPoint
      */
     public function apparentTemperatureLowTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'apparentTemperatureLowTime');
+        return array_get($this->point, 'apparentTemperatureLowTime');
     }
 
     /**
@@ -79,7 +81,7 @@ class DataPoint
      */
     public function cloudCover()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'cloudCover');
+        return array_get($this->point, 'cloudCover');
     }
 
     /**
@@ -89,7 +91,7 @@ class DataPoint
      */
     public function dewPoint()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'dewPoint');
+        return array_get($this->point, 'dewPoint');
     }
 
     /**
@@ -99,7 +101,7 @@ class DataPoint
      */
     public function humidity()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'humidity');
+        return array_get($this->point, 'humidity');
     }
 
     /**
@@ -116,7 +118,7 @@ class DataPoint
      */
     public function icon()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'icon');
+        return array_get($this->point, 'icon');
     }
 
     /**
@@ -150,7 +152,7 @@ class DataPoint
      */
     public function moonPhase()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'moonPhase');
+        return array_get($this->point, 'moonPhase');
     }
 
     /**
@@ -162,7 +164,7 @@ class DataPoint
      */
     public function nearestStormBearing()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'nearestStormBearing');
+        return array_get($this->point, 'nearestStormBearing');
     }
 
     /**
@@ -172,7 +174,7 @@ class DataPoint
      */
     public function nearestStormDistance()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'nearestStormDistance');
+        return array_get($this->point, 'nearestStormDistance');
     }
 
     /**
@@ -182,7 +184,7 @@ class DataPoint
      */
     public function ozone()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'ozone');
+        return array_get($this->point, 'ozone');
     }
 
     /**
@@ -192,7 +194,7 @@ class DataPoint
      */
     public function precipAccumulation()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipAccumulation');
+        return array_get($this->point, 'precipAccumulation');
     }
 
     /**
@@ -202,7 +204,7 @@ class DataPoint
      */
     public function precipIntensity()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipIntensity');
+        return array_get($this->point, 'precipIntensity');
     }
 
     /**
@@ -212,7 +214,7 @@ class DataPoint
      */
     public function precipIntensityError()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipIntensityError');
+        return array_get($this->point, 'precipIntensityError');
     }
 
     /**
@@ -222,7 +224,7 @@ class DataPoint
      */
     public function precipIntensityMax()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipIntensityMax');
+        return array_get($this->point, 'precipIntensityMax');
     }
 
     /**
@@ -232,7 +234,7 @@ class DataPoint
      */
     public function precipIntensityMaxTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipIntensityMaxTime');
+        return array_get($this->point, 'precipIntensityMaxTime');
     }
 
     /**
@@ -242,7 +244,7 @@ class DataPoint
      */
     public function precipProbability()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipProbability');
+        return array_get($this->point, 'precipProbability');
     }
 
     /**
@@ -255,7 +257,7 @@ class DataPoint
      */
     public function precipType()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'precipType');
+        return array_get($this->point, 'precipType');
     }
 
     /**
@@ -265,7 +267,7 @@ class DataPoint
      */
     public function pressure()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'pressure');
+        return array_get($this->point, 'pressure');
     }
 
     /**
@@ -275,7 +277,7 @@ class DataPoint
      */
     public function summary()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'summary');
+        return array_get($this->point, 'summary');
     }
 
     /**
@@ -285,7 +287,7 @@ class DataPoint
      */
     public function sunriseTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'sunriseTime');
+        return array_get($this->point, 'sunriseTime');
     }
 
     /**
@@ -295,7 +297,7 @@ class DataPoint
      */
     public function sunsetTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'sunsetTime');
+        return array_get($this->point, 'sunsetTime');
     }
 
     /**
@@ -305,7 +307,7 @@ class DataPoint
      */
     public function temperature()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperature');
+        return array_get($this->point, 'temperature');
     }
 
     /**
@@ -315,7 +317,7 @@ class DataPoint
      */
     public function temperatureHigh()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperatureHigh');
+        return array_get($this->point, 'temperatureHigh');
     }
 
     /**
@@ -325,7 +327,7 @@ class DataPoint
      */
     public function temperatureHighTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperatureHighTime');
+        return array_get($this->point, 'temperatureHighTime');
     }
 
     /**
@@ -335,7 +337,7 @@ class DataPoint
      */
     public function temperatureLow()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperatureLow');
+        return array_get($this->point, 'temperatureLow');
     }
 
     /**
@@ -345,7 +347,7 @@ class DataPoint
      */
     public function temperatureLowTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'temperatureLowTime');
+        return array_get($this->point, 'temperatureLowTime');
     }
 
     /**
@@ -355,7 +357,7 @@ class DataPoint
      */
     public function time()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'time');
+        return array_get($this->point, 'time');
     }
 
     /**
@@ -365,7 +367,7 @@ class DataPoint
      */
     public function uvIndex()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'uvIndex');
+        return array_get($this->point, 'uvIndex');
     }
 
     /**
@@ -375,7 +377,7 @@ class DataPoint
      */
     public function uvIndexTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'uvIndexTime');
+        return array_get($this->point, 'uvIndexTime');
     }
 
     /**
@@ -385,7 +387,7 @@ class DataPoint
      */
     public function visibility()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'visibility');
+        return array_get($this->point, 'visibility');
     }
 
     /**
@@ -397,7 +399,7 @@ class DataPoint
      */
     public function windBearing()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windBearing');
+        return array_get($this->point, 'windBearing');
     }
 
     /**
@@ -407,7 +409,7 @@ class DataPoint
      */
     public function windGust()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windGust');
+        return array_get($this->point, 'windGust');
     }
 
     /**
@@ -417,7 +419,7 @@ class DataPoint
      */
     public function windGustTime()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windGustTime');
+        return array_get($this->point, 'windGustTime');
     }
 
     /**
@@ -427,7 +429,7 @@ class DataPoint
      */
     public function windSpeed()
     {
-        return \DmitryIvanov\DarkSkyApi\array_get($this->point, 'windSpeed');
+        return array_get($this->point, 'windSpeed');
     }
 
     /**

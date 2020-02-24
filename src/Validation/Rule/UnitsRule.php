@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Validation\Rule;
 
-use DmitryIvanov\DarkSkyApi\Parameters\Units;
 use DmitryIvanov\DarkSkyApi\Contracts\Validation\Rule;
+use DmitryIvanov\DarkSkyApi\Parameters\Units;
 
 class UnitsRule implements Rule
 {

@@ -2,12 +2,12 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Adapters\Laravel;
 
-use Mockery;
+use DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider;
 use DmitryIvanov\DarkSkyApi\Service;
-use Illuminate\Support\ServiceProvider;
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
 use Illuminate\Contracts\Foundation\Application;
-use DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider;
+use Illuminate\Support\ServiceProvider;
+use Mockery;
 
 class DarkSkyApiServiceProviderTest extends TestCase
 {

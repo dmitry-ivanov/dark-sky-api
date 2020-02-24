@@ -3,9 +3,9 @@
 namespace DmitryIvanov\DarkSkyApi\Adapters\Laravel\Facades;
 
 use DmitryIvanov\DarkSkyApi\Service;
-use Illuminate\Support\Facades\Facade;
 use DmitryIvanov\DarkSkyApi\Weather\Forecast;
 use DmitryIvanov\DarkSkyApi\Weather\TimeMachine;
+use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static Service location(float $latitude, float $longitude)
