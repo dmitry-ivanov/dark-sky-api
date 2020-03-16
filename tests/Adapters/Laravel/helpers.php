@@ -11,7 +11,7 @@ if (!function_exists('config')) {
      */
     function config($key)
     {
-        $config = require __DIR__.'/../../../src/Adapters/Laravel/config/dark-sky-api.php';
+        $config = require __DIR__.'/fixture/config/dark-sky-api.php';
 
         return isset($config[$key]) ? $config[$key] : "config::{$key}";
     }
@@ -47,20 +47,5 @@ if (!function_exists('dd')) {
         }
 
         exit(1);
-    }
-}
-
-if (!function_exists('env')) {
-    /**
-     * Get the value of the environment variable.
-     *
-     * Defined here for the tests' backward compatibility with the Laravel "<5.4".
-     *
-     * @param  string  $key
-     * @return string
-     */
-    function env($key)
-    {
-        return "env::{$key}";
     }
 }
