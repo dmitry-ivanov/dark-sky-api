@@ -11,9 +11,7 @@ if (!function_exists('config')) {
      */
     function config($key)
     {
-        $config = require __DIR__.'/fixture/config/dark-sky-api.php';
-
-        return isset($config[$key]) ? $config[$key] : "config::{$key}";
+        return "config::{$key}";
     }
 }
 
