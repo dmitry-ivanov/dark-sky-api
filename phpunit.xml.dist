@@ -21,6 +21,9 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory>./src/Adapters/Laravel/config/</directory>
+            </exclude>
         </whitelist>
     </filter>
 </phpunit>
