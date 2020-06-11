@@ -13,100 +13,80 @@
 [![Total Downloads](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/downloads)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
 [![License](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/license)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
 
-The package provides a convenient way to interact with [Dark Sky API](https://darksky.net/dev/docs).
+PHP Library for the [Dark Sky API](https://darksky.net/dev/docs).
 
-It covers all the API functionality, including object-level access to the [response headers](https://darksky.net/dev/docs#response-headers), [weather alerts](https://darksky.net/dev/docs#alerts) and [flags](https://darksky.net/dev/docs#flags).
+## Usage
 
-- Requires [PHP 5.6+](https://php.net/releases/#5.6.0).
-- [Stand-alone](#basic-usage) PHP package.
-- Ready-to-use in [Laravel](#laravel-support) application.
-- Each request utilizes [HTTP compression](https://darksky.net/dev/docs#response-notes).
-- [Time Machine Requests](https://darksky.net/dev/docs#time-machine-request) are sent concurrently.
+1. Install the package via Composer:
 
-## Installation
+    ```shell script
+    composer require dmitry-ivanov/dark-sky-api
+    ```
 
-Use [Composer](https://getcomposer.org) to install the package:
+2. Use the `DmitryIvanov\DarkSkyApi\DarkSkyApi` class:
 
-```bash
-composer require dmitry-ivanov/dark-sky-api
-```
+    ```php
+    use DmitryIvanov\DarkSkyApi\DarkSkyApi;
 
-## Basic Usage
+    $forecast = (new DarkSkyApi('secret-key'))
+        ->location(46.482, 30.723)
+        ->forecast('daily');
 
-### Forecast Request
+    echo $forecast->daily()->summary();
+    ```
 
-```php
-use DmitryIvanov\DarkSkyApi\DarkSkyApi;
+## Time Machine Requests
 
-$forecast = (new DarkSkyApi('secret-key'))
-    ->location(46.482, 30.723)
-    ->units('si')
-    ->language('ru')
-    ->forecast('currently');
-
-echo $forecast->currently()->summary();
-```
-
-### Time Machine Requests
+Sometimes it might be useful to get weather for the specified date:
 
 ```php
-use DmitryIvanov\DarkSkyApi\DarkSkyApi;
-
 $timeMachine = (new DarkSkyApi('secret-key'))
     ->location(46.482, 30.723)
-    ->units('si')
-    ->language('ru')
-    ->timeMachine('2018-12-01', ['daily', 'flags']);
+    ->timeMachine('2020-01-01', 'daily');
 
 echo $timeMachine->daily()->summary();
 ```
 
-Multiple requests are sent concurrently:
+You can also get weather for the multiple specified dates:
 
 ```php
-use DmitryIvanov\DarkSkyApi\DarkSkyApi;
-
 $timeMachine = (new DarkSkyApi('secret-key'))
     ->location(46.482, 30.723)
-    ->timeMachine(['2018-12-01', '2018-12-02', '2018-12-03']);
+    ->timeMachine(['2020-01-01', '2020-01-02', '2020-01-03'], 'daily');
 
-echo $timeMachine['2018-12-02']->daily()->summary();
+echo $timeMachine['2020-01-02']->daily()->summary();
 ```
 
-## Laravel Support
+## Usage in Laravel
 
 > If you're using Laravel <5.5, you have to register the service provider and alias by yourself.
 
-The package utilizes [Laravel Package Discovery](https://laravel.com/docs/master/packages#package-discovery), so you'll get the service provider and alias registered out-of-the-box.
+1. Publish the config:
 
-Set your [Secret Key](https://darksky.net/dev/register) in `.env` file:
+    ```shell script
+    php artisan vendor:publish --provider="DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider"
+    ```
 
-```dotenv
-DARK_SKY_KEY="Your Secret Key"
-```
+2. Set your secret key in the `.env` file:
 
-You may use the configured facade now:
+    ```dotenv
+    DARK_SKY_KEY="Your-Secret-Key"
+    ```
 
-```php
-use DarkSkyApi;
+3. Use the `DarkSkyApi` facade alias:
 
-$forecast = DarkSkyApi::location(46.482, 30.723)
-    ->units('si')
-    ->language('ru')
-    ->forecast('currently');
+    ```php
+    use DarkSkyApi;
 
-echo $forecast->currently()->summary();
-```
+    $forecast = DarkSkyApi::location(46.482, 30.723)
+        ->forecast('currently');
 
-Publish the config file to override request parameters (optionally):
+    echo $forecast->currently()->summary();
+    ```
 
-```bash
-php artisan vendor:publish --provider="DmitryIvanov\DarkSkyApi\Adapters\Laravel\DarkSkyApiServiceProvider"
-```
+## Learn more
 
-## Further Reading
-
-You can find more information in [my article](https://medium.com/@dmitry.g.ivanov/weather-forecast-in-php-95bca6b0ed18) entirely dedicated to this Library.
+You can find more information in [my article](https://medium.com/@dmitry.g.ivanov/weather-forecast-in-php-95bca6b0ed18) dedicated to this Library.
 
 ## License
 

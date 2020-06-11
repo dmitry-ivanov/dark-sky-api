@@ -1,7 +1,7 @@
 {
     "name": "dmitry-ivanov/dark-sky-api",
     "description": "PHP Library for the Dark Sky API.",
-    "keywords": ["php", "dark", "sky", "api", "weather", "forecast", "laravel"],
+    "keywords": ["php", "api", "dark-sky", "dark-sky-api", "darksky", "darksky-api", "laravel", "laravel-package", "weather", "forecast"],
     "license": "MIT",
     "support": {
         "issues": "https://github.com/dmitry-ivanov/dark-sky-api/issues",
