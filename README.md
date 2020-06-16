@@ -79,9 +79,9 @@ echo $timeMachine['2020-01-02']->daily()->summary();
     use DarkSkyApi;
 
     $forecast = DarkSkyApi::location(46.482, 30.723)
-        ->forecast('currently');
+        ->forecast('daily');
 
-    echo $forecast->currently()->summary();
+    echo $forecast->daily()->summary();
     ```
 
 ## Learn more
