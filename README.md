@@ -47,7 +47,7 @@ $timeMachine = (new DarkSkyApi('secret-key'))
 echo $timeMachine->daily()->summary();
 ```
 
-You can also get weather for the multiple specified dates:
+You can also get weather for multiple dates:
 
 ```php
 $timeMachine = (new DarkSkyApi('secret-key'))
@@ -59,7 +59,7 @@ echo $timeMachine['2020-01-02']->daily()->summary();
 
 ## Usage in Laravel
 
-> If you're using Laravel <5.5, you have to register the service provider and alias by yourself.
+> If you're using Laravel <5.5, you have to register the service provider and alias by yourself!
 
 1. Publish the config:
 
@@ -73,7 +73,7 @@ echo $timeMachine['2020-01-02']->daily()->summary();
     DARK_SKY_KEY="Your-Secret-Key"
     ```
 
-3. Use the `DarkSkyApi` facade alias:
+3. Use the `DarkSkyApi` facade:
 
     ```php
     use DarkSkyApi;
@@ -86,7 +86,7 @@ echo $timeMachine['2020-01-02']->daily()->summary();
 
 ## Learn more
 
-You can find more information in [my article](https://medium.com/@dmitry.g.ivanov/weather-forecast-in-php-95bca6b0ed18) dedicated to this Library.
+You can find more information in [my article](https://medium.com/@dmitry.g.ivanov/weather-forecast-in-php-95bca6b0ed18).
 
 ## License
 
