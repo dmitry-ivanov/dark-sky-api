@@ -59,7 +59,7 @@ echo $timeMachine['2020-01-02']->daily()->summary();
 
 ## Usage in Laravel
 
-> If you're using Laravel <5.5, you have to register the service provider and alias by yourself!
+> If you're using Laravel <5.5, you have to register service provider and alias by yourself!
 
 1. Publish the config:
 
