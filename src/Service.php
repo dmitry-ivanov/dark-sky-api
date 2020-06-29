@@ -121,6 +121,7 @@ class Service
     /**
      * Get the weather forecast.
      *
+     * Possible values: "currently", "minutely", "hourly", "daily", "alerts", "flags".
      * @see https://darksky.net/dev/docs#forecast-request
      *
      * @param  array|string|null  $blocks
@@ -141,6 +142,7 @@ class Service
     /**
      * Get the observed weather for the given date(s).
      *
+     * Possible values: "currently", "minutely", "hourly", "daily", "alerts", "flags".
      * @see https://darksky.net/dev/docs#time-machine-request
      *
      * @param  array|string  $dates
