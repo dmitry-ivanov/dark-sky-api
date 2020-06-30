@@ -15,7 +15,7 @@
 
 PHP Library for the [Dark Sky API](https://darksky.net/dev/docs).
 
-![Dark Sky API - Demo](doc/img/demo.gif)
+![Dark Sky API - Demo](doc/img/demo-b.gif)
 
 ## Usage
 
