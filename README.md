@@ -15,6 +15,8 @@
 
 PHP Library for the [Dark Sky API](https://darksky.net/dev/docs).
 
+![Dark Sky API - Demo](doc/img/demo.gif)
+
 ## Usage
 
 1. Install the package via Composer:
