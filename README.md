@@ -1,4 +1,4 @@
-![PHP Library for the Dark Sky API](art/dark-sky-api.png)
+![PHP Library for the Dark Sky API](art/1380x575.png)
 
 # Dark Sky API
 
