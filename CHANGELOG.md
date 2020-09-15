@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0 (15 Sep 2020)](https://github.com/dmitry-ivanov/dark-sky-api/compare/1.2.0...1.3.0)
+### Added
+- Laravel 8 support.
+
 ## [1.2.0 (19 Mar 2020)](https://github.com/dmitry-ivanov/dark-sky-api/compare/1.1.2...1.2.0)
 ### Added
 - Laravel 7 support.
