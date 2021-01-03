@@ -4,9 +4,9 @@
 
 [<img src="https://raw.githubusercontent.com/dmitry-ivanov/dark-sky-api/master/art/become-a-patron.png" alt="Become a Patron" width="160" />](https://patreon.com/dmitryivanov)
 
-[![StyleCI](https://github.styleci.io/repos/148543382/shield?branch=master&style=flat)](https://github.styleci.io/repos/148543382)
-[![Build Status](https://travis-ci.com/dmitry-ivanov/dark-sky-api.svg?branch=master)](https://travis-ci.com/dmitry-ivanov/dark-sky-api)
-[![Coverage Status](https://coveralls.io/repos/github/dmitry-ivanov/dark-sky-api/badge.svg?branch=master)](https://coveralls.io/github/dmitry-ivanov/dark-sky-api?branch=master)
+[![StyleCI](https://github.styleci.io/repos/148543382/shield?branch=master&style=flat)](https://github.styleci.io/repos/148543382?branch=master)
+[![Build Status](https://img.shields.io/github/workflow/status/dmitry-ivanov/dark-sky-api/tests/master)](https://github.com/dmitry-ivanov/dark-sky-api/actions?query=workflow%3Atests+branch%3Amaster)
+[![Coverage Status](https://img.shields.io/codecov/c/github/dmitry-ivanov/dark-sky-api/master)](https://app.codecov.io/gh/dmitry-ivanov/dark-sky-api/branch/master)
 
 [![Latest Stable Version](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/v/stable)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
 [![Latest Unstable Version](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/v/unstable)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
