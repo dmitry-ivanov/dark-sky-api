@@ -8,10 +8,10 @@
 [![Build Status](https://img.shields.io/github/workflow/status/dmitry-ivanov/dark-sky-api/tests/master)](https://github.com/dmitry-ivanov/dark-sky-api/actions?query=workflow%3Atests+branch%3Amaster)
 [![Coverage Status](https://img.shields.io/codecov/c/github/dmitry-ivanov/dark-sky-api/master)](https://app.codecov.io/gh/dmitry-ivanov/dark-sky-api/branch/master)
 
-[![Latest Stable Version](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/v/stable)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
-[![Latest Unstable Version](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/v/unstable)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
-[![Total Downloads](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/downloads)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
-[![License](https://poser.pugx.org/dmitry-ivanov/dark-sky-api/license)](https://packagist.org/packages/dmitry-ivanov/dark-sky-api)
+![Packagist Version](https://img.shields.io/packagist/v/dmitry-ivanov/dark-sky-api)
+![Packagist Stars](https://img.shields.io/packagist/stars/dmitry-ivanov/dark-sky-api)
+![Packagist Downloads](https://img.shields.io/packagist/dt/dmitry-ivanov/dark-sky-api)
+![Packagist License](https://img.shields.io/packagist/l/dmitry-ivanov/dark-sky-api)
 
 PHP Library for the [Dark Sky API](https://darksky.net/dev/docs).
 
