@@ -90,6 +90,10 @@ echo $timeMachine['2020-01-02']->daily()->summary();
 
 You can find more information in [my article](https://medium.com/@dmitry.g.ivanov/weather-forecast-in-php-95bca6b0ed18).
 
+## Sponsors
+
+[![Laravel Idea](art/sponsor-laravel-idea.png)](https://laravel-idea.com)
+
 ## License
 
 Dark Sky API is open-sourced software licensed under the [MIT license](LICENSE.md).
