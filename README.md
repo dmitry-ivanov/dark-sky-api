@@ -2,7 +2,7 @@
 
 # Dark Sky API
 
-[<img src="https://raw.githubusercontent.com/dmitry-ivanov/dark-sky-api/master/art/become-a-patron.png" alt="Become a Patron" width="160" />](https://patreon.com/dmitryivanov)
+[<img src="https://user-images.githubusercontent.com/1286821/181085373-12eee197-187a-4438-90fe-571ac6d68900.png" alt="Buy me a coffee" width="200" />](https://buymeacoffee.com/dmitry.ivanov)
 
 [![StyleCI](https://github.styleci.io/repos/148543382/shield?branch=master&style=flat)](https://github.styleci.io/repos/148543382?branch=master)
 [![Build Status](https://img.shields.io/github/workflow/status/dmitry-ivanov/dark-sky-api/tests/master)](https://github.com/dmitry-ivanov/dark-sky-api/actions?query=workflow%3Atests+branch%3Amaster)
@@ -99,4 +99,5 @@ You can find more information in [my article](https://medium.com/@dmitry.g.ivano
 
 Dark Sky API is open-sourced software licensed under the [MIT license](LICENSE.md).
 
-[<img src="https://raw.githubusercontent.com/dmitry-ivanov/dark-sky-api/master/art/support-on-patreon.png" alt="Support on Patreon" width="125" />](https://patreon.com/dmitryivanov)
+[<img src="https://raw.githubusercontent.com/dmitry-ivanov/dark-sky-api/master/art/support-on-patreon.png" alt="Support on Patreon" width="125" />](https://patreon.com/dmitryivanov)&nbsp;
+[<img src="https://user-images.githubusercontent.com/1286821/181085373-12eee197-187a-4438-90fe-571ac6d68900.png" alt="Buy me a coffee" width="200" />](https://buymeacoffee.com/dmitry.ivanov)&nbsp;
