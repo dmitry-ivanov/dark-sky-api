@@ -50,6 +50,7 @@
         }
     },
     "config": {
+        "allow-plugins": false,
         "sort-packages": true
     },
     "minimum-stability": "dev",
