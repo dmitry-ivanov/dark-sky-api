@@ -19,6 +19,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | API Base Url
+    |--------------------------------------------------------------------------
+    |
+    | The base URL endpoint to access the Dark Sky API.
+    | Can be replaced with other compatible services.
+    | No trailing slash should be appended, thanks.
+    |
+    | @link https://darksky.net/dev/
+    |
+    */
+
+    'baseUrl' => 'https://api.darksky.net',
+
+    /*
+    |--------------------------------------------------------------------------
     | Language
     |--------------------------------------------------------------------------
     |

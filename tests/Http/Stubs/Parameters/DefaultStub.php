@@ -35,7 +35,7 @@ class DefaultStub extends AbstractStub
      */
     public function expectedUrl()
     {
-        return new Url('https://api.darksky.net/forecast/api-key-12345/1.234,5.678');
+        return new Url(config('dark-sky-api.baseUrl') . '/forecast/api-key-12345/1.234,5.678');
     }
 
     /**

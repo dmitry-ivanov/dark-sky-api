@@ -51,7 +51,7 @@ class UrlGenerator
         $latitude = number_format($latitude, 3);
         $longitude = number_format($longitude, 3);
 
-        return new Url("https://api.darksky.net/forecast/{$key}/{$latitude},{$longitude}");
+        return new Url(config('dark-sky-api.baseUrl') . "/forecast/{$key}/{$latitude},{$longitude}");
     }
 
     /**
