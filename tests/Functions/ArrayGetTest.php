@@ -2,8 +2,8 @@
 
 namespace DmitryIvanov\DarkSkyApi\Tests\Functions;
 
-use function DmitryIvanov\DarkSkyApi\array_get;
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
+use function DmitryIvanov\DarkSkyApi\array_get;
 
 class ArrayGetTest extends TestCase
 {
