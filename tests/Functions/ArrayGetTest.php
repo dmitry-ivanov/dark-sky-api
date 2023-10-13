@@ -3,6 +3,7 @@
 namespace DmitryIvanov\DarkSkyApi\Tests\Functions;
 
 use DmitryIvanov\DarkSkyApi\Tests\TestCase;
+
 use function DmitryIvanov\DarkSkyApi\array_get;
 
 class ArrayGetTest extends TestCase
